@@ -1,0 +1,117 @@
+{
+  "plots": [
+    {
+      "title": "ERTYGVUBHJNKLM;",
+      "description": "WFeafoihwegioeh\nohefhwe\n\nouhfwlehfiew",
+      "heroes": [
+        "rgerge"
+      ],
+      "tags": [
+        "romantic",
+        "gerge"
+      ],
+      "text": ";ougefowehwielg\n\n\nwoihgiowehgwpeo\nwefpihwogiphwepghwe\n\nwegojpoejgoewehheofhhhfhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh",
+      "id": 1
+    },
+    {
+      "title": "kj;k;k;",
+      "description": "AAAAAAAAAAA",
+      "heroes": [
+        "rgerge"
+      ],
+      "tags": [
+        "i7tui",
+        "gerge"
+      ],
+      "text": "QQQQQQ\n\nQEEEEEEEEEEEEEEEEEWWWWWWWWWWWWWWWDDDDDDDDDDDD",
+      "id": 3
+    }
+  ],
+  "heroes": [
+    {
+      "name": "rgerge",
+      "age": "22",
+      "sex": "none",
+      "shot_description": "DDDDDDDDDDDDDDDDGGG\nGGRGR\n\n\nGRGRGRG\n////\n.....",
+      "story_of_life": "rergee\nwgrg\n\nrgwgrg\n\n\n\nhrDDDDDDDDDDDDDDDDD",
+      "id": 1
+    },
+    {
+      "name": "calculator",
+      "age": "2",
+      "sex": "none",
+      "shot_description": "s5esrudts5se",
+      "story_of_life": "ftghbjkml,;\nRDTFYHBJNK;M L'.",
+      "id": 2
+    }
+  ],
+  "arts": [
+    {
+      "author": null,
+      "title": "nbgfd",
+      "description": "nygrbfdv",
+      "file": {},
+      "id": 34
+    },
+    {
+      "author": null,
+      "title": null,
+      "description": null,
+      "file": "Снимок экрана (2).png",
+      "id": 35
+    }
+  ],
+  "locations": [
+    {
+      "name": "SEYRS",
+      "picture": "9-81IzTe0rM.jpg",
+      "id": 1
+    },
+    {
+      "name": "calculator",
+      "picture": "_U4F6nI6zbk.jpg",
+      "id": 2
+    },
+    {
+      "name": "gbrbr",
+      "picture": "_J02NCsrfww.jpg",
+      "id": 3
+    },
+    {
+      "name": "kklklk",
+      "picture": "_Y4TLsBF7w8.jpg",
+      "id": 4
+    }
+  ],
+  "relationships": [
+    {
+      "id_first_hero": 1,
+      "id_second_hero": 1,
+      "id_relationship": 2,
+      "id": 1
+    },
+    {
+      "id_first_hero": 1,
+      "id_second_hero": 3,
+      "id_relationship": [
+        2,
+        3
+      ],
+      "id": 2
+    },
+    {
+      "id_first_hero": 2,
+      "id_second_hero": 1,
+      "id_relationship": [
+        4,
+        2
+      ],
+      "id": 3
+    },
+    {
+      "name": "kklklk",
+      "picture": "_A3FSt7rXqM.jpg",
+      "id": 4
+    }
+  ]
+}
