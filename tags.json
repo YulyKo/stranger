@@ -42,6 +42,30 @@
       "bg_color": "drhh",
       "text_color": "dhfdhg",
       "id": 7
+    },
+    {
+      "name": "name",
+      "bg_color": "#b3fa9e",
+      "text_color": "#ff80ff",
+      "id": 8
+    },
+    {
+      "name": "wwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+      "bg_color": "#CCCCCC",
+      "text_color": "#333333",
+      "id": 9
+    },
+    {
+      "name": "m",
+      "bg_color": "#CCCCCC",
+      "text_color": "#333333",
+      "id": 10
+    },
+    {
+      "name": "nam",
+      "bg_color": "#CCCCCC",
+      "text_color": "#333333",
+      "id": 11
     }
   ],
   "relationship_tags": [
@@ -70,7 +94,14 @@
       "id": 4
     }
   ],
-  "location_tags": [],
+  "location_tags": [
+    {
+      "name": "fyjhkjl",
+      "bg_color": "#800080",
+      "text_color": "#00ff00",
+      "id": 1
+    }
+  ],
   "art_tags": [
     {
       "name": "huoihikl",

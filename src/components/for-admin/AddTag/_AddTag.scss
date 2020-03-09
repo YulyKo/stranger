@@ -7,19 +7,11 @@
         //
     }
 }
-.sidebar {
-  width: 20%;
-  height: 100%;
-  border-top: 4px solid #575757;
-  text-align: center;
-}
-.sidebar__container {
-  margin: 0 auto;
-}
-.sidebar__container_title {
-  margin: 0;
-  color: #34f;
-}
 .form {
   width: 60%;
+}
+
+.tag-preview {
+  padding: .5em 1rem;
+  border-radius: 50px;
 }
