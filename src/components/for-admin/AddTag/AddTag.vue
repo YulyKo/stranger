@@ -4,7 +4,7 @@
       <p>{{ this.error }}</p>
       <label for="type-tag">Type of tag</label>
       <select id="type-tag" v-model="tagType">
-        <option v-for="tagType of tagsTypes" :value="tagType.url" :key="tagType.id" :max="15">{{ tagType.name }}</option>
+        <option v-for="tagType of tagsTypes" :value="tagType" :key="tagType.id" :max="15">{{ tagType.name }}</option>
       </select>
       <label for="name">Name tag</label>
       <input v-model="tag.name" id="name" type="text">
@@ -25,8 +25,13 @@
         props: {},
         data() {
             return {
-                tagType: 'plot_tags',
+                tagType: {
+                    id: 1,
+                    name: "plot",
+                },
                 tag: {
+                    id_type: 1,
+                    author: 'looko',
                     name: 'name',
                     bg_color: '#CCCCCC',
                     text_color: '#333333',
@@ -35,30 +40,23 @@
                     {
                         id: 1,
                         name: "plot",
-                        url: "plot_tags",
                     },
                     {
                         id: 2,
                         name: "art",
-                        url: "art_tags",
                     },
                     {
                         id: 3,
                         name: "relationship",
-                        url: "relationship_tags",
                     },
                 ],
                 error: '',
-                // stylesTag: {
-                //     backgroundColor: this.tag.bg_color
-                // },
             }
         },
         methods: {
             addTag() {
                 if (this.tag.name.length >= 3 && this.tag.name.length <= 15) {
-                    this.$store.dispatch(`http_tag_module/SET_TAG_TO_API`,
-                        {payload: this.tag, url: this.tagType});
+                    this.$store.dispatch(`http_tag_module/SET_TAG_TO_API`, this.tag);
                 } else if(this.tag.name.length < 3) this.error = 'name is so shot';
                 else if (this.tag.name.length > 15) this.error = 'name is so long';
             },

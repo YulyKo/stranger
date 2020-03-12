@@ -3,7 +3,10 @@ import axios from "axios";
 const users_module = {
     namespaced: true,
     state: {
-        user: null,
+        user: {
+            login: 'kokok',
+            name: 'ddddddd'
+        },
         users: [],
     },
     getters: {
