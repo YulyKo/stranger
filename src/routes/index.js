@@ -10,6 +10,7 @@ import AddingRelationship from "../components/for-admin/AddingRelationship/Addin
 import AddTag from "../components/for-admin/AddTag/AddTag";
 import PlotsPage from "../pages/common/PlotsPage/PlotsPage";
 import PlotPage from "../pages/common/PlotsPage/PlotPage/PlotPage";
+import RegistrationPage from "../pages/RegistrationPage"
 
 Vue.use(VueRouter);
 
@@ -18,6 +19,11 @@ const routes = [
         path: '/',
         name: 'Home',
         component: HomePage,
+    },
+    {
+        path: '/registration',
+        name: 'Registration',
+        component: RegistrationPage,
     },
     {
         path: '/admin',

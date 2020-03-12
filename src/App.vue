@@ -4,7 +4,9 @@
       <div class="flex header__heroes">
         <router-link tag="span" class="admin-page" to="/admin">крест - лінка до адмінки</router-link>
         <nav class="flex header__heroes_menu">
-            <span class="hero hero--gg">hero</span>
+            <div class="hero hero--gg">
+                <router-link tag="a" class="link link_in-gg" to="/registration">Registration</router-link>
+                hero</div>
             <router-link tag="span" to="/plots" class="hero plots">Plots</router-link>
             <span class="hero">hero</span>
             <span class="hero">hero</span>
@@ -48,33 +50,6 @@ export default {
     width: 100%
     height: 20rem
     background-color: #333
-  .header
-    width: 100%
-    height: 50vh
-    background-color: #42b983
-  .header__heroes
-    width: 100%
-    height: 76%
-    /*border: 4px solid #ff3*/
-  .header__name
-    width: 100%
-    height: 20%
-    /*border: 4px solid #ff564f*/
-  .header__heroes_menu
-    width: 100%
-    justify-content: space-around
-  .hero
-    width: 12em
-    height: 100%
-    background-color: #d691ff
-    &--gg
-      background-color: #b9833c
-  .footer
-    width: 100%
-    height: 50vh
-    background-color: #fa97d3
-    justify-content: space-evenly
-    align-items: center
   .form
     input
       display: block
@@ -82,6 +57,35 @@ export default {
 </style>
 
 <style lang="sass" scoped>
+  .header
+    width: 100%
+    height: 50vh
+    background-color: #42b983
+  .header__heroes
+    width: 100%
+    height: 76%
+    .header__name
+      width: 100%
+      height: 20%
+  .header__heroes_menu
+      width: 100%
+      justify-content: space-around
+  .hero
+      width: 12em
+      height: 100%
+      background-color: #d691ff
+      &--gg
+          background-color: #b9833c
+          &:hover > .link_in-gg
+            display: block
+  .link_in-gg
+      display: none
+  .footer
+      width: 100%
+      height: 50vh
+      background-color: #fa97d3
+      justify-content: space-evenly
+      align-items: center
   .plots:hover
     background-color: #333
     color: #42b983
