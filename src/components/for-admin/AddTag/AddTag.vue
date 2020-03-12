@@ -3,8 +3,8 @@
     <form class="form" id="form" @submit="addTag">
       <p>{{ this.error }}</p>
       <label for="type-tag">Type of tag</label>
-      <select id="type-tag" v-model="tagType">
-        <option v-for="tagType of tagsTypes" :value="tagType" :key="tagType.id" :max="15">{{ tagType.name }}</option>
+      <select id="type-tag" v-model="tag.id_type">
+        <option v-for="tagType of tagsTypes" :value="tagType.id" :key="tagType.id" :max="15">{{ tagType.name }}</option>
       </select>
       <label for="name">Name tag</label>
       <input v-model="tag.name" id="name" type="text">
@@ -20,18 +20,20 @@
 
 <script>
     import _AddTag from './_AddTag.scss'
+    import {mapGetters} from "vuex";
 
     export default {
         props: {},
+        computed: {
+            ...mapGetters({
+                user: 'users_module/USER',
+            }),
+        },
         data() {
             return {
-                tagType: {
-                    id: 1,
-                    name: "plot",
-                },
                 tag: {
                     id_type: 1,
-                    author: 'looko',
+                    author: '',
                     name: 'name',
                     bg_color: '#CCCCCC',
                     text_color: '#333333',
@@ -55,6 +57,7 @@
         },
         methods: {
             addTag() {
+                this.tag.author = this.user.login;
                 if (this.tag.name.length >= 3 && this.tag.name.length <= 15) {
                     this.$store.dispatch(`http_tag_module/SET_TAG_TO_API`, this.tag);
                 } else if(this.tag.name.length < 3) this.error = 'name is so shot';
