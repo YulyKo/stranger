@@ -1,36 +1,38 @@
 <template>
-    <div class="PlotPage">
-        <h1 class="text">{{ plot.title }}</h1>
-        <h2 class="text">{{ plot.description }}</h2>
-      <div v-for="(tag, id) in plot.tags" :key="id">
+  <div class="PlotPage">
+    <h2 class="text">{{ plot[0].title }}</h2>
+    <h2 class="text">{{ plot[0].description }}</h2>
+    <p class="text text--author">by {{ plot[0].author }}</p>
+      <div v-for="(tag, id) in tags" :key="id">
         <p class="text">{{ tag.name }}</p>
       </div>
-      <div v-for="(heroes, id) in plot.heroes" :key="id">
-        <p>{{ heroes.name }}</p>
-      </div>
-      <p class="text">{{ plot.text }}</p>
-    </div>
+<!--      <div v-for="(heroes, id) in plot[0].heroes" :key="id">-->
+<!--        <p>{{ heroes.name }}</p>-->
+<!--      </div>-->
+    <p class="text">{{ plot[0].text }}</p>
+  </div>
 </template>
 
 <script>
-    import {mapGetters} from "vuex";
-    import _PlotPage from './_PlotPage.scss';
+  import {mapGetters} from "vuex";
+  import _PlotPage from './_PlotPage.scss';
 
-    export default {
-        props: {},
-        computed: {
-            ...mapGetters({plot: 'http_get_module/PLOT'}),
-        },
-        methods: {
-        },
-        beforeCreate() {
-            this.$store.dispatch('http_get_module/GET_PLOT_FROM_API_BY_ID', this.$route.params.id);
-        },
-        created() {
-            console.log(this.plot);
-        },
-        css: [
-            _PlotPage,
-        ]
-    };
+  export default {
+      props: {},
+      computed: {
+          ...mapGetters({plot_from_store: 'plot_module/PLOT', tags: 'tag_module/TAGS'}),
+          plot() {
+              return this.plot_from_store;
+          },
+      },
+      methods: {},
+      beforeCreate() {
+          this.$store.dispatch('tag_module/GET_TAGS_FROM_API_BY_ID', {category: 'plot_tag', id: this.$route.params.id});
+          this.$store.dispatch('plot_module/GET_PLOT_FROM_API_BY_ID', this.$route.params.id);
+      },
+      created() {},
+      css: [
+          _PlotPage,
+      ]
+  };
 </script>

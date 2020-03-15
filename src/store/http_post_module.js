@@ -15,9 +15,6 @@ const http_post_module = {
     },
     actions: {
         //TODO універсальний запит для отримання схожих даних
-        async POST_PLOT_TO_API(context, plot) {
-            await axios.post(`${URL_COMMON}/plots`, plot);
-        },
         async POST_HERO_TO_API(context, hero) {
             await axios.post(`${URL_COMMON}/heroes`, hero);
         },
@@ -27,8 +24,8 @@ const http_post_module = {
         async POST_RELATIONSHIP_TO_API(context, relationship) {
             await axios.post(`${URL_COMMON}/relationships`, relationship);
         },
-        async POST_LOCATION_TO_API(context, relationship) {
-            await axios.post(`${URL_COMMON}/locations`, relationship);
+        async POST_LOCATION_TO_API(context, location) {
+            await axios.post(`${URL_COMMON}/locations`, location);
         },
 
     },

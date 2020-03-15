@@ -9,12 +9,20 @@
 </template>
 
 <script>
+    import {mapGetters} from "vuex";
+
     export default {
         props: {
+        },
+        computed: {
+            ...mapGetters({
+                user: 'users_module/USER',
+            }),
         },
         data() {
             return {
                 location: {
+                    author: '',
                     name: null,
                     picture: null,
                 }
@@ -22,6 +30,7 @@
         },
         methods: {
             addLocation() {
+                this.location.author = this.user.login;
                 if (this.location.picture && this.location.name)
                   this.$store.dispatch('http_post_module/POST_LOCATION_TO_API', this.location);
                 document.getElementById('form').reset();
