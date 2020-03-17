@@ -13,6 +13,8 @@ import PlotPage from "../pages/common/PlotsPage/PlotPage/PlotPage";
 import RegistrationPage from "../pages/RegistrationPage"
 import HeroesPage from "../pages/common/HeroesPage/HeroesPage";
 import HeroPage from "../pages/common/HeroesPage/HeroPage";
+import LocationsPage from "../pages/common/LocationPage/LocationsPage";
+import LocationPage from "../pages/common/LocationPage/LocationPage";
 
 Vue.use(VueRouter);
 
@@ -79,6 +81,18 @@ const routes = [
         path: '/heroes/hero:id',
         name: 'Hero',
         component: HeroPage,
+        props: true
+    },
+
+     {
+        path: '/locations',
+        name: 'Locations',
+        component: LocationsPage,
+    },
+    {
+        path: '/locations/location:id',
+        name: 'Location',
+        component: LocationPage,
         props: true
     },
 

@@ -9,7 +9,7 @@
                 hero</div>
             <router-link tag="span" to="/plots" class="hero link">Plots</router-link>
             <router-link tag="span" to="/heroes" class="hero link">Heroes</router-link>
-            <span class="hero">hero</span>
+            <router-link tag="span" to="/locations" class="hero link">Locations</router-link>
             <span class="hero">hero</span>
             <span class="hero">hero</span>
         </nav>

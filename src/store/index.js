@@ -5,6 +5,8 @@ import users_module from "./users_module";
 import plots_module from "./plots_modules/plots_module";
 import plot_module from "./plots_modules/plot_module";
 import heroes_module from "./heroes_module/heroes_module";
+import locations_module from "./locations_module/locations_module";
+import location_module from "./locations_module/location"
 
 Vue.use(Vuex);
 export const URL_COMMON = 'http://localhost:8000';
@@ -22,5 +24,7 @@ export default new Vuex.Store({
         plots_module,
         plot_module,
         heroes_module,
+        locations_module,
+        location_module,
     },
 })
