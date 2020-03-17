@@ -9,6 +9,8 @@ import locations_module from "./locations_module/locations_module";
 import location_module from "./locations_module/location"
 import relationship from "./relationship_module/relationship";
 import relationships from "./relationship_module/relationships";
+import art from "./arts/art";
+import arts from "./arts/arts";
 
 Vue.use(Vuex);
 export const URL_COMMON = 'http://localhost:8000';
@@ -28,5 +30,7 @@ export default new Vuex.Store({
         location_module,
         relationship,
         relationships,
+        art,
+        arts,
     },
 })

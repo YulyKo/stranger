@@ -11,7 +11,7 @@
             <router-link tag="span" to="/heroes" class="hero link">Heroes</router-link>
             <router-link tag="span" to="/locations" class="hero link">Locations</router-link>
             <router-link tag="span" to="/relationships" class="hero link">Relationships</router-link>
-            <span class="hero">arts</span>
+            <router-link tag="span" to="/arts" class="hero link">Arts</router-link>
         </nav>
       </div>
       <div class="header__name">name</div>

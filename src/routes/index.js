@@ -17,6 +17,8 @@ import LocationsPage from "../pages/common/LocationPage/LocationsPage";
 import LocationPage from "../pages/common/LocationPage/LocationPage";
 import RelationshipsPage from "../pages/common/RelationshipsPage/RelationshipsPage";
 import RelationshipPage from "../pages/common/RelationshipsPage/RelationshipPage";
+import ArtsPage from "../pages/common/Arts/ArtsPage";
+import ArtPage from "../pages/common/Arts/ArtPage";
 
 Vue.use(VueRouter);
 
@@ -105,6 +107,17 @@ const routes = [
         path: '/relationships/relationship:id',
         name: 'Relationship',
         component: RelationshipPage,
+        props: true
+    },
+    {
+        path: '/arts',
+        name: 'Arts',
+        component: ArtsPage,
+    },
+    {
+        path: '/arts/art:id',
+        name: 'Art',
+        component: ArtPage,
         props: true
     },
 
