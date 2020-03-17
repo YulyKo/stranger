@@ -7,6 +7,8 @@ import plot_module from "./plots_modules/plot_module";
 import heroes_module from "./heroes_module/heroes_module";
 import locations_module from "./locations_module/locations_module";
 import location_module from "./locations_module/location"
+import relationship from "./relationship_module/relationship";
+import relationships from "./relationship_module/relationships";
 
 Vue.use(Vuex);
 export const URL_COMMON = 'http://localhost:8000';
@@ -17,8 +19,6 @@ export default new Vuex.Store({
     actions: {},
     getters: {},
     modules: {
-        // http_get_module,
-        // http_post_module,
         tag_module,
         users_module,
         plots_module,
@@ -26,5 +26,7 @@ export default new Vuex.Store({
         heroes_module,
         locations_module,
         location_module,
+        relationship,
+        relationships,
     },
 })
