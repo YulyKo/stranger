@@ -11,6 +11,8 @@ import AddTag from "../components/for-admin/AddTag/AddTag";
 import PlotsPage from "../pages/common/PlotsPage/PlotsPage";
 import PlotPage from "../pages/common/PlotsPage/PlotPage/PlotPage";
 import RegistrationPage from "../pages/RegistrationPage"
+import HeroesPage from "../pages/common/HeroesPage/HeroesPage";
+import HeroPage from "../pages/common/HeroesPage/HeroPage";
 
 Vue.use(VueRouter);
 
@@ -68,6 +70,18 @@ const routes = [
         component: PlotPage,
         props: true
     },
+     {
+        path: '/heroes',
+        name: 'Heroes',
+        component: HeroesPage,
+    },
+    {
+        path: '/heroes/hero:id',
+        name: 'Hero',
+        component: HeroPage,
+        props: true
+    },
+
 ];
 
 const router = new VueRouter({

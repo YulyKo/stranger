@@ -7,8 +7,8 @@
             <div class="hero hero--gg">
                 <router-link tag="a" class="link link_in-gg" to="/registration">Registration</router-link>
                 hero</div>
-            <router-link tag="span" to="/plots" class="hero plots">Plots</router-link>
-            <span class="hero">hero</span>
+            <router-link tag="span" to="/plots" class="hero link">Plots</router-link>
+            <router-link tag="span" to="/heroes" class="hero link">Heroes</router-link>
             <span class="hero">hero</span>
             <span class="hero">hero</span>
             <span class="hero">hero</span>
@@ -64,29 +64,29 @@ export default {
   .header__heroes
     width: 100%
     height: 76%
-    .header__name
-      width: 100%
-      height: 20%
+  .header__name
+    width: 100%
+    height: 20%
   .header__heroes_menu
-      width: 100%
-      justify-content: space-around
+    width: 100%
+    justify-content: space-around
   .hero
-      width: 12em
-      height: 100%
-      background-color: #d691ff
-      &--gg
-          background-color: #b9833c
-          &:hover > .link_in-gg
-            display: block
+    width: 12em
+    height: 100%
+    background-color: #d691ff
+    &--gg
+      background-color: #b9833c
+      &:hover > .link_in-gg
+        display: block
   .link_in-gg
-      display: none
+    display: none
   .footer
-      width: 100%
-      height: 50vh
-      background-color: #fa97d3
-      justify-content: space-evenly
-      align-items: center
-  .plots:hover
+    width: 100%
+    height: 50vh
+    background-color: #fa97d3
+    justify-content: space-evenly
+    align-items: center
+  .link:hover
     background-color: #333
     color: #42b983
     cursor: pointer
