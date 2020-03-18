@@ -43,7 +43,7 @@
         methods: {
             addArt() {
                 this.art.author = this.user.login;
-                this.art.url = "https://www.google.com/imgres?imgurl=https%3A%2F%2Fmarketing.gaia.com%2Fwp-content%2Fuploads%2Farticle-migration-image-am-i-a-mystic-768x432.png&imgrefurl=https%3A%2F%2Fwww.gaia.com%2Farticle%2Fam-i-a-mystic-10-signs&tbnid=OCXTvgkTNZLWGM&vet=12ahUKEwiYwOObx6ToAhUKNpoKHbU-A4UQMygKegUIARDzAQ..i&docid=kP1Tw8GSVERX6M&w=768&h=432&q=mystic&ved=2ahUKEwiYwOObx6ToAhUKNpoKHbU-A4UQMygKegUIARDzAQ";
+                this.art.url = "https://marketing.gaia.com/wp-content/uploads/article-migration-image-am-i-a-mystic-768x432.png";
                 console.log(this.art);
                 if (this.art.title && this.art.description && this.art.author)
                   this.$store.dispatch('art/SET_ART_TO_API', this.art)
