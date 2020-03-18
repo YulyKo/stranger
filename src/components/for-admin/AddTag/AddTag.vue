@@ -26,7 +26,7 @@
         props: {},
         computed: {
             ...mapGetters({
-                user: 'users_module/USER',
+                user: 'user/USER',
             }),
         },
         data() {
@@ -59,7 +59,7 @@
             addTag() {
                 this.tag.author = this.user.login;
                 if (this.tag.name.length >= 3 && this.tag.name.length <= 15) {
-                    this.$store.dispatch(`http_tag_module/SET_TAG_TO_API`, this.tag);
+                    this.$store.dispatch(`tag/SET_TAG_TO_API`, this.tag);
                 } else if(this.tag.name.length < 3) this.error = 'name is so shot';
                 else if (this.tag.name.length > 15) this.error = 'name is so long';
             },

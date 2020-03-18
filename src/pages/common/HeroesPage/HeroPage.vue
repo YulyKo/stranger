@@ -15,14 +15,14 @@
     props: {},
     computed: {
       ...mapGetters({
-          hero_from_store: 'heroes_module/HERO'
+          hero_from_store: 'heroes/HERO'
       }),
       hero() {
         return this.hero_from_store[0];
       },
     },
     beforeCreate() {
-      this.$store.dispatch('heroes_module/GET_HERO_FROM_API_BY_ID', this.$route.params.id);
+      this.$store.dispatch('heroes/GET_HERO_FROM_API_BY_ID', this.$route.params.id);
     },
   };
 </script>

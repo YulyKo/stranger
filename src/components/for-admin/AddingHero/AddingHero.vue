@@ -32,8 +32,9 @@
         },
         methods: {
             addHero() {
+
                 if (this.hero.name && this.hero.age && this.hero.story_of_life && this.hero.shot_description)
-                  this.$store.dispatch('http_post_module/POST_HERO_TO_API', this.hero);
+                  this.$store.dispatch('hero/POST_HERO_TO_API', this.hero);
             },
             cleanForm() {
                 document.getElementById('form').reset();

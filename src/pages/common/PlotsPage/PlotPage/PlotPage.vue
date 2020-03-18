@@ -20,15 +20,15 @@
   export default {
       props: {},
       computed: {
-          ...mapGetters({plot_from_store: 'plot_module/PLOT', tags: 'tag_module/TAGS'}),
+          ...mapGetters({plot_from_store: 'plot/PLOT', tags: 'tags/TAGS'}),
           plot() {
               return this.plot_from_store;
           },
       },
       methods: {},
       beforeCreate() {
-          this.$store.dispatch('tag_module/GET_TAGS_FROM_API_BY_ID', {category: 'plot_tag', id: this.$route.params.id});
-          this.$store.dispatch('plot_module/GET_PLOT_FROM_API_BY_ID', this.$route.params.id);
+          this.$store.dispatch('tag/GET_TAG_FROM_API_BY_ID', {category: 'plot_tag', id: this.$route.params.id});
+          this.$store.dispatch('plot/GET_PLOT_FROM_API_BY_ID', this.$route.params.id);
       },
       created() {},
       css: [

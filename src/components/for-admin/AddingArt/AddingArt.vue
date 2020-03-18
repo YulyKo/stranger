@@ -4,14 +4,14 @@
     <input id="title" type="text" v-model="art.title">
     <label for="description">Description</label>
     <input id="description" type="text" v-model="art.description">
-    <div class="flex">
-      <label class="ml-2em" v-for="(tag, id) in tags" :key="id">
-        <input type="checkbox" v-model="art.tags" :value="tag.name">
-        {{tag.name}}
-      </label>
-    </div>
-    <label for="file">File</label>
-    <input id="file" type="file" @change="setFile($event)">
+<!--    <div class="flex">-->
+<!--      <label class="ml-2em" v-for="(tag, id) in tags" :key="id">-->
+<!--        <input type="checkbox" :value="tag.name">-->
+<!--        {{tag.name}}-->
+<!--      </label>-->
+<!--    </div>-->
+<!--    <label for="file">File</label>-->
+<!--    <input id="file" type="file">-->
     <button @click="addArt">Add art</button>
   </div>
 </template>
@@ -21,39 +21,36 @@
   import { mapGetters } from "vuex";
 
     export default {
-        props: {
-        },
+        props: {},
         data() {
             return {
                 art: {
                     author: null,
                     title: null,
                     description: null,
-                    file: null,
-                    tags: [],
+                    url: null,
                 },
                 strangerProba: [],
+            //     id | author | titile | description | url
             }
         },
         computed: {
             ...mapGetters({
-                tags: 'http_tag_module/TAGS',
+                tags: 'tags/TAGS',
+                user: 'user/USER',
             })
         },
         methods: {
             addArt() {
-                if (this.$route.path === '/admin/add-hero') this.art.author = 666;
-                if (this.art.title && this.art.description && this.art.file && this.art.author)
-                this.$store.dispatch('http_post_module/POST_ART_TO_API', this.art)
-            },
-            setFile(event) {
-                console.log(event.target.files[0]);
-                console.log(this.strangerProba);
-                this.art.file = event.target.files[0].name
+                this.art.author = this.user.login;
+                this.art.url = "https://www.google.com/imgres?imgurl=https%3A%2F%2Fmarketing.gaia.com%2Fwp-content%2Fuploads%2Farticle-migration-image-am-i-a-mystic-768x432.png&imgrefurl=https%3A%2F%2Fwww.gaia.com%2Farticle%2Fam-i-a-mystic-10-signs&tbnid=OCXTvgkTNZLWGM&vet=12ahUKEwiYwOObx6ToAhUKNpoKHbU-A4UQMygKegUIARDzAQ..i&docid=kP1Tw8GSVERX6M&w=768&h=432&q=mystic&ved=2ahUKEwiYwOObx6ToAhUKNpoKHbU-A4UQMygKegUIARDzAQ";
+                console.log(this.art);
+                if (this.art.title && this.art.description && this.art.author)
+                  this.$store.dispatch('art/SET_ART_TO_API', this.art)
             },
         },
         beforeCreate() {
-          this.$store.dispatch('http_tag_module/GET_TAGS_FROM_API', 'art_tags');
+          this.$store.dispatch('tags/GET_TAGS_FROM_API', 'art_tag');
         },
         firestore() {
             return {

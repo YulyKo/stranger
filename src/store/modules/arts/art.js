@@ -1,4 +1,4 @@
-import {URL_COMMON} from "../index";
+import {URL_COMMON} from "../../index";
 import Axios from 'axios';
 
 const module = {

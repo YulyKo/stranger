@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {URL_COMMON} from "../index";
+import {URL_COMMON} from "../../index";
 
 const http_post_module = {
     namespaced: true,

@@ -16,7 +16,7 @@
         },
         computed: {
             ...mapGetters({
-                user: 'users_module/USER',
+                user: 'user/USER',
             }),
         },
         data() {
@@ -32,7 +32,7 @@
             addLocation() {
                 this.location.author = this.user.login;
                 if (this.location.picture && this.location.name)
-                  this.$store.dispatch('http_post_module/POST_LOCATION_TO_API', this.location);
+                  this.$store.dispatch('location/POST_LOCATION_TO_API', this.location);
                 document.getElementById('form').reset();
             },
             setPicture(event) {

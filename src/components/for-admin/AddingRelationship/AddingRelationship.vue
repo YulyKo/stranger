@@ -34,8 +34,8 @@
         },
         computed: {
             ...mapGetters({
-                tags: `http_tag_module/TAGS`,
-                heroes: `http_get_module/HEROES`
+                tags: `tags/TAGS`,
+                heroes: `heroes/HEROES`
             }),
         },
         methods: {
@@ -43,14 +43,14 @@
                 if (this.relationship.id_relationship &&
                     this.relationship.id_second_hero &&
                     this.relationship.id_first_hero) {
-                    this.$store.dispatch('http_post_module/POST_RELATIONSHIP_TO_API', this.relationship);
+                    this.$store.dispatch('relationship/POST_RELATIONSHIP_TO_API', this.relationship);
                 }
                 document.getElementById('form').reset();
             },
         },
         beforeCreate() {
-            this.$store.dispatch(`http_tag_module/GET_TAGS_FROM_API`, 'relationship_tags');
-            this.$store.dispatch(`http_get_module/GET_HEROES_FROM_API`);
+            this.$store.dispatch(`tags/GET_TAGS_FROM_API`, 'relationship_tags');
+            this.$store.dispatch(`heroes/GET_HEROES_FROM_API`);
         }
     };
 </script>

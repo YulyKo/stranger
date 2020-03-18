@@ -38,7 +38,7 @@
         methods: {
             addUser() {
                 if (this.checkError()) {
-                    this.$store.dispatch('users_module/POST_USER_TO_API', this.user);
+                    this.$store.dispatch('user/POST_USER_TO_API', this.user);
                 }
                 this.error = [];
             },
@@ -59,7 +59,7 @@
         },
         computed: {
             ...mapGetters({
-                newUser: 'users_module/USER',
+                newUser: 'user/USER',
             }),
         },
     };

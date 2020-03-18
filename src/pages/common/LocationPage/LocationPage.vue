@@ -14,10 +14,10 @@
     export default {
         name: "LocationPage",
         computed: {
-            ...mapGetters({location: 'location_module/LOCATION'})
+            ...mapGetters({location: 'location/LOCATION'})
         },
         beforeCreate() {
-            this.$store.dispatch('location_module/GET_LOCATION_FROM_API_BY_ID',  this.$route.params.id)
+            this.$store.dispatch('location/GET_LOCATION_FROM_API_BY_ID',  this.$route.params.id)
         }
     }
 </script>

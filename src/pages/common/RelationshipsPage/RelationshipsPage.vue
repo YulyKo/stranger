@@ -16,10 +16,10 @@
     export default {
         name: "RelationshipsPage",
         computed: {
-            ...mapGetters({ relationships: 'relationships_module/RELATIONSHIPS' })
+            ...mapGetters({ relationships: 'relationships/RELATIONSHIPS' })
         },
         beforeCreate() {
-            this.$store.dispatch('relationships_module/GET_RELATIONSHIPS_FROM_API');
+            this.$store.dispatch('relationships/GET_RELATIONSHIPS_FROM_API');
         }
     }
 </script>

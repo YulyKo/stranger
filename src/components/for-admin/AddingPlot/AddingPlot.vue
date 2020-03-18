@@ -3,7 +3,7 @@
         <label for="title">Title</label>
         <input id="title" type="text" v-model.trim="plot.title">
 
-        <label for="descroption">Descroption</label>
+        <label for="descroption">Description</label>
         <textarea id="descroption" v-model="plot.description" name="description" cols="30" rows="10"></textarea>
         <div>
             <section>
@@ -37,17 +37,13 @@
     import _AddingPlot from './_AddingPlot.scss';
     import { mapGetters } from "vuex";
 
-    const NAME_MODULE = 'http_get_module';
-    const NAME_POST_MODULE = 'http_post_module';
-    const NAME_TAG_MODULE = 'http_tag_module';
-
     export default {
         props: {
         },
         computed: {
             ...mapGetters({
-                tags: `${NAME_TAG_MODULE}/TAGS`,
-                heroes: `${NAME_MODULE}/HEROES`,
+                tags: `tags/TAGS`,
+                heroes: `heroes/HEROES`,
             }),
         },
         data() {
@@ -63,13 +59,13 @@
         },
         methods: {
             addPlot() {
-                this.$store.dispatch(`${NAME_POST_MODULE}/POST_PLOT_TO_API`, this.plot);
+                this.$store.dispatch(`plot/POST_PLOT_TO_API`, this.plot);
             }
         },
         beforeCreate() {
-            this.$store.dispatch(`${NAME_MODULE}/GET_PLOTS_FROM_API`);
-            this.$store.dispatch(`${NAME_MODULE}/GET_HEROES_FROM_API`);
-            this.$store.dispatch(`${NAME_TAG_MODULE}/GET_TAGS_FROM_API`, 'plot_tags');
+            this.$store.dispatch(`plots/GET_PLOTS_FROM_API`);
+            this.$store.dispatch(`heroes/GET_HEROES_FROM_API`);
+            this.$store.dispatch(`tags/GET_TAGS_FROM_API`, 'plot_tags');
         },
         css: {
             _AddingPlot,

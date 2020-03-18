@@ -19,10 +19,10 @@
             }
         },
         computed: {
-            ...mapGetters({locations: 'locations_module/LOCATIONS'})
+            ...mapGetters({locations: 'locations/LOCATIONS'})
         },
         beforeCreate() {
-            this.$store.dispatch('locations_module/GET_LOCATIONS_FROM_API')
+            this.$store.dispatch('locations/GET_LOCATIONS_FROM_API')
         },
         methods: {
             click() {

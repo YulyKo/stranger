@@ -23,11 +23,11 @@
     },
     computed: {
       ...mapGetters({
-        plots: 'plots_module/PLOTS',
+        plots: 'plots/PLOTS',
       }),
     },
     beforeCreate() {
-      this.$store.dispatch('plots_module/GET_PLOTS_FROM_API');
+      this.$store.dispatch('plots/GET_PLOTS_FROM_API');
     },
     css: {
       _PlotsPage,

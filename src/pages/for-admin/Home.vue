@@ -22,9 +22,7 @@
               console.log(param);
             },
         },
-        computed: {
-            // name() { return  this.$store.getters.URL_FROM_STATE }
-        },
+        computed: {},
     }
 </script>
 

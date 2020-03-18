@@ -14,11 +14,11 @@ export default {
   props: {},
   computed: {
       ...mapGetters({
-          heroes: 'heroes_module/HEROES'
+          heroes: 'heroes/HEROES'
       }),
   },
   beforeCreate() {
-      this.$store.dispatch('heroes_module/GET_HEROES_FROM_API');
+      this.$store.dispatch('heroes/GET_HEROES_FROM_API');
   }
 }
 </script>
