@@ -9,8 +9,8 @@
         <option v-for="(hero, id) in heroes" :key="id" :value="hero.id">{{hero.name}}</option>
       </select>
       <div class="flex">
-        <label class="ml-2em" v-for="(tag, id) in tags" :key="id" for="relationshipTag">
-          <input v-model="relationship.id_relationship" id="relationshipTag" type="checkbox" :value="tag.id">{{tag.name}}
+        <label class="ml-2em" v-for="(type, id) in types" :key="id" for="relationshipTag">
+          <input v-model="relationship.id_relationship" id="relationshipTag" type="checkbox" :value="type.id">{{type.name}}
         </label>
       </div>
       <button>Add relationship</button>
@@ -34,7 +34,7 @@
         },
         computed: {
             ...mapGetters({
-                tags: `tags/TAGS`,
+                types: `relationship/TYPES`,
                 heroes: `heroes/HEROES`
             }),
         },
@@ -49,7 +49,7 @@
             },
         },
         beforeCreate() {
-            this.$store.dispatch(`tags/GET_TAGS_FROM_API`, 'relationship_tags');
+            this.$store.dispatch(`relationship/GET_RELATIONSHIP_TYPES_FROM_API`, 'relationship_tags');
             this.$store.dispatch(`heroes/GET_HEROES_FROM_API`);
         }
     };
