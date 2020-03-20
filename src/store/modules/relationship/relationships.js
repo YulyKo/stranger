@@ -10,7 +10,7 @@ const module = {
         RELATIONSHIPS: state => state.relationships,
     },
     mutations: {
-        SET_RELATIONSHIPS_TO_STATE: (state, relationships) => { state.relationshipa = relationships},
+        SET_RELATIONSHIPS_TO_STATE: (state, relationships) => { state.relationships = relationships},
     },
     actions: {
         async GET_RELATIONSHIPS_FROM_API(context) {

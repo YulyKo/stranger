@@ -2,10 +2,10 @@
   <div>
     <h1>Relationships</h1>
     <article v-for="(relationship, id) in relationships" :key="id">
-      <h2>{{ relationship.id_first_hero }}</h2>
-      <h2>{{ relationship.id_second_hero }}</h2>
+      <h2>{{ relationship.id_person }}</h2>
+      <h2>{{ relationship.id_person2 }}</h2>
       <p>{{ relationship.id_type_relationship }}</p>
-      <router-link :to="{name: 'Relationship', params: {id: relationship.id}}"></router-link>
+      <router-link :to="{name: 'Relationship', params: {id: relationship.id}}">See more</router-link>
     </article>
   </div>
 </template>

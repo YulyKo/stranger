@@ -10,7 +10,7 @@
       </select>
       <div class="flex">
         <label class="ml-2em" v-for="(type, id) in types" :key="id" for="relationshipTag">
-          <input v-model="relationship.id_relationship" id="relationshipTag" type="checkbox" :value="type.id">{{type.name}}
+          <input v-model="ids_types_relationships" id="relationshipTag" type="checkbox" :value="type.id">{{ type.id }} {{type.name}}
         </label>
       </div>
       <button>Add relationship</button>
@@ -26,10 +26,11 @@
         data() {
             return {
                 relationship: {
-                    id_first_hero: null,
-                    id_second_hero: null,
-                    id_relationship: [],
+                    id_person: 1,
+                    id_person2: 1,
+                    id_type_relationship: null,
                 },
+                ids_types_relationships: []
             }
         },
         computed: {
@@ -40,10 +41,14 @@
         },
         methods: {
             addRelationship() {
-                if (this.relationship.id_relationship &&
-                    this.relationship.id_second_hero &&
-                    this.relationship.id_first_hero) {
-                    this.$store.dispatch('relationship/POST_RELATIONSHIP_TO_API', this.relationship);
+                console.log('add');
+                if (this.relationship.id_person &&
+                    this.relationship.id_person2) {
+                    for (let id = 0; id < this.ids_types_relationships.length-1; id++) {
+                        this.relationship.id_type_relationship = this.ids_types_relationships[id];
+                        console.log(this.relationship.id_type_relationship);
+                        this.$store.dispatch('relationship/SET_RELATIONSHIP_TO_API', this.relationship);
+                    }
                 }
                 document.getElementById('form').reset();
             },
