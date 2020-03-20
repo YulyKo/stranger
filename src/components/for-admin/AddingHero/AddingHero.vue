@@ -16,12 +16,15 @@
 
 <script>
     import _addingHero from './_AddingHero.scss'
+    import {mapGetters} from "vuex";
     export default {
         props: {
         },
         data() {
             return {
+                // id | author | name | age | sex  | shot_description |  story_of_life
                 hero: {
+                    author: null,
                     name: null,
                     age: null,
                     sex: 'none',
@@ -30,11 +33,16 @@
                 },
             }
         },
+        computed: {
+            ...mapGetters({
+                user: 'user/USER'
+            }),
+        },
         methods: {
             addHero() {
-
+                this.hero.author = this.user.login;
                 if (this.hero.name && this.hero.age && this.hero.story_of_life && this.hero.shot_description)
-                  this.$store.dispatch('hero/POST_HERO_TO_API', this.hero);
+                  this.$store.dispatch('heroes/POST_HERO_TO_API', this.hero);
             },
             cleanForm() {
                 document.getElementById('form').reset();

@@ -27,8 +27,8 @@ const module = {
             console.log(data);
             context.commit('SET_HEROES_TO_STATE', data);
         },
-        async POST_PLOT_TO_API(context, plot) {
-            await axios.post(`${URL_COMMON}/persons`, plot);
+        async POST_HERO_TO_API(context, hero) {
+            await axios.post(`${URL_COMMON}/persons`, hero);
         },
     },
 };

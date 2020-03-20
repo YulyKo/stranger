@@ -11,7 +11,7 @@
                 <div class="flex">
                   <label for="" class="m-l-2em" v-for="(hero, id) in heroes" :key="id">{{ hero.name }}
                       <input type="checkbox" :value="hero.name"
-                      v-model="plot.heroes">
+                      v-model="CHOISED_heroes">
                   </label>
                 </div>
             </section>
@@ -21,7 +21,7 @@
             <div class="flex">
                 <label for="" class="ml-2em" v-for="(tag, id) in tags" :key="id">{{ tag.name }}
                     <input type="checkbox" :value="tag.name"
-                    v-model="plot.tags">
+                    v-model="CHOISED_tags">
                 </label>
             </div>
         </section>
@@ -44,21 +44,27 @@
             ...mapGetters({
                 tags: `tags/TAGS`,
                 heroes: `heroes/HEROES`,
+                user: 'user/USER'
             }),
         },
         data() {
             return {
                 plot: {
+                    //id |   title   | author | text | id_location | id_person | description
                     title: '',
-                    description: '',
-                    heroes: [],
-                    tags: [],
+                    author: null,
                     text: '',
+                    id_location: 1,
+                    id_person: 1,
+                    description: '',
                 },
+                CHOISED_heroes: [],
+                CHOISED_tags: [],
             }
         },
         methods: {
             addPlot() {
+                this.plot.author = this.user.login;
                 this.$store.dispatch(`plot/POST_PLOT_TO_API`, this.plot);
             }
         },
