@@ -8,6 +8,7 @@ import plots from "./modules/plots/plots";
 import plot from "./modules/plots/plot";
 import heroes from "./modules/heroes/heroes";
 import locations from "./modules/locations/locations";
+import location from "./modules/locations/location";
 import relationship from "./modules/relationship/relationship";
 import relationships from "./modules/relationship/relationships";
 import art from "./modules/arts/art";
