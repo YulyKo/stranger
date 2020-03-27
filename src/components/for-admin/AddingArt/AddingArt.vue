@@ -18,7 +18,7 @@
     </div>
     <label for="file">File</label>
     <input @change="setFile" id="file" type="file" accept="image/*">
-    <button @click="addArt">Add art</button>
+    <button @click="uploadImage()">Add art</button>
   </div>
 </template>
 
@@ -50,10 +50,9 @@
         })
       },
       methods: {
-        addArt() {
-          this.uploadImage();
+          addArtToDb() {
           this.art.author = this.user.login;
-          if (this.art.title && this.art.description && this.art.author)
+          if (this.art.title && this.art.description && this.art.author && this.art.url !== '')
             this.$store.dispatch('art/SET_ART_TO_API', this.art);
         },
         setFile(event) {
@@ -69,7 +68,8 @@
               this.previewImage.uploadValue = 100;
               storageRef.snapshot.ref.getDownloadURL().then( url => {
                 this.previewImage.picture = url;
-                this.art.url = url;
+                  this.art.url = url;
+                  this.addArtToDb()
               });
             }
           )
@@ -80,3 +80,9 @@
       },
     };
 </script>
+
+<style scoped>
+  .preview {
+    width: 200px;
+  }
+</style>
