@@ -40,6 +40,11 @@ export default {
 </script>
 
 <style lang="sass">
+  @import ~normalize.css
+  @import ~reset-css
+  @import "../dist/css/normalize.css"
+  //@include normalize()
+
   .flex
     display: flex
   .ml-2em

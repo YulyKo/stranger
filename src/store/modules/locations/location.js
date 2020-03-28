@@ -18,7 +18,7 @@ const module = {
             const { data } = await axios.get(`${URL_COMMON}/locations/${id}`);
             context.commit('SET_LOCATIONS_TO_STATE', data);
         },
-        async SET_LOCATION_TO_API(context, payload) {
+        async POST_LOCATION_TO_API(context, payload) {
             await axios.post(`${URL_COMMON}/locations`, payload);
         },
     },

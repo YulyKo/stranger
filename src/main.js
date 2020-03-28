@@ -4,6 +4,7 @@ import store from './store';
 import firebase from "firebase/app";
 import 'firebase/firestore';
 import router from './routes';
+import  normalize from "normalize.css";
 // import VueResource from 'vue-resource';
 import { firestorePlugin } from 'vuefire';
 import { Photoshop } from 'vue-color'
@@ -16,6 +17,7 @@ Vue.use(firestorePlugin);
 Vue.config.productionTip = true;
 // Vue.use(VueResource);
 Vue.use(vueAxios, axios);
+Vue.use(normalize);
 
 const firebaseConfig = {
     apiKey: "AIzaSyDuAkDqsaJ0XhBwSMc2ZUIQVGpEqDw9D9Y",
