@@ -36,3 +36,6 @@
       ]
   };
 </script>
+<style scoped>
+  @import "_PlotPage.scss";
+</style>

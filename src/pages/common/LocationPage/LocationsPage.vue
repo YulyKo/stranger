@@ -4,7 +4,7 @@
       <img :src="location.photo_url" alt="no photo">
       <h1>{{ location.name }}</h1>
       <p>{{ location.id }}</p>
-      <router-link class="link" tag="a" :to="{name: 'Location', params: {id: location.id}}"></router-link>
+      <router-link class="menu__hero_link-container" tag="a" :to="{name: 'Location', params: {id: location.id}}"></router-link>
     </article>
       
   </div>
@@ -34,7 +34,7 @@
 </script>
 
 <style scoped>
-  .link {
+  .menu__hero_link-container {
     display: block;
     height: 41px;
     width: 41px;

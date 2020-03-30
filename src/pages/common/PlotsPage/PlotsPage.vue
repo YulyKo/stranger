@@ -16,7 +16,6 @@
 
 <script>
   import { mapGetters} from "vuex";
-  import _PlotsPage from './_PlotsPage.scss'
 
   export default {
     props: {
@@ -29,8 +28,8 @@
     beforeCreate() {
       this.$store.dispatch('plots/GET_PLOTS_FROM_API');
     },
-    css: {
-      _PlotsPage,
-    },
   };
 </script>
+<style scoped>
+  @import "_PlotsPage.scss";
+</style>

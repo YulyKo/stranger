@@ -40,6 +40,7 @@
   .text
     font-family: 'Covered By Your Grace', cursive
     font-size: 32pt
+    white-space: unset
   .title
     font-family: 'Covered By Your Grace', cursive
     font-size: 51pt
