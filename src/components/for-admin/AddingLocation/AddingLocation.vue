@@ -1,12 +1,12 @@
 <template>
     <form class="AddingLocation" @submit="addLocation">
       <label for="name">Name</label>
-      <input v-model="location.name" id="name" type="text">
+      <input class="input" v-model="location.name" id="name" type="text">
       <label for="picture">Add photo</label>
       <span>Progress: {{previewImage.uploadValue.toFixed()+"%"}}
         <progress id="progress" :value="previewImage.uploadValue" max="100" ></progress>
       </span>
-      <input @change="setPicture" id="picture" type="file">
+      <input class="input" @change="setPicture" id="picture" type="file">
       <button>Add location</button>
     </form>
 </template>

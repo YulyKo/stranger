@@ -1,15 +1,15 @@
 <template>
     <form class="AddingHero" id="form" @submit="addHero">
         <label for="name">Name</label>
-        <input id="name" type="text" v-model="hero.name">
+        <input class="input" id="name" type="text" v-model="hero.name">
         <label for="age">Age</label>
-        <input id="age" type="number" v-model="hero.age">
+        <input class="input" id="age" type="number" v-model="hero.age">
         <label for="sex">Sex</label>
-        <input id="sex" type="text" v-model="hero.sex">
+        <input class="input" id="sex" type="text" v-model="hero.sex">
         <label for="description">Shot description</label>
-        <textarea id="description" v-model="hero.shot_description" name="" cols="30" rows="10"></textarea>
+        <textarea class="textarea" id="description" v-model="hero.shot_description" name="" cols="30" rows="10"></textarea>
         <label for="story">Story of life</label>
-        <textarea id="story" v-model="hero.story_of_life" cols="50" rows="15"></textarea>
+        <textarea class="textarea" id="story" v-model="hero.story_of_life" cols="50" rows="15"></textarea>
         <button @click="cleanForm">Add hero</button>
     </form>
 </template>

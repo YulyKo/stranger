@@ -4,16 +4,16 @@
             <li v-for="error in errors" :key="error">{{ error }}</li>
         </ul>
         <label for="login">Login</label>
-        <input v-model="user.login" id="login" type="text">
+        <input class="input" v-model="user.login" id="login" type="text">
         <label for="name">Name</label>
-        <input v-model="user.name" id="name" type="text">
+        <input class="input" v-model="user.name" id="name" type="text">
         <label for="birthday">Birthday</label>
-        <input v-model="user.date_of_birth" id="birthday" type="date" data-date=""
+        <input class="input" v-model="user.date_of_birth" id="birthday" type="date" data-date=""
                data-date-format="DD MM YYYY"
                value="2015-08-09" pattern="/^\d{2}-\d{2}$/">>
         <label for="password">Password</label>
-        <input v-model="user.password" id="password" type="number" min="5">
-        <input v-model="password_repeat" type="number" min="5" placeholder="password repeat">
+        <input class="input" v-model="user.password" id="password" type="number" min="5">
+        <input class="input" v-model="password_repeat" type="number" min="5" placeholder="password repeat">
         <button>Registration</button>
     </form>
 </template>

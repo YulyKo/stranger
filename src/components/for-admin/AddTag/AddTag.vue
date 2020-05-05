@@ -7,11 +7,11 @@
         <option v-for="tagType of tagsTypes" :value="tagType.id" :key="tagType.id" :max="15">{{ tagType.name }}</option>
       </select>
       <label for="name">Name tag</label>
-      <input v-model="tag.name" id="name" type="text">
+      <input class="input" v-model="tag.name" id="name" type="text">
       <label for="bgColor">Background color tag</label>
-      <input v-model="tag.bg_color" id="bgColor" type="color" pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$">
+      <input class="input" v-model="tag.bg_color" id="bgColor" type="color" pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$">
       <label for="textColor">Text color tag</label>
-      <input v-model="tag.text_color" id="textColor" type="color" pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$">
+      <input class="input" v-model="tag.text_color" id="textColor" type="color" pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$">
       <span class="tag-preview" v-bind:style="{backgroundColor: this.tag.bg_color, color: this.tag.text_color}">{{ tag.name }}</span>
       <button @click="cleanForm">Add tag</button>
     </form>

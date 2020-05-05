@@ -10,7 +10,7 @@
       </select>
       <div class="flex">
         <label class="ml-2em" v-for="(type, id) in types" :key="id" for="relationshipTag">
-          <input v-model="ids_types_relationships" id="relationshipTag" type="checkbox" :value="type.id">{{ type.id }} {{type.name}}
+          <input class="input" v-model="ids_types_relationships" id="relationshipTag" type="checkbox" :value="type.id">{{ type.id }} {{type.name}}
         </label>
       </div>
       <button>Add relationship</button>

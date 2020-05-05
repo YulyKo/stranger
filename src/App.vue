@@ -2,40 +2,40 @@
   <div>
     <header class="header">
       <div class="flex header__heroes">
-        <router-link tag="span" class="admin-page" to="/admin">крест - лінка до адмінки</router-link>
+        <router-link tag="span" class="admin-page link" to="/admin">крест - лінка до адмінки</router-link>
         <nav class="flex header__heroes_menu">
           <div class="menu__hero">
-            <router-link tag="a" class="menu__hero_link-container" to="/registration">Registration</router-link>
-            <router-link tag="a" to="/" class="menu__hero_link-container">Home</router-link>
+            <router-link tag="a" class="menu__hero_link-container link" to="/registration">Registration</router-link>
+            <router-link tag="a" to="/" class="menu__hero_link-container link">Home</router-link>
             hero
           </div>
           <div class="menu__hero">
             <div class="menu__hero_link-container">
               <img class="cloud"
                   src="https://firebasestorage.googleapis.com/v0/b/stranger-proba.appspot.com/o/res%2Fnool.png?alt=media&token=398bf52d-973f-483b-9e64-49b8ffb3cddc" alt="">
-              <router-link tag="a" class="link-container__link" to="/plots">Plots</router-link>
+              <router-link tag="a" class="link-container__link link" to="/plots">Plots</router-link>
             </div>
             <img class="menu__hero_mam"
                 src="https://firebasestorage.googleapis.com/v0/b/stranger-proba.appspot.com/o/res%2Fmam.png?alt=media&token=00227d42-09c9-4c4b-8ad3-a82524b83d62" alt="no">
             hero
           </div>
           <div class="menu__hero">
-            <router-link tag="a" to="/heroes" class="menu__hero_link-container">Heroes</router-link>
+            <router-link tag="a" to="/heroes" class="link menu__hero_link-container">Heroes</router-link>
             <img class="menu__hero_dad"
                 src="https://firebasestorage.googleapis.com/v0/b/stranger-proba.appspot.com/o/res%2Fpappy.png?alt=media&token=87655878-1b7f-45aa-bb55-dcccda789a28" alt="no">
           </div>
             <div class="menu__hero">
-              <router-link tag="a" to="/locations" class="menu__hero_link-container">Locations</router-link>
+              <router-link tag="a" to="/locations" class="link menu__hero_link-container">Locations</router-link>
               <img class="menu__hero_uncle"
                   src="https://firebasestorage.googleapis.com/v0/b/stranger-proba.appspot.com/o/res%2Fhero.png?alt=media&token=7734ec62-5187-4ae2-a474-2623e742e5d9" alt="no">
             </div>
           <div class="menu__hero">
-            <router-link tag="a" to="/relationships" class="menu__hero_link-container">Relationships</router-link>
+            <router-link tag="a" to="/relationships" class="link menu__hero_link-container">Relationships</router-link>
             <img class="menu__hero_sister"
                 src="https://firebasestorage.googleapis.com/v0/b/stranger-proba.appspot.com/o/res%2Flolo.png?alt=media&token=1f0798b5-14b7-4bc0-a5c1-cbd034a6b4e5" alt="no">
           </div>
           <div class="menu__hero">
-            <router-link tag="a" to="/arts" class="menu__hero_link-container">Arts</router-link>
+            <router-link tag="a" to="/arts" class="link menu__hero_link-container">Arts</router-link>
             <img class="menu__hero_molli"
                 src="https://firebasestorage.googleapis.com/v0/b/stranger-proba.appspot.com/o/res%2Fcat.png?alt=media&token=301bd314-d5db-4aa0-9e85-0b21aace9ad5" alt="">
           </div>
@@ -43,15 +43,15 @@
       </div>
       <div class="header__name">name</div>
     </header>
-    <main class="">
+    <main class="content">
         <router-view></router-view>
     </main>
     <footer class="flex footer">
       <span>unicorn</span>
       <div class="form">
-        <input type="email">
-        <input type="text">
-        <textarea name="message" id="" cols="30" rows="10"></textarea>
+        <input class="input" type="email">
+        <input class="input" type="text">
+        <textarea class="textarea" name="message" id="" cols="30" rows="10"></textarea>
       </div>
     </footer>
   </div>
@@ -66,72 +66,139 @@ export default {
 </script>
 
 <style lang="sass">
+  @import url('https://fonts.googleapis.com/css?family=Covered+By+Your+Grace&display=swap')
+  html
+    font-family: 'Covered By Your Grace', cursive
+    font-size: 2vw
+
   .flex
     display: flex
+
   .ml-2em
     margin-left: 2em
+
   .m-3rem
     margin: 3rem
+
   .main
     width: 100%
     height: 20rem
     background-color: #333
+
   .form
     input
       display: block
 
+  .link
+    padding: 15px 20px
+    font-size: 2.5vw
+    white-space: unset
+    cursor: pointer
+    color: #a6f5f9
+    text-decoration: none
+    &:hover
+      color: #28d4db
+
+  .text
+    color: #076266
+    &-s
+      font-size: 1.2vw
+    &-m
+      font-size: 3.1vw
+    .-l
+      font-size: 5vw
+
+  .form
+    width: 100%
+    flex-direction: column
+    align-items: center
+    background: #275ab9
+
+  .input, .textarea
+    display: block
+    margin-bottom: 1rem
 </style>
 
 <style lang="sass" scoped>
   .header
     width: 100%
     height: 50vh
+
   .header__heroes
     width: 100%
     height: 76%
+
   .header__name
     width: 100%
-    height: 20%
+    height: 24%
     background-color: #1F1D1C
+
   .header__heroes_menu
     width: 100%
     justify-content: space-around
     background-color: #253934
+
   .menu__hero
-    width: 12em
+    width: 7em
     height: 100%
     display: flex
     align-items: flex-end
+    transition: all 0.3s ease
+    -webkit-transition: all 0.3s ease
+    -moz-transition: all 0.3s ease
+    -o-transition: all 0.3s ease
     /*background-color: #275ab9*/
     &:hover > .menu__hero_link-container
+      // animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both
       display: block
+
   .menu__hero_link-container
     display: none
+    // -webkit-animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both
+    animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both
     position: absolute
     &:hover
+      animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both
       color: #42b983
       cursor: pointer
+
+  .content
+    width: 100%
+
   .footer
     width: 100%
     height: 50vh
     background-color: #fa97d3
     justify-content: space-evenly
     align-items: center
+
+  .form
+    input, textarea
+        height: 20px
+        outline: none
+        background-color: #9399e5
+
   .admin-page
     background-color: #888888
     &:hover
       background-color: #039be5
       cursor: pointer
+
   .menu__hero_mam
     height: 69%
+
   .menu__hero_dad
     height: 70%
+
   .menu__hero_uncle
     height: 60%
+
   .menu__hero_sister
     height: 37%
+
   .menu__hero_molli
     height: 23%
+
   .cloud
     height: 100px
 

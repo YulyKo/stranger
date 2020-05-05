@@ -1,12 +1,12 @@
 <template>
   <div class="AddingArt">
     <label for="title">Title</label>
-    <input id="title" type="text" v-model="art.title">
+    <input class="input" id="title" type="text" v-model="art.title">
     <label for="description">Description</label>
-    <input id="description" type="text" v-model="art.description">
+    <input class="input" id="description" type="text" v-model="art.description">
     <div class="flex">
       <label class="ml-2em" v-for="(tag, id) in tags" :key="id">
-        <input type="checkbox" :value="tag.name">
+        <input class="input" type="checkbox" :value="tag.name">
         {{tag.name}}
       </label>
     </div>
@@ -17,7 +17,7 @@
 <img alt="" class="preview" :src="previewImage.picture">
     </div>
     <label for="file">File</label>
-    <input @change="setFile" id="file" type="file" accept="image/*">
+    <input class="input" @change="setFile" id="file" type="file" accept="image/*">
     <button @click="uploadArt()">Add art</button>
   </div>
 </template>

@@ -8,10 +8,12 @@
     }
 }
 .form {
-  width: 60%;
+  //width: 60%;
 }
 
 .tag-preview {
+  display: inline-block;
+  margin: 59px 42px;
   padding: .5em 1rem;
   border-radius: 50px;
 }

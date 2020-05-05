@@ -22,7 +22,6 @@
 </script>
 
 <style lang="sass" scoped>
-  @import url('https://fonts.googleapis.com/css?family=Covered+By+Your+Grace&display=swap')
   .container
     width: 30vw
     height: 60vh
@@ -38,10 +37,8 @@
     &--warning
       background-color: #f9ff1e
   .text
-    font-family: 'Covered By Your Grace', cursive
     font-size: 32pt
     white-space: unset
   .title
-    font-family: 'Covered By Your Grace', cursive
     font-size: 51pt
 </style>
