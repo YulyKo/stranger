@@ -9,7 +9,7 @@
             <section>
                 <h2>list of persons</h2>
                 <div class="flex">
-                  <label for="" class="m-l-2em" v-for="(hero, id) in heroes" :key="id">{{ hero.name }}
+                  <label for="" class="ml-2em" v-for="(hero, id) in heroes" :key="id">{{ hero.name }}
                       <input class="input" type="checkbox" :value="hero.id"
                       v-model="plot.id_persons">
                   </label>
@@ -18,7 +18,7 @@
             <section>
                 <h2>list of locations</h2>
                 <div class="flex">
-                    <label for="" class="m-l-2em" v-for="location in locations" :key="location.id">{{ location.name }}
+                    <label for="" class="ml-2em" v-for="location in locations" :key="location.id">{{ location.name }}
                         <input class="input" type="checkbox" :value="+location.id"
                                v-model="plot.id_locations">
                     </label>

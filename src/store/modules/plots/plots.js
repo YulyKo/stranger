@@ -14,7 +14,7 @@ const http_post_module = {
     },
     actions: {
         async GET_PLOTS_FROM_API(context) {
-            const { data } = await axios.get(`${URL_COMMON}/plots`);
+            const { data } = await axios.get(`${URL_COMMON}/plots_with_tags_persons_locations`);
             context.commit('SET_PLOTS_TO_STATE', data);
         },
     },
