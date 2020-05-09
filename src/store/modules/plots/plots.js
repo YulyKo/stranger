@@ -24,7 +24,8 @@ const http_post_module = {
             context.commit('SET_PLOTS_TO_STATE', data);
         },
       async DELETE_PLOT_FROM_API_BY_ID(context, id) {
-       await axios.delete(`${URL_COMMON}/plots_with_tags_persons_locations/${id}`);
+        await axios.delete(`${URL_COMMON}/plots_with_tags_persons_locations/delete/${id}`)
+         .then(() => console.log('ok'));
       },
     },
 };
