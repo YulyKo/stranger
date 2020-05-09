@@ -15,6 +15,9 @@
             <ul>
               <li v-for="person in plot.persons" class="tag" :key="person.id">{{ person.name }}</li>
             </ul>
+            <div v-if="isAdmin">
+              <span @click="savePLotId(plot.data.id)"><DeletePlot/></span>
+            </div>
             <router-link tag="a" :to="{name: 'Plot', params: {id: plot.data.id}}">Read more {{ plot.data.id }}</router-link>
           </section>
         </div>
@@ -24,17 +27,25 @@
 <script>
   import { mapGetters} from "vuex";
   import _PlotsPage from "./_PlotsPage.scss";
+  import DeletePlot from "../../../components/for-admin/delete/DeletePlot";
 
   export default {
-    props: {
+    components: {
+      DeletePlot
     },
     computed: {
       ...mapGetters({
         plots: 'plots/PLOTS',
+        isAdmin: 'users/IS_ADMIN'
       }),
     },
     beforeCreate() {
       this.$store.dispatch('plots/GET_PLOTS_FROM_API');
+    },
+    methods: {
+      savePLotId(id) {
+        this.$store.commit('plot/SET_PLOT_ID_STATE', id)
+      },
     },
     css: {
       _PlotsPage,

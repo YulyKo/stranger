@@ -2,12 +2,12 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import HomePage from '../pages/Home.vue';
 import Home from "../pages/for-admin/Home";
-import AddingPlot from "../components/for-admin/AddingPlot/AddingPlot.vue";
-import AddingHero from "../components/for-admin/AddingHero/AddingHero";
-import AddingArt from "../components/for-admin/AddingArt/AddingArt";
-import AddingLocation from "../components/for-admin/AddingLocation/AddingLocation";
-import AddingRelationship from "../components/for-admin/AddingRelationship/AddingRelationship";
-import AddTag from "../components/for-admin/AddTag/AddTag";
+import AddingPlot from "../components/for-admin/add/AddingPlot/AddingPlot.vue";
+import AddingHero from "../components/for-admin/add/AddingHero/AddingHero";
+import AddingArt from "../components/for-admin/add/AddingArt/AddingArt";
+import AddingLocation from "../components/for-admin/add/AddingLocation/AddingLocation";
+import AddingRelationship from "../components/for-admin/add/AddingRelationship/AddingRelationship";
+import AddTag from "../components/for-admin/add/AddTag/AddTag";
 import PlotsPage from "../pages/common/PlotsPage/PlotsPage";
 import PlotPage from "../pages/common/PlotsPage/PlotPage/PlotPage";
 import RegistrationPage from "../pages/RegistrationPage"
@@ -61,8 +61,7 @@ const routes = [
                 path: '/admin/add-tag',
                 component: AddTag,
                 props: true
-            },
-
+            }
         ],
     },
     {

@@ -5,9 +5,11 @@ const module = {
     namespaced: true,
     state: {
         users: [],
+      isAdmin: true
     },
     getters: {
         USERS: state => state.users,
+      IS_ADMIN: state => state.isAdmin
     },
     mutations: {
         SET_USERS_TO_STATE: (state, users) => state.users = users,

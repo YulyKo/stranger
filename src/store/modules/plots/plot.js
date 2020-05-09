@@ -5,12 +5,15 @@ const http_plot_module = {
     namespaced: true,
     state: {
         plot: null,
+      plot_id: null,
     },
     getters: {
         PLOT: state => state.plot,
+      PLOT_ID: state => state.plot_id
     },
     mutations: {
         SET_PLOT_TO_STATE: (state, plot) => state.plot = plot,
+        SET_PLOT_ID_STATE: (state, id) => state.plot_id = id,
     },
     actions: {
         async GET_PLOT_FROM_API_BY_ID(context, id) {
