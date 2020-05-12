@@ -1,8 +1,11 @@
 <template>
-  <div>
-    <article v-for="(hero, id) in heroes" :key="id">
-      <img src="" alt="hero art">
-      <router-link tag="h2" :to="{name: 'Hero', params: {id: hero.id}}">{{ hero.name }}</router-link>
+  <div class="main">
+    <article v-for="hero in heroes" :id="hero.id" :key="hero.id">
+      <router-link class="link" tag="a" :to="{name: 'Hero', params: {id: hero.id}}">{{ hero.name }}</router-link>
+      <div v-if="isAdmin">
+        <button class="btn" @click="deletePlot(hero.id)">Delete</button>
+        <hr>
+      </div>
     </article>
   </div>
 </template>
@@ -14,12 +17,19 @@ export default {
   props: {},
   computed: {
       ...mapGetters({
-          heroes: 'heroes/HEROES'
+          heroes: 'heroes/HEROES',
+        isAdmin: 'users/IS_ADMIN',
       }),
   },
   beforeCreate() {
       this.$store.dispatch('heroes/GET_HEROES_FROM_API');
-  }
+  },
+  methods: {
+    deletePlot(id) {
+      document.getElementById(id).style.backgroundColor = '#e12a1e';
+      this.$store.dispatch('heroes/DELETE_HERO_FROM_API_BY_ID', id)
+    },
+  },
 }
 </script>
 

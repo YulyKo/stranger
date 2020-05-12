@@ -20,7 +20,7 @@ const module = {
             console.log(`${URL_COMMON}/persons/${id}`);
             const { data } = await axios.get(`${URL_COMMON}/persons/${id}`);
             console.log(data);
-            context.commit('SET_HERO_TO_STATE', data);
+            context.commit('SET_HERO_TO_STATE', data[0]);
         },
         async GET_HEROES_FROM_API(context) {
             const { data } = await axios.get(`${URL_COMMON}/persons`);
@@ -30,6 +30,10 @@ const module = {
         async POST_HERO_TO_API(context, hero) {
             await axios.post(`${URL_COMMON}/persons`, hero);
         },
+        async DELETE_HERO_FROM_API_BY_ID(context, id) {
+            await axios.delete(`${URL_COMMON}/persons/${id}`);
+        },
+
     },
 };
 

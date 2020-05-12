@@ -1,10 +1,13 @@
 <template>
   <div>
-    <h1>{{ hero.name }}</h1>
-    <h2>{{ hero.shot_description }}</h2>
-    <p>Age: {{ hero.age }}</p>
-    <p>{{ hero.sex }}</p>
-    <p>{{ hero.story_of_life }}</p>
+    <h1 class="text text-l">{{ hero.name }}</h1>
+    <h2 class="text text-m">{{ hero.shot_description }}</h2>
+    <hr>
+    <p class="text text-s">Age: {{ hero.age }}</p>
+    <hr>
+    <p class="text text-s">{{ hero.sex }}</p>
+    <hr>
+    <p class="text text-s">{{ hero.story_of_life }}</p>
   </div>
 </template>
 
@@ -15,11 +18,8 @@
     props: {},
     computed: {
       ...mapGetters({
-          hero_from_store: 'heroes/HERO'
+          hero: 'heroes/HERO'
       }),
-      hero() {
-        return this.hero_from_store[0];
-      },
     },
     beforeCreate() {
       this.$store.dispatch('heroes/GET_HERO_FROM_API_BY_ID', this.$route.params.id);
