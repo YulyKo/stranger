@@ -40,10 +40,8 @@
     },
     methods: {
       deletePlot(id) {
-        // this.$store.commit('plot/SET_PLOT_ID_STATE', id)
         document.getElementById(id).style.backgroundColor = '#e12a1e';
         this.$store.dispatch('plots/DELETE_PLOT_FROM_API_BY_ID', +id)
-        document.getElementById('form').reset();
       },
     },
     css: {

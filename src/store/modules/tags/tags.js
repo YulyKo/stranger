@@ -17,7 +17,6 @@ const tag = {
             console.log(`${URL_COMMON}/${category}`);
 
             const { data } = await axios.get(`${URL_COMMON}/${category}`);
-            console.log(data);
             context.commit('SET_TAGS_TO_STATE', data);
         },
     },
