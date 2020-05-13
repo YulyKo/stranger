@@ -14,24 +14,26 @@ const module = {
     mutations: {
         SET_RELATIONSHIP_TO_STORE: (store, relationship) => { store.relationship = relationship},
         SET_RELATIONSHIP_TYPES_TO_STORE: (store, types) => { store.types = types},
+        SET_NEW_RELATIONSHIP_TYPE_TO_STORE: (store, newType) => { store.types.push(newType) },
     },
     actions: {
-        async GET_RELATIONSHIP_FROM_API_BY_ID(context, id) {
-            console.log(`${URL_COMMON}/relationships/${id}`);
-            const { data } = await axios.get(`${URL_COMMON}/relationships/${id}`);
-            context.commit('SET_RELATIONSHIP_TO_STORE', data);
-        },
-        async SET_RELATIONSHIP_TO_API(context, payload) {
-            await axios.post(`${URL_COMMON}/relationships`, payload);
-        },
-        async GET_RELATIONSHIP_TYPES_FROM_API(context) {
-            console.log(`${URL_COMMON}/type_relationships`);
-            const { data } = await axios.get(`${URL_COMMON}/type_relationships`);
-            context.commit('SET_RELATIONSHIP_TYPES_TO_STORE', data);
-        },
-        async SET_RELATIONSHIP_TYPE_TO_API(context, payload) {
-            await axios.post(`${URL_COMMON}/type_relationships`, payload);
-        },
+      async GET_RELATIONSHIP_FROM_API_BY_ID(context, id) {
+        console.log(`${URL_COMMON}/relationships/${id}`);
+        const { data } = await axios.get(`${URL_COMMON}/relationships/${id}`);
+        context.commit('SET_RELATIONSHIP_TO_STORE', data);
+      },
+      async POST_RELATIONSHIP_TO_API(context, payload) {
+        await axios.post(`${URL_COMMON}/relationships`, payload);
+      },
+      async GET_RELATIONSHIP_TYPES_FROM_API(context) {
+        console.log(`${URL_COMMON}/type_relationships`);
+        const { data } = await axios.get(`${URL_COMMON}/type_relationships`);
+        context.commit('SET_RELATIONSHIP_TYPES_TO_STORE', data);
+      },
+      async POST_NEW_RELATIONSHIP_TYPE_TO_API(context, payload) {
+        await axios.post(`${URL_COMMON}/type_relationships`, payload);
+        context.commit('SET_NEW_RELATIONSHIP_TYPE_TO_STORE', payload)
+      },
     },
 };
 

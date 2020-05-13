@@ -8,10 +8,12 @@
       </select>
       <label for="name">Name tag</label>
       <input class="input" v-model="tag.name" id="name" type="text">
-      <label for="bgColor">Background color tag</label>
-      <input class="input" v-model="tag.bg_color" id="bgColor" type="color" pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$">
-      <label for="textColor">Text color tag</label>
-      <input class="input" v-model="tag.text_color" id="textColor" type="color" pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$">
+      <section v-if="tag.id_type !== 3">
+        <label for="bgColor">Background color tag</label>
+        <input class="input" v-model="tag.bg_color" id="bgColor" type="color" pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$">
+        <label for="textColor">Text color tag</label>
+        <input class="input" v-model="tag.text_color" id="textColor" type="color" pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$">
+      </section>
       <span class="tag-preview" v-bind:style="{backgroundColor: this.tag.bg_color, color: this.tag.text_color}">{{ tag.name }}</span>
       <button @click="cleanForm">Add tag</button>
     </form>
@@ -62,10 +64,9 @@
             addTag() {
                 this.tag.author = this.user.login;
                 if (this.tag.name.length >= 3 && this.tag.name.length <= 15) {
-                    console.log(this.tag.name);
                     if (this.tag.id_type === 3) {
                         this.type_relation.name = this.tag.name;
-                        this.$store.dispatch(`relationship/SET_RELATIONSHIP_TYPE_TO_API`, this.type_relation);
+                        this.$store.dispatch(`relationship/POST_NEW_RELATIONSHIP_TYPE_TO_API`, this.type_relation);
                     } else this.$store.dispatch(`tag/SET_TAG_TO_API`, this.tag);
                 } else if(this.tag.name.length < 3) this.error = 'name is so shot';
                 else if (this.tag.name.length > 15) this.error = 'name is so long';
