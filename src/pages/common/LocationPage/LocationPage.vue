@@ -1,9 +1,9 @@
 <template>
   <div>
     <article>
-      <h1>{{ location[0].name }}</h1>
-      <img :src="this.location[0].photo_url" alt="no photo">
-      <p>{{ location[0].author }}</p>
+      <h1>{{ location.name }}</h1>
+      <img :src="this.location.photo_url" alt="no photo">
+      <p>{{ location.author }}</p>
     </article>
   </div>
 </template>

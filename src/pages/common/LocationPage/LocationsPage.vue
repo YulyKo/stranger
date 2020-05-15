@@ -1,6 +1,6 @@
 <template>
   <div>
-    <article v-for="(location, id) in locations" :key="id">
+    <article v-for="location in locations" :key="location.id">
       <img :src="location.photo_url" alt="no photo">
       <h1>{{ location.name }}</h1>
       <p>{{ location.id }}</p>
@@ -16,19 +16,13 @@
     export default {
         name: "LocationsPage",
         data() {
-            return {
-            }
+            return {}
         },
         computed: {
             ...mapGetters({locations: 'locations/LOCATIONS'})
         },
         beforeCreate() {
             this.$store.dispatch('locations/GET_LOCATIONS_FROM_API')
-        },
-        methods: {
-            click() {
-                console.log(this.locations);
-            },
         },
     }
 </script>

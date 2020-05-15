@@ -7,12 +7,15 @@
         <progress id="progress" :value="previewImage.uploadValue" max="100" ></progress>
       </span>
       <input class="input" @change="setPicture" id="picture" type="file">
-      <button>Add location</button>
+      <div v-if="previewImage.imageData">
+        <img class="preview" :src="previewImage.picture" alt="no file">
+        <button>Add location</button>
+      </div>
     </form>
 </template>
 
 <script>
-    import {mapGetters} from "vuex";
+    import { mapGetters } from "vuex";
     import firebase from "firebase";
 
     export default {
@@ -25,9 +28,9 @@
       data() {
         return {
           location: {
-            author: String,
+            author: '',
             name: '',
-            photo_url: String,
+            photo_url: '',
           },
           previewImage: {
             uploadValue: 0,
@@ -41,31 +44,31 @@
           this.addLocationPictureToStore();
         },
         addLocationPictureToStore() {
-          const storageRef = firebase.storage().ref(`arts/${this.previewImage.imageData.name}`).put(this.previewImage.imageData);
+          this.previewImage.picture = this.previewImage.imageData.name + this.location.name
+          const storageRef = firebase.storage().ref(`locations/${this.previewImage.picture}`)
+            .put(this.previewImage.imageData);
           storageRef.on('state_changed', snapshot => {
               this.previewImage.uploadValue = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
             }, error => { console.log(error.message) },
             () => { this.complete(storageRef); }
           );
         },
-          complete(storageRef) {
-            this.previewImage.uploadValue = 100;
-            storageRef.snapshot.ref.getDownloadURL().then( url => {
-              this.previewImage.picture = url;
-              this.location.photo_url = url;
-              this.addLocationToDb();
-            });
-          },
-          addLocationToDb() {
-            this.location.author = this.user.login;
-            if (this.location.photo_url !== undefined
-                && this.location.photo_url !== null
-                && this.location.photo_url !== ''
-                && this.location.name)
-                this.$store.dispatch('location/POST_LOCATION_TO_API', this.location);
-              document.getElementById('form').reset();
-          },
+        complete(storageRef) {
+          this.previewImage.uploadValue = 100;
+          storageRef.snapshot.ref.getDownloadURL().then( url => {
+            this.previewImage.picture = url;
+            this.location.photo_url = url;
+            this.addLocationToDb();
+          });
+        },
+        addLocationToDb() {
+          this.location.author = this.user.login;
+          if (this.location.photo_url && this.location.author && this.location.name) {
+            this.$store.dispatch('location/POST_LOCATION_TO_API', this.location);
+          }
+        },
         setPicture(event) {
+          this.previewImage.picture = URL.createObjectURL(event.target.files[0]);
           this.previewImage.imageData = event.target.files[0];
         },
       }
