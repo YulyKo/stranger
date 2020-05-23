@@ -21,7 +21,7 @@
         <textarea class="text text-m form__container_textarea form__container_textarea--description" id="description" v-model="hero.shot_description" name="" cols="30" rows="10"></textarea>
         <label class="text text-m form__container_label" for="story">Story of life</label>
         <textarea class="text text-m form__container_textarea" id="story" v-model="hero.story_of_life" cols="50" rows="15"></textarea>
-        <button class="form__container_button-add" @click="cleanForm">Add hero</button>
+        <button class="text text-m form__container_button-add" @click="cleanForm">Add hero</button>
       </div>
     </form>
 </template>

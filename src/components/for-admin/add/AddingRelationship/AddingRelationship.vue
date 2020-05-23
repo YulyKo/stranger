@@ -7,14 +7,14 @@
       <div class="form__container">
         <div class="flex flex--form-hero">
           <div class="w-50vw">
-            <label class="form__container_label" for="firstHero">Person 1</label>
+            <label class="text text-m form__container_label" for="firstHero">Person 1</label>
             <br>
             <select class="text text-m form__container_select" v-model="relationship.id_person" name="" id="firstHero" >
               <option class="text text-m" v-for="(hero, id) in heroes" :key="id" :value="hero.id">{{hero.name}}</option>
             </select>
           </div>
           <div class="w-50vw">
-            <label class="form__container_label" for="secondHero">Person 2</label>
+            <label class="text text-m form__container_label" for="secondHero">Person 2</label>
             <br>
             <select class="text text-m form__container_select" v-model="relationship.id_person2" name="" id="secondHero">
               <option class="text text-m" v-for="(hero, id) in heroes" :key="id" :value="hero.id">{{hero.name}}</option>
@@ -22,7 +22,7 @@
           </div>
         </div>
         <div class="mt-2rem">
-          <label class="form__container_label" for="type-relationship">Type relationship</label>
+          <label class="text text-m form__container_label" for="type-relationship">Type relationship</label>
           <br>
           <select class="text text-m form__container_select form__container_select--type" v-model="relationship.id_type_relationship" id="type-relationship">
                 <option class="text text-m" v-for="(type, id) in types" :key="id"  type="radio" :value="type.id">
@@ -30,9 +30,9 @@
             </option>
           </select>
         </div>
-        <label class="form__container_label" for="">Reasons</label>
+        <label class="text text-m form__container_label" for="">Reasons</label>
         <textarea class="text text-m form__container_textarea form__container_textarea--description" v-model="relationship.reasons" name="reason" id="" cols="30" rows="10"></textarea>
-        <button class="form__container_button-add">Add relationship</button>
+        <button class="text text-m form__container_button-add">Add relationship</button>
       </div>
     </form>
 </template>
