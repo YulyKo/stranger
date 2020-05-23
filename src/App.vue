@@ -58,66 +58,14 @@
 </template>
 
 <script>
+import main from './main.sass';
 
 export default {
   name: 'App',
   components: {},
+  css: [ main ],
 }
 </script>
-
-<style lang="sass">
-  @import url('https://fonts.googleapis.com/css?family=Covered+By+Your+Grace&display=swap')
-  html
-    font-family: 'Covered By Your Grace', cursive
-    font-size: 2vw
-
-  .flex
-    display: flex
-
-  .ml-2em
-    margin-left: 2em
-
-  .m-3rem
-    margin: 3rem
-
-  .main
-    width: 100%
-    height: 20rem
-    background-color: #333
-
-  .form
-    input
-      display: block
-
-  .link
-    padding: 15px 20px
-    font-size: 2.5vw
-    white-space: unset
-    cursor: pointer
-    color: #a6f5f9
-    text-decoration: none
-    &:hover
-      color: #28d4db
-
-  .text
-    color: #076266
-    &-s
-      font-size: 1.2vw
-    &-m
-      font-size: 3.1vw
-    .-l
-      font-size: 5vw
-
-  .form
-    width: 100%
-    flex-direction: column
-    align-items: center
-    background: #275ab9
-
-  .input, .textarea
-    display: block
-    margin-bottom: 1rem
-</style>
 
 <style lang="sass" scoped>
   .header
@@ -149,8 +97,8 @@ export default {
     -o-transition: all 0.3s ease
     /*background-color: #275ab9*/
     &:hover > .menu__hero_link-container
-      // animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both
       display: block
+      // animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both
 
   .menu__hero_link-container
     display: none
