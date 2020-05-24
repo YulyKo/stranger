@@ -21,7 +21,7 @@
             </select>
           </div>
         </div>
-        <div class="mt-2rem">
+        <div class="mt-2rem ta-center">
           <label class="text text-m form__container_label" for="type-relationship">Type relationship</label>
           <br>
           <select class="text text-m form__container_select form__container_select--type" v-model="relationship.id_type_relationship" id="type-relationship">
@@ -29,10 +29,11 @@
               {{type.name}}
             </option>
           </select>
+          <button v-if="isAdmin" class="form__container_button form__container_button--del" @click="del">Delete</button>
         </div>
         <label class="text text-m form__container_label" for="">Reasons</label>
         <textarea class="text text-m form__container_textarea form__container_textarea--description" v-model="relationship.reasons" name="reason" id="" cols="30" rows="10"></textarea>
-        <button class="text text-m form__container_button-add">Add relationship</button>
+        <button class="text text-m form__container_button-add" type="submit">Add relationship</button>
       </div>
     </form>
 </template>
@@ -59,6 +60,7 @@
       ...mapGetters({
         types: `relationship/TYPES`,
         heroes: `heroes/HEROES`,
+        isAdmin: 'users/IS_ADMIN',
       }),
     },
     methods: {
@@ -68,6 +70,10 @@
           this.$store.dispatch('relationship/POST_RELATIONSHIP_TO_API', this.relationship)
 
         document.getElementById('form').reset();
+      },
+      del() {
+        let id = this.relationship.id_type_relationship
+        this.$store.dispatch('relationship/DELETE_RELATIONSHIP_TYPE_FROM_API_BY_ID', +id)
       },
     },
     beforeCreate() {

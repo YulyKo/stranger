@@ -18,7 +18,10 @@
       <section class="flex form__container_tags">
         <div v-for="tag in tags" :key="tag.id">
           <input class="text text-m form__container_checkbox" type="checkbox" v-model="art.tags" :id="tag.id" :value="tag.id">
-          <label class="text text-m tag" :for="tag.id">{{ tag.name }}</label>
+          <label class="text text-m tag" :id="'tag' + tag.id" :for="tag.id">{{ tag.name }}</label>
+          <div v-if="isAdmin">
+            <button class="btn-del" @click="deleteTag('tag' + tag.id, tag.id)">del</button>
+          </div>
         </div>
       </section>
 
@@ -62,6 +65,7 @@
         ...mapGetters({
           tags: 'tags/TAGS',
           user: 'user/USER',
+          isAdmin: 'users/IS_ADMIN',
         })
       },
       methods: {
@@ -90,7 +94,12 @@
               });
             }
           )
-        }
+        },
+        deleteTag(idItem, idTag) {
+          document.getElementById(idItem).style.backgroundColor = '#cd4539';
+          document.getElementById(idItem).style.color = '#72b896';
+          this.$store.dispatch('tags/DELETE_TAG_FROM_API_BY_ID', +idTag)
+        },
       },
       beforeCreate() {
         this.$store.dispatch('tags/GET_TAGS_FROM_API', 'art_tag');

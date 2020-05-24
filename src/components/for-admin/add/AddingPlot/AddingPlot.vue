@@ -47,6 +47,9 @@
             <label :id="'tag' + tag.id" :for="tag.id"  class="text text-m tag">
               {{ tag.name }}
             </label>
+            <div v-if="isAdmin">
+              <button class="btn-del" @click="deleteTag('tag' + tag.id, tag.id)">del</button>
+            </div>
           </div>
         </section>
 
@@ -61,57 +64,58 @@
 </template>
 
 <script>
-    import _AddingPlot from './_AddingPlot.scss';
-    import { mapGetters } from "vuex";
+  import _AddingPlot from './_AddingPlot.scss';
+  import { mapGetters } from "vuex";
 
-    export default {
-        props: {
+  export default {
+    computed: {
+      ...mapGetters({
+        tags: `tags/TAGS`,
+        heroes: `heroes/HEROES`,
+        user: 'user/USER',
+        locations: 'locations/LOCATIONS',
+        isAdmin: 'users/IS_ADMIN',
+      }),
+    },
+    data() {
+      return {
+        plot: {
+          title: '',
+          author: null,
+          text: '',
+          id_locations: [],
+          id_persons: [],
+          id_tags: [],
+          description: '',
         },
-        computed: {
-            ...mapGetters({
-                tags: `tags/TAGS`,
-                heroes: `heroes/HEROES`,
-                user: 'user/USER',
-                locations: 'locations/LOCATIONS',
-            }),
-        },
-        data() {
-            return {
-                plot: {
-                    title: '',
-                    author: null,
-                    text: '',
-                    id_locations: [],
-                    id_persons: [],
-                    id_tags: [],
-                    description: '',
-                },
-            }
-        },
-        methods: {
-            addPlot() {
-              if (this.plot.description.length > 40 &&
-                  this.plot.text.length > 150 &&
-                (this.plot.title.length > 20 || this.plot.title.length < 5)) {
-                this.plot.author = this.user.login;
-                this.$store.dispatch(`plot/POST_PLOT_TO_API`, this.plot);
-              }
-            },
-          deleteTag(type, id) {
-            document.getElementById(id).style.backgroundColor = '#e12a1e';
-            this.$store.dispatch('plots/DELETE_PLOT_FROM_API_BY_ID', +id)
-          },
-        },
-        beforeCreate() {
-            this.$store.dispatch(`plots/GET_PLOTS_FROM_API`);
-            this.$store.dispatch(`heroes/GET_HEROES_FROM_API`);
-            this.$store.dispatch('locations/GET_LOCATIONS_FROM_API')
-            this.$store.dispatch(`tags/GET_TAGS_FROM_API`, 'plot_tags');
-        },
-        css: {
-            _AddingPlot,
-        },
-    };
+      }
+    },
+    methods: {
+      addPlot() {
+        if (this.plot.description.length > 40 &&
+            this.plot.text.length > 150 &&
+          (this.plot.title.length > 20 || this.plot.title.length < 5)) {
+          this.plot.author = this.user.login;
+          this.$store.dispatch(`plot/POST_PLOT_TO_API`, this.plot);
+        }
+      },
+      deleteTag(idItem, idTag) {
+        document.getElementById(idItem).style.backgroundColor = '#cd4539';
+        document.getElementById(idItem).style.color = '#72b896';
+        console.log(idTag)
+        this.$store.dispatch('tags/DELETE_TAG_FROM_API_BY_ID', +idTag)
+      },
+    },
+    beforeCreate() {
+      this.$store.dispatch(`plots/GET_PLOTS_FROM_API`);
+      this.$store.dispatch(`heroes/GET_HEROES_FROM_API`);
+      this.$store.dispatch('locations/GET_LOCATIONS_FROM_API')
+      this.$store.dispatch(`tags/GET_TAGS_FROM_API`, 'plot_tags');
+    },
+    css: {
+      _AddingPlot,
+    },
+  };
 </script>
 <style lang="sass" scoped>
   .form__background
