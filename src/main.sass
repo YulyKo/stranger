@@ -20,6 +20,9 @@ path
 
 .flex
   display: flex
+  &__page
+    flex-wrap: wrap
+    justify-content: space-evenly
 
 .ml-2em
   margin-left: 2em
@@ -67,7 +70,7 @@ path
       display: block
       padding: 1%
       width: 44%
-      height: 10rem
+      height: 41vh
       border-radius: 0
       border: none
       color: $form-green
@@ -77,7 +80,7 @@ path
       overflow: auto
       resize: none
       &--description
-        height: 5rem
+        height: 21vh
     &_label
       margin-top: 1rem
       margin-bottom: 1rem
@@ -121,12 +124,12 @@ path
       box-shadow: 0 0 15px 10px $form-dark-grey
     &_button-add-file
       overflow: hidden
-    &_button--del
-      padding: .7rem .9rem
-      color:  $form-dark-grey
-      border: none
-      background-color: #cd4539
-      cursor: pointer
+.button--del
+  padding: .2vw .9vw
+  color:  $form-white
+  border: none
+  background-color: #cd4539
+  cursor: pointer
 
 input[type="file"]
   opacity: 0
@@ -168,18 +171,28 @@ input[type="file"]
 
 .text
   font-family: 'Comfortaa', cursive
+  //white-space: break-spaces
   &-s
     font-weight: 500
-    font-size: 1.2vw
+    @media (max-width: 551.98px)
+      font-size: 14px
+    @media (min-width: 728px)
+      font-size: 18px
   &-m
     font-weight: 300
-    font-size: 1.6vw
+    @media (max-width: 551.98px)
+      font-size: 18px
+    @media (min-width: 728px)
+      font-size: 21px
   &-l
     font-weight: 700
-    font-size: 5vw
+    @media (max-width: 551.98px)
+      font-size: 18px
+    @media (min-width: 728px)
+      font-size: 24px
 
 .tag
-  margin-bottom: 1rem
+  margin-bottom: .5rem
   margin-right: .5rem
   display: inline-block
   padding: .5em 1rem
@@ -194,3 +207,4 @@ input[type="file"]
 .preview
   margin-top: 3rem
   height: 20vh
+
