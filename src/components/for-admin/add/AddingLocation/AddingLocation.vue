@@ -27,7 +27,6 @@
 <script>
     import { mapGetters } from "vuex";
     import firebase from "firebase";
-    import _AddingLocation from "./_AddingLocation.scss";
 
     export default {
       props: {},
@@ -83,6 +82,6 @@
           this.previewImage.imageData = event.target.files[0];
         },
       },
-      css: [ _AddingLocation ]
+      css: []
     };
 </script>

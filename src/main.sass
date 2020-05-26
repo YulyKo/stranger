@@ -6,7 +6,6 @@ $form-white: #f5eaea
 $page-turquoise: #75d9b3
 $page-red: #aa6c71
 $page-purple: #f4886c
-$page-purple: #ffb880
 $page-yellow: #ffec73
 
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;500;700&display=swap')
@@ -38,6 +37,9 @@ path
 
 .w-50vw
   width: 50vw
+
+.w-50p
+  width: 50%
 
 .ta-center
   text-align: center
@@ -130,14 +132,15 @@ path
   border: none
   background-color: #cd4539
   cursor: pointer
+  border-radius: 35px
 
 input[type="file"]
   opacity: 0
 
 .form__container_select
   display: block
-  padding: 4%
   width: 74%
+  padding: 4%
   border: none
   outline: none
   color: $form-green
@@ -149,19 +152,28 @@ input[type="file"]
   font-size: 21pt
   &--type
     width: 100%
+    padding: 6%
   &--type-tag
-    width: 44%
+    width: 46%
+    padding: 1%
   option
     color: $form-green
     background-color: $form-dark-grey
     border: none
+
+.flex--form-hero
+  margin-top: 1rem
+  width: 44%
+  justify-content: center
+  text-align: -moz-center
+  text-align: -webkit-center
 
 .link
   padding: 15px 20px
   font-size: 2.5vw
   white-space: unset
   cursor: pointer
-  color: #a6f5f9
+  color: $page-red
   text-decoration: none
   &:hover
     color: #28d4db
@@ -171,7 +183,7 @@ input[type="file"]
 
 .text
   font-family: 'Comfortaa', cursive
-  //white-space: break-spaces
+  white-space: break-spaces
   &-s
     font-weight: 500
     @media (max-width: 551.98px)
@@ -190,6 +202,15 @@ input[type="file"]
       font-size: 18px
     @media (min-width: 728px)
       font-size: 24px
+  &-xl
+    margin-top: 0
+    text-align: center
+    font-weight: 700
+    @media (max-width: 551.98px)
+      font-size: 100px
+    @media (min-width: 728px)
+      font-size: 120px
+
 
 .tag
   margin-bottom: .5rem

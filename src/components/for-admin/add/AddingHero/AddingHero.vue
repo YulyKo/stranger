@@ -7,7 +7,7 @@
       <div class="form__container">
         <label class="text text-m form__container_label" for="name">Name</label>
         <input class="text text-m form__container_input" id="name" type="text" v-model="hero.name">
-        <div class="flex flex--form-hero">
+        <div class="flex flex--form-hero w-50vw">
           <div class="w-50vw">
             <label class="text text-m form__container_label" for="age">Age</label>
             <input class="text text-m form__container_input" id="age" type="number" v-model="hero.age">
@@ -27,7 +27,6 @@
 </template>
 
 <script>
-  import _addingHero from './_AddingHero.scss'
   import {mapGetters} from "vuex";
   import mainStyles from "../../../../main.sass";
 
@@ -61,8 +60,12 @@
       }
     },
     css: {
-      _addingHero,
       mainStyles
     }
   };
 </script>
+<style lang="sass" scoped>
+  .w-50vw 
+    .form__container_input
+      padding: 4%
+</style>

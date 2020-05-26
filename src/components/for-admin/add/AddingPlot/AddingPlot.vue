@@ -1,5 +1,5 @@
 <template>
-    <form class="form">
+    <div class="form">
       <svg class="form__background" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 470.86 842.19">
         <path class="cls-1" d="M461.86,668q-48,82.54-96,165.09l-260.22.09L9,668V9H461.86Z"/>
         <image width="472" height="844" transform="translate(-0.8 -0.88)"
@@ -7,19 +7,19 @@
       </svg>
       <div class="form__container">
         <label for="title" class="text text-m form__container_label">Title</label>
-        <input class="text text-m form__container_input" id="title" type="text" v-model.trim="plot.title">
+        <input class="text text-s form__container_input" id="title" type="text" v-model.trim="plot.title">
 
         <label for="description" class="text text-m form__container_label">Description</label>
-        <textarea class="text text-m form__container_textarea form__container_textarea--description"
+        <textarea class="text text-s form__container_textarea form__container_textarea--description"
                   id="description" v-model="plot.description" name="description" cols="30" rows="10"></textarea>
 
-        <label class="text text-m form__container_label">List of persons</label>
+        <label class="text text-s form__container_label">List of persons</label>
         <section>
           <div class="flex form__container_tags">
             <div v-for="(hero, id) in heroes" :key="id">
-              <input class="text text-m form__container_checkbox" type="checkbox"
+              <input class="text text-s form__container_checkbox" type="checkbox"
                      :id="'hero' + hero.id" :value="hero.id" v-model="plot.id_persons">
-              <label :for="'hero' + hero.id" class="text text-m tag">
+              <label :for="'hero' + hero.id" class="text text-s tag">
                 {{ hero.name }}
               </label>
             </div>
@@ -30,9 +30,9 @@
         <section>
           <div class="flex form__container_tags">
             <div v-for="location in locations" :key="location.id">
-              <input class="text text-m form__container_checkbox" type="checkbox"
+              <input class="text text-s form__container_checkbox" type="checkbox"
                      :id="'location' + location.id" :value="+location.id" v-model="plot.id_locations">
-              <label :for="'location' + location.id" class="text text-m tag" >
+              <label :for="'location' + location.id" class="text text-s tag" >
                 {{ location.name }}
               </label>
             </div>
@@ -40,31 +40,29 @@
         </section>
 
         <label class="text text-m form__container_label">Tags</label>
-        <section class="text text-m flex form__container_tags">
+        <section class="text text-s flex form__container_tags">
           <div v-for="tag in tags" :key="tag.id">
-            <input class="text text-m form__container_checkbox" :id="tag.id" :value="+tag.id"
+            <div v-if="isAdmin">
+              <button class="text text-s button button--del" @click="deleteTag('tag' + tag.id, tag.id)">del</button>
+            </div>
+            <input class="text text-s form__container_checkbox" :id="tag.id" :value="+tag.id"
                     type="checkbox" v-model="plot.id_tags">
-            <label :id="'tag' + tag.id" :for="tag.id"  class="text text-m tag">
+            <label :id="'tag' + tag.id" :for="tag.id"  class="text text-s tag">
               {{ tag.name }}
             </label>
-            <div v-if="isAdmin">
-              <button class="btn-del" @click="deleteTag('tag' + tag.id, tag.id)">del</button>
-            </div>
           </div>
         </section>
-
         <label for="text" class="text text-m form__container_label">Text</label>
-        <textarea class="text text-m form__container_textarea" v-model="plot.text"
+        <textarea class="text text-s form__container_textarea" v-model="plot.text"
                   name="text" id="text" cols="30" rows="10"></textarea>
         <button class="text text-m form__container_button-add" @click="addPlot">
             Add plot
         </button>
       </div>
-    </form>
+    </div>
 </template>
 
 <script>
-  import _AddingPlot from './_AddingPlot.scss';
   import { mapGetters } from "vuex";
 
   export default {
@@ -92,12 +90,23 @@
     },
     methods: {
       addPlot() {
-        if (this.plot.description.length > 40 &&
-            this.plot.text.length > 150 &&
-          (this.plot.title.length > 20 || this.plot.title.length < 5)) {
-          this.plot.author = this.user.login;
-          this.$store.dispatch(`plot/POST_PLOT_TO_API`, this.plot);
+        console.log(
+          this.plot.description.length + ', ' +
+          this.plot.text.length + ', ' +
+          this.plot.title.length
+        )
+        if (this.plot.description.length > 10 ) {
+          console.log('description length is ok')
+          if ( this.plot.text.length > 10 ) {
+            console.log('text length is ok')
+            if (this.plot.title.length > 20 || this.plot.title.length < 5) {
+              console.log('title length is ok')
+              this.plot.author = this.user.login;
+              this.$store.dispatch(`plot/POST_PLOT_TO_API`, this.plot);
+            }
+          }
         }
+        // }
       },
       deleteTag(idItem, idTag) {
         document.getElementById(idItem).style.backgroundColor = '#cd4539';
@@ -113,7 +122,6 @@
       this.$store.dispatch(`tags/GET_TAGS_FROM_API`, 'plot_tags');
     },
     css: {
-      _AddingPlot,
     },
   };
 </script>
