@@ -15,7 +15,7 @@ import art from "./modules/arts/art";
 import arts from "./modules/arts/arts";
 
 Vue.use(Vuex);
-export const URL_COMMON = 'http://192.168.1.105:8000';
+export const URL_COMMON = 'http://localhost:8000';
 
 export default new Vuex.Store({
     state: {},

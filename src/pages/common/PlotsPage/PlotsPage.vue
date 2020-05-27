@@ -1,9 +1,6 @@
 <template>
     <div class="PlotsPage">
-        <h1 class="text text-xl">plots page</h1>
-      <section class="horizontal-scroll-wrapper">
-        <div class="text-s tag--card">name</div>
-      </section>
+        <h1 class="text text-xl">Plots</h1>
       <div class="flex flex__page">
           <section class="card" v-for="plot in plots" :id="plot.data.id" :key="plot.id">
             <h2 class="text text-l">{{ plot.data.title }}</h2>
@@ -34,14 +31,12 @@
     computed: {
       ...mapGetters({
         plots: 'plots/PLOTS',
-        tags: 'tags/TAGS',
         isAdmin: 'users/IS_ADMIN',
         idPlot: 'plot/PLOT_ID'
       }),
     },
     beforeCreate() {
       this.$store.dispatch('plots/GET_PLOTS_FROM_API');
-      this.$store.dispatch('tags/GET_TAGS_FROM_API', 'plot_tag');
     },
     methods: {
       deletePlot(id) {
