@@ -1,12 +1,28 @@
 <template>
-  <div class="main">
-    <article v-for="hero in heroes" :id="hero.id" :key="hero.id">
-      <router-link class="link" tag="a" :to="{name: 'Hero', params: {id: hero.id}}">{{ hero.name }}</router-link>
-      <div v-if="isAdmin">
-        <button class="btn" @click="deletePlot(hero.id)">Delete</button>
-        <hr>
-      </div>
-    </article>
+  <div class="page">
+    <h1 class="text text-xl">Heroes</h1>
+    <div class="flex flex__page">
+      <article class="page__card" v-for="hero in heroes" :id="hero.id" :key="hero.id">
+        <h2 class="hero-name text-l">{{ hero.name }}</h2>
+        <div class="flex flex__page">
+          <div>
+            <p class="text-l">Age</p>
+            <p class="text text-m">{{ hero.age }}</p>
+          </div>
+          <div>
+            <p class="text-l">Sex</p>
+            <p class="text text-m">{{ hero.sex }}</p>
+          </div>
+        </div>
+        <p>{{ hero.shot_description }}</p>
+        <div class="flex flex__page">
+          <router-link class="text-m link" t ag="a" :to="{name: 'Hero', params: {id: hero.id}}">Read more</router-link>
+          <div v-if="isAdmin">
+            <button class="text-m button--del" @click="deletePlot(hero.id)">Delete</button>
+          </div>
+        </div>
+      </article>
+    </div>
   </div>
 </template>
 
@@ -33,6 +49,17 @@ export default {
 }
 </script>
 
-<style>
+<style lang="sass" scoped>
+  @import '../../../main'
+  .page
+    color: $page-red
 
+  .hero-name
+    margin-top: 0
+    text-align: center
+    font-weight: 300
+    @media (max-width: 551.98px)
+      font-size: 50px
+    @media (min-width: 728px)
+      font-size: 70px
 </style>

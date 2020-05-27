@@ -1,8 +1,8 @@
 <template>
-    <div class="PlotsPage">
+    <div class="page">
         <h1 class="text text-xl">Plots</h1>
       <div class="flex flex__page">
-          <section class="card" v-for="plot in plots" :id="plot.data.id" :key="plot.id">
+          <section class="page__card" v-for="plot in plots" :id="plot.data.id" :key="plot.id">
             <h2 class="text text-l">{{ plot.data.title }}</h2>
             <h3 class="text text-m">{{ plot.data.description }}</h3>
             <ul class="tags">
@@ -52,20 +52,6 @@
 <style lang="sass" scoped>
 @import "../../../main"
 
-.PlotsPage
-  background-color: $page-turquoise
-
-.card
-  padding: 2rem
-  margin-bottom: 1rem
-  border-radius: 35px
-  background-color: $page-yellow
-  @media (max-width: 551.98px)
-    width: 100vh
-  @media (min-width: 552px)
-    width: 40vw
-  @media (min-width: 1440px)
-    width: 30vw
 
 .tags
   margin-bottom: .6rem
