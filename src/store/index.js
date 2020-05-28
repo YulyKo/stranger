@@ -15,6 +15,7 @@ import art from "./modules/arts/art";
 import arts from "./modules/arts/arts";
 
 Vue.use(Vuex);
+// export const URL_COMMON = 'https://damp-taiga-65569.herokuapp.com/';
 export const URL_COMMON = 'http://localhost:8000';
 
 export default new Vuex.Store({
