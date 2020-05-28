@@ -1,5 +1,8 @@
 <template>
   <div>
+  <!-- __ = block
+  _  = element
+  -- = modifier -->
     <header class="header">
       <div class="flex header__heroes">
         <router-link tag="span" class="admin-page link" to="/admin">крест - лінка до адмінки</router-link>
@@ -68,6 +71,8 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+  @import './main'
+
   .header
     width: 100%
     height: 50vh
@@ -112,6 +117,7 @@ export default {
 
   .content
     width: 100%
+    background-color: $page-turquoise
 
   .footer
     width: 100%

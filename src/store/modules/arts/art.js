@@ -19,7 +19,7 @@ const module = {
             context.commit('SET_ART_TO_STATE', data);
             console.log(data)
         },
-        async SET_ART_TO_API(context, payload) {
+        async POST_ART_TO_API(context, payload) {
             await Axios.post(`${URL_COMMON}/arts_with_tags`, payload);
         },
     },
