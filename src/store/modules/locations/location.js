@@ -21,6 +21,10 @@ const module = {
         async POST_LOCATION_TO_API(context, payload) {
             await axios.post(`${URL_COMMON}/locations`, payload);
         },
+        async DELETE_LOCATION_FROM_API_BY_ID(context, id) {
+          await axios.delete(`${URL_COMMON}/locations/${id}`)
+           .then(() => console.log('ok'));
+        },
     },
 };
 
