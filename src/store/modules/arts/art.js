@@ -2,27 +2,27 @@ import {URL_COMMON} from "../../index";
 import Axios from 'axios';
 
 const module = {
-    namespaced: true,
-    state: {
-        art: null,
+  namespaced: true,
+  state: {
+    art: null,
+  },
+  getters: {
+    ART: state => state.art
+  },
+  mutations: {
+    SET_ART_TO_STATE: (state, art) => { state.art = art },
+  },
+  actions: {
+    async GET_ART_FROM_API_BY_ID(context, id) {
+      console.log(`${URL_COMMON}/arts/${id}`);
+      const { data } = await Axios.get(`${URL_COMMON}/arts/${id}`);
+      context.commit('SET_ART_TO_STATE', data);
+      console.log(data)
     },
-    getters: {
-        ART: state => state.art
+    async POST_ART_TO_API(context, payload) {
+      await Axios.post(`${URL_COMMON}/arts_with_tags`, payload);
     },
-    mutations: {
-        SET_ART_TO_STATE: (state, art) => { state.art = art },
-    },
-    actions: {
-        async GET_ART_FROM_API_BY_ID(context, id) {
-            console.log(`${URL_COMMON}/arts/${id}`);
-            const { data } = await Axios.get(`${URL_COMMON}/arts/${id}`);
-            context.commit('SET_ART_TO_STATE', data);
-            console.log(data)
-        },
-        async POST_ART_TO_API(context, payload) {
-            await Axios.post(`${URL_COMMON}/arts_with_tags`, payload);
-        },
-    },
+  },
 };
 
 export default module;

@@ -25,7 +25,7 @@
     props: {},
     computed: {
       ...mapGetters({
-          hero: 'heroes/HERO'
+        hero: 'heroes/HERO'
       }),
     },
     beforeCreate() {

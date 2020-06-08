@@ -5,12 +5,25 @@
   -- = modifier -->
     <header class="header">
       <div class="flex header__heroes">
-        <router-link tag="span" class="admin-page link" to="/admin">крест - лінка до адмінки</router-link>
+        <router-link v-if="user.login" tag="span" class="admin-page link" to="/admin">крест - лінка до адмінки</router-link>
         <nav class="flex header__heroes_menu">
-          <div class="menu__hero">
-            <router-link tag="a" class="menu__hero_link-container link" to="/registration">Registration</router-link>
-            <router-link tag="a" to="/" class="menu__hero_link-container link">Home</router-link>
-            hero
+          <div class="menu__hero menu__hero--gg">
+            <router-link v-if="!user.login" tag="a" 
+            class="text text-l link link--gg"
+             to="/registration">Registration</router-link>
+
+            <router-link v-if="!user.login" tag="a" 
+            class="text text-l link link--gg" to="/login">Login</router-link>
+
+            <span v-if="user.login" @click="logout" 
+            class="text text-l link link--gg">Logout</span>
+
+            <router-link tag="a" to="/" 
+            class="text text-l link link--gg">Home</router-link>
+            <router-link tag="a" to="/help-me" 
+            class="text text-l link link--gg">Help me</router-link>
+            <router-link tag="a" to="/team" 
+            class="text text-l link link--gg">Team</router-link>
           </div>
           <div class="menu__hero">
             <div class="menu__hero_link-container">
@@ -20,7 +33,6 @@
             </div>
             <img class="menu__hero_mam"
                 src="https://firebasestorage.googleapis.com/v0/b/stranger-proba.appspot.com/o/res%2Fmam.png?alt=media&token=00227d42-09c9-4c4b-8ad3-a82524b83d62" alt="no">
-            hero
           </div>
           <div class="menu__hero">
             <router-link tag="a" to="/heroes" class="link menu__hero_link-container">Heroes</router-link>
@@ -44,7 +56,7 @@
           </div>
         </nav>
       </div>
-      <div class="header__name">name</div>
+      <div class="header__name">Stranger {{ this.user.login }}</div>
     </header>
     <main class="content">
         <router-view></router-view>
@@ -62,10 +74,21 @@
 
 <script>
 import main from './main.sass';
+  import { mapGetters } from "vuex";
 
 export default {
   name: 'App',
   components: {},
+  methods: {
+    logout() {
+      this.$store.dispatch('user/LOGOUT_USER')
+    },
+  },
+  computed: {
+      ...mapGetters({
+        user: 'user/USER',
+      }),
+    },
   css: [ main ],
 }
 </script>
@@ -91,6 +114,11 @@ export default {
     justify-content: space-around
     background-color: #253934
 
+  .link--gg
+    display: none
+  //   :hover
+  //     display: block
+
   .menu__hero
     width: 7em
     height: 100%
@@ -100,10 +128,16 @@ export default {
     -webkit-transition: all 0.3s ease
     -moz-transition: all 0.3s ease
     -o-transition: all 0.3s ease
-    /*background-color: #275ab9*/
+    &--gg
+      display: flex
+      flex-direction: column
+      align-items: flex-start
+      &:hover > .link--gg
+        display: block
     &:hover > .menu__hero_link-container
       display: block
       // animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both
+
 
   .menu__hero_link-container
     display: none

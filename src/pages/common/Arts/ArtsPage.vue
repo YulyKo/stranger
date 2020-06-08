@@ -2,16 +2,16 @@
 <div>
   <h1 class="text text-xl">Arts</h1>
   <div class="page">
-    <figure class="page__card" v-for="art in arts" :id="art.data.id" :key="art.data.id">
+    <figure class="page__card" v-for="art in arts" :id="art.id" :key="art.id">
       <router-link class="page__card_img" 
         tag="img"
-        :src="art.data.url" alt="problem in 14"
-        :to="{name: 'Art', params: {id: art.data.id}}"></router-link>
+        :src="art.url" alt="problem in 14"
+        :to="{name: 'Art', params: {id: art.id}}"></router-link>
       <figcaption class="page__card_info">
-        <h2 class="text text-m">{{art.data.title}}</h2>
+        <h2 class="text text-m">{{art.title}}</h2>
         <div v-if="isAdmin">
           <button class="text-m button--del"
-          @click="deleteArt(art.data.title, art.data.id)">Delete</button>
+          @click="deleteArt(art.title, art.id)">Delete</button>
         </div>
       </figcaption>
     </figure>
@@ -26,7 +26,7 @@
     computed: {
       ...mapGetters({
         arts: 'arts/ARTS',
-        isAdmin: 'users/IS_ADMIN',
+        isAdmin: 'user/IS_ADMIN',
       })
     },
     methods: {

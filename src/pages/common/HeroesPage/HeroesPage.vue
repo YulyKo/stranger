@@ -34,7 +34,7 @@ export default {
   computed: {
       ...mapGetters({
           heroes: 'heroes/HEROES',
-        isAdmin: 'users/IS_ADMIN',
+        isAdmin: 'user/IS_ADMIN',
       }),
   },
   beforeCreate() {

@@ -22,18 +22,18 @@
   import mainSass from '../../../../main.sass';
 
   export default {
-      props: {},
-      computed: {
-        ...mapGetters({
-          plot: 'plot/PLOT'
-          }),
-      },
-      methods: {},
-      beforeCreate() {
-          this.$store.dispatch('plot/GET_PLOT_FROM_API_BY_ID', this.$route.params.id);
-      },
-      created() {},
-      css: [ mainSass ]
+    props: {},
+    computed: {
+      ...mapGetters({
+        plot: 'plot/PLOT'
+      }),
+    },
+    methods: {},
+    beforeCreate() {
+      this.$store.dispatch('plot/GET_PLOT_FROM_API_BY_ID', this.$route.params.id);
+    },
+    created() {},
+    css: [ mainSass ]
   };
 </script>
 <style lang="sass" scoped>
@@ -44,6 +44,7 @@
     display: flex
     flex-direction: column
     align-content: center
+    color: $form-dark-grey
     @media (max-width: 551.98px)
       padding: 0 48px
     @media (min-width: 728px)

@@ -6,11 +6,11 @@
             <h2 class="text text-l">{{ plot.data.title }}</h2>
             <h3 class="text text-m">{{ plot.data.description }}</h3>
             <ul class="tags">
-              <li class="text-m tag tag--card" v-for="tag in plot.tags" :key="tag.id"
-                  v-bind:style="{ backgroundColor: tag.bg_color, color: tag.text_color }">{{ tag.name }}</li>
+              <li class="text-m tag tag--card" v-for="tag in plot.tags" :key="plot.id + tag.id"
+                v-bind:style="{ backgroundColor: tag.bg_color, color: tag.text_color }">{{ tag.name }}</li>
             </ul>
             <ul class="tags">
-              <li v-for="person in plot.persons" class="text-s tag tag--card" :key="person.id">{{ person.name }}</li>
+              <li v-for="person in plot.persons" class="text-s tag tag--card" :key="plot.id + person.id">{{ person.name }}</li>
             </ul>
             <div class="flex">
               <div v-if="isAdmin">
@@ -31,8 +31,7 @@
     computed: {
       ...mapGetters({
         plots: 'plots/PLOTS',
-        isAdmin: 'users/IS_ADMIN',
-        idPlot: 'plot/PLOT_ID'
+        isAdmin: 'user/IS_ADMIN',
       }),
     },
     beforeCreate() {

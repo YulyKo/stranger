@@ -22,7 +22,6 @@
 <script>
   import {mapGetters} from "vuex";
   import main from "../../../main.sass";
-  import gallery from "../../../gallery.sass";
     export default {
       name: "LocationsPage",
       data() {
@@ -31,7 +30,7 @@
       computed: {
         ...mapGetters({
           locations: 'locations/LOCATIONS',
-          isAdmin: 'users/IS_ADMIN'
+          isAdmin: 'user/IS_ADMIN'
         })
       },
       beforeCreate() {
@@ -43,7 +42,7 @@
           this.$store.dispatch('location/DELETE_LOCATION_FROM_API_BY_ID', +id)
         },
       },
-      sass: { main, gallery }
+      sass: { main }
     }
 </script>
 
