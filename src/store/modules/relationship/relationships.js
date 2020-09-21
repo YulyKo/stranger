@@ -14,7 +14,6 @@ const module = {
   },
   actions: {
     async GET_RELATIONSHIPS_FROM_API(context) {
-      console.log(`${URL_COMMON}/relationships`);
       const { data } = await axios.get(`${URL_COMMON}/relationships`);
       context.commit('SET_RELATIONSHIPS_TO_STATE', data);
     },

@@ -15,7 +15,6 @@ const module = {
   },
   actions: {
     async GET_ARTS_FROM_API(context) {
-      console.log(`${URL_COMMON}/arts`);
       const { data } = await axios.get(`${URL_COMMON}/arts`);
       context.commit('SET_ARTS_TO_STATE', data);
     },

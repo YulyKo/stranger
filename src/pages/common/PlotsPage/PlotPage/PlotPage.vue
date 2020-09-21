@@ -28,11 +28,9 @@
         plot: 'plot/PLOT'
       }),
     },
-    methods: {},
     beforeCreate() {
       this.$store.dispatch('plot/GET_PLOT_FROM_API_BY_ID', this.$route.params.id);
     },
-    created() {},
     css: [ mainSass ]
   };
 </script>

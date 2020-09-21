@@ -24,7 +24,6 @@ const module = {
   },
   actions: {
     async GET_RELATIONSHIP_FROM_API_BY_ID(context, id) {
-      console.log(`${URL_COMMON}/relationships/${id}`);
       const { data } = await axios.get(`${URL_COMMON}/relationships/${id}`);
       context.commit('SET_RELATIONSHIP_TO_STORE', data);
     },
@@ -32,7 +31,6 @@ const module = {
       await axios.post(`${URL_COMMON}/relationships`, payload);
     },
     async GET_RELATIONSHIP_TYPES_FROM_API(context) {
-      console.log(`${URL_COMMON}/type_relationships`);
       const { data } = await axios.get(`${URL_COMMON}/type_relationships`);
       context.commit('SET_RELATIONSHIP_TYPES_TO_STORE', data);
     },

@@ -14,7 +14,6 @@ const tag = {
   },
   actions: {
     async GET_TAGS_FROM_API(context, category) {
-      console.log(`${URL_COMMON}/tags/${category}`);
       const { data } = await axios.get(`${URL_COMMON}/tags/${category}`);
       context.commit('SET_TAGS_TO_STATE', data);
     },

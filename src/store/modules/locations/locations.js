@@ -14,7 +14,6 @@ const locations_module = {
   },
   actions: {
     async GET_LOCATIONS_FROM_API(context) {
-      console.log(`${URL_COMMON}/locations`);
       const { data } = await axios.get(`${URL_COMMON}/locations`);
       context.commit('SET_LOCATIONS_TO_STATE', data);
     },
