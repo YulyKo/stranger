@@ -16,7 +16,7 @@ import HeroesPage from "../pages/common/HeroesPage/HeroesPage";
 import HeroPage from "../pages/common/HeroesPage/HeroPage";
 import LocationsPage from "../pages/common/LocationPage/LocationsPage";
 import LocationPage from "../pages/common/LocationPage/LocationPage";
-import RelationshipsPage from "../pages/common/RelationshipsPage/RelationshipsPage";
+import RelationshipsPage from "../pages/common/RelationshipsPage";
 import ArtsPage from "../pages/common/Arts/ArtsPage";
 import ArtPage from "../pages/common/Arts/ArtPage";
 import HelpMePage from "../pages/HelpMePage";

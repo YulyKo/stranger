@@ -63,7 +63,7 @@
 </script>
 
 <style lang="sass" scoped>
-@import '../../../main'
+@import '../../main'
 
 .flex
   justify-content: space-evenly 
