@@ -25,8 +25,8 @@
 
 <script>
   import {mapGetters} from "vuex";
-  import mainStyles from "../../../../main.sass";
-  import SVG_Component from './../svg';
+  import mainStyles from "../../../main.sass";
+  import SVG_Component from './svg';
 
   export default {
     components: { SVG_Component: SVG_Component },
