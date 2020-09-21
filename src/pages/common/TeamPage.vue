@@ -20,7 +20,9 @@
     },
     methods: {
       setUrl(id) {
-        return "https://firebasestorage.googleapis.com/v0/b/stranger-proba.appspot.com/o/team%2F" + id + ".png?alt=media&token=9337dddd-649a-4767-ab39-e5ee0697d5cf"
+        return "https://firebasestorage.googleapis.com/v0/b/stranger-proba.appspot.com/o/team%2F"
+                + id
+                + ".png?alt=media&token=9337dddd-649a-4767-ab39-e5ee0697d5cf"
       },
     },
     beforeCreate() {
