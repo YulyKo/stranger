@@ -22,28 +22,28 @@
 <script>
   import {mapGetters} from "vuex";
   import main from "../../../main.sass";
-    export default {
-      name: "LocationsPage",
-      data() {
-        return {}
+  export default {
+    name: "LocationsPage",
+    data() {
+      return {}
+    },
+    computed: {
+      ...mapGetters({
+        locations: 'locations/LOCATIONS',
+        isAdmin: 'user/IS_ADMIN'
+      })
+    },
+    beforeCreate() {
+      this.$store.dispatch('locations/GET_LOCATIONS_FROM_API')
+    },
+    methods: {
+      deleteLocation(id) {
+        document.getElementById(id).style.backgroundColor = '#e12a1e';
+        this.$store.dispatch('location/DELETE_LOCATION_FROM_API_BY_ID', +id)
       },
-      computed: {
-        ...mapGetters({
-          locations: 'locations/LOCATIONS',
-          isAdmin: 'user/IS_ADMIN'
-        })
-      },
-      beforeCreate() {
-        this.$store.dispatch('locations/GET_LOCATIONS_FROM_API')
-      },
-      methods: {
-        deleteLocation(id) {
-          document.getElementById(id).style.backgroundColor = '#e12a1e';
-          this.$store.dispatch('location/DELETE_LOCATION_FROM_API_BY_ID', +id)
-        },
-      },
-      sass: { main }
-    }
+    },
+    sass: { main }
+  }
 </script>
 
 <style lang="sass" scoped>

@@ -72,8 +72,8 @@
           this.tag.author = this.user.login;
           if (this.tag.name.length >= 3 && this.tag.name.length <= 15) {
             if (this.tag.id_type === 3) {
-                this.type_relation.name = this.tag.name;
-                this.$store.dispatch(`relationship/POST_NEW_RELATIONSHIP_TYPE_TO_API`, this.type_relation);
+              this.type_relation.name = this.tag.name;
+              this.$store.dispatch(`relationship/POST_NEW_RELATIONSHIP_TYPE_TO_API`, this.type_relation);
             } else this.$store.dispatch(`tag/SET_TAG_TO_API`, this.tag);
           } else if(this.tag.name.length < 3) this.error = 'name is so shot';
           else if (this.tag.name.length > 15) this.error = 'name is so long';

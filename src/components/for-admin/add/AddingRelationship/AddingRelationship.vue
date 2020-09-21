@@ -22,7 +22,7 @@
           <label class="text text-m form__container_label" for="type-relationship">Type relationship</label>
           <br>
           <select class="text text-m form__container_select form__container_select--type" v-model="relationship.id_type_relationship" id="type-relationship">
-                <option class="text text-m" v-for="(type, id) in types" :key="id"  type="radio" :value="type.id">
+              <option class="text text-m" v-for="(type, id) in types" :key="id"  type="radio" :value="type.id">
               {{type.name}}
             </option>
           </select>

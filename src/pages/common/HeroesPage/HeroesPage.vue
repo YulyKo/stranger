@@ -32,13 +32,13 @@ import { mapGetters } from "vuex";
 export default {
   props: {},
   computed: {
-      ...mapGetters({
-          heroes: 'heroes/HEROES',
-        isAdmin: 'user/IS_ADMIN',
-      }),
+    ...mapGetters({
+        heroes: 'heroes/HEROES',
+      isAdmin: 'user/IS_ADMIN',
+    }),
   },
   beforeCreate() {
-      this.$store.dispatch('heroes/GET_HEROES_FROM_API');
+    this.$store.dispatch('heroes/GET_HEROES_FROM_API');
   },
   methods: {
     deletePlot(id) {

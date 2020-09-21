@@ -35,33 +35,33 @@
       }
     },
     methods: {
-        addUser() {
-          this.checkExistingUser();
-          if (this.checkError()) {
-            this.$store.dispatch('user/POST_USER_TO_API', this.user);
-          }
-          this.error = [];
-        },
-        checkError() {
-          if (!(this.user.login.length >= 2) || this.user.login === '') this.errors.push('login is so shot');
-          if (!(this.user.name.length >= 1) || this.user.name === '') this.errors.push('name is so shot');
-          if ((this.user.password !== this.password_repeat)
-            || this.user.password === ''
-            || this.password_repeat === '') this.errors.push('passwords is not equals');
-          if (!this.validDate() || !this.user.date_of_birth) this.errors.push('login is so shot');
-          return this.errors.length === 0;
-        },
-        checkExistingUser() {                
-          for (let login in this.allUsers) {
-            if (this.allUsers[login].login === this.user.login)
-              this.errors.push(`User with this login is exist\nPlease write anither login ^ - ^`)
-          }
-        },
-        validDate() {
-          const reg = /^\d{4}-\d{2}-\d{2}$/;
-          console.log(this.user.date_of_birth);
-          if (reg.test(this.user.date_of_birth)) return true;
-        },
+      addUser() {
+        this.checkExistingUser();
+        if (this.checkError()) {
+          this.$store.dispatch('user/POST_USER_TO_API', this.user);
+        }
+        this.error = [];
+      },
+      checkError() {
+        if (!(this.user.login.length >= 2) || this.user.login === '') this.errors.push('login is so shot');
+        if (!(this.user.name.length >= 1) || this.user.name === '') this.errors.push('name is so shot');
+        if ((this.user.password !== this.password_repeat)
+          || this.user.password === ''
+          || this.password_repeat === '') this.errors.push('passwords is not equals');
+        if (!this.validDate() || !this.user.date_of_birth) this.errors.push('login is so shot');
+        return this.errors.length === 0;
+      },
+      checkExistingUser() {                
+        for (let login in this.allUsers) {
+          if (this.allUsers[login].login === this.user.login)
+            this.errors.push(`User with this login is exist\nPlease write anither login ^ - ^`)
+        }
+      },
+      validDate() {
+        const reg = /^\d{4}-\d{2}-\d{2}$/;
+        console.log(this.user.date_of_birth);
+        if (reg.test(this.user.date_of_birth)) return true;
+      },
     },
     computed: {
       ...mapGetters({
