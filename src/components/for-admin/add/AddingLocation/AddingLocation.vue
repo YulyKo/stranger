@@ -53,7 +53,8 @@
         },
         addLocationPictureToStore() {
           this.previewImage.picture = this.previewImage.imageData.name + this.location.name
-          const storageRef = firebase.storage().ref(`locations/${this.previewImage.picture}`)
+          const storageRef = firebase.storage()
+            .ref(`locations/${this.previewImage.picture}`)
             .put(this.previewImage.imageData);
           storageRef.on('state_changed', snapshot => {
               this.previewImage.uploadValue = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
