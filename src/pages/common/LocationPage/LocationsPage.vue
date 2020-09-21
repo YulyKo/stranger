@@ -54,7 +54,6 @@
   padding: 15px
   padding-bottom: 10px
   break-inside: avoid
-  border: 2px solid $page-red
   box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4)
   transition: opacity .4s ease-in-out
   &::hover
