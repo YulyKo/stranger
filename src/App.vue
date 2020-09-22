@@ -27,30 +27,46 @@
           </div>
           <div class="menu__hero">
             <div class="menu__hero_link-container">
+              <router-link tag="a" class="link-container__link link" to="/plots">Plots</router-link>
               <img class="cloud"
                   src="https://firebasestorage.googleapis.com/v0/b/stranger-proba.appspot.com/o/res%2Fnool.png?alt=media&token=398bf52d-973f-483b-9e64-49b8ffb3cddc" alt="">
-              <router-link tag="a" class="link-container__link link" to="/plots">Plots</router-link>
             </div>
             <img class="menu__hero_mam"
                 src="https://firebasestorage.googleapis.com/v0/b/stranger-proba.appspot.com/o/res%2Fmam.png?alt=media&token=00227d42-09c9-4c4b-8ad3-a82524b83d62" alt="no">
           </div>
           <div class="menu__hero">
-            <router-link tag="a" to="/heroes" class="link menu__hero_link-container">Heroes</router-link>
+            <div class="menu__hero_link-container">
+              <router-link tag="a" to="/heroes" class="link link-container__link">Heroes</router-link>
+              <img class="cloud"
+                  src="https://firebasestorage.googleapis.com/v0/b/stranger-proba.appspot.com/o/res%2Fnool.png?alt=media&token=398bf52d-973f-483b-9e64-49b8ffb3cddc" alt="">
+            </div>
             <img class="menu__hero_dad"
                 src="https://firebasestorage.googleapis.com/v0/b/stranger-proba.appspot.com/o/res%2Fpappy.png?alt=media&token=87655878-1b7f-45aa-bb55-dcccda789a28" alt="no">
           </div>
             <div class="menu__hero">
-              <router-link tag="a" to="/locations" class="link menu__hero_link-container">Locations</router-link>
+              <div class="menu__hero_link-container">
+                <router-link tag="a" to="/locations" class="link link-container__link">Locations</router-link>
+                <img class="cloud"
+                    src="https://firebasestorage.googleapis.com/v0/b/stranger-proba.appspot.com/o/res%2Fnool.png?alt=media&token=398bf52d-973f-483b-9e64-49b8ffb3cddc" alt="">
+              </div>
               <img class="menu__hero_uncle"
                   src="https://firebasestorage.googleapis.com/v0/b/stranger-proba.appspot.com/o/res%2Fhero.png?alt=media&token=7734ec62-5187-4ae2-a474-2623e742e5d9" alt="no">
             </div>
           <div class="menu__hero">
-            <router-link tag="a" to="/relationships" class="link menu__hero_link-container">Relationships</router-link>
+            <div class="menu__hero_link-container">
+                <router-link tag="a" to="/relationships" class="link link-container__link">Relationships</router-link>
+                <img class="cloud"
+                    src="https://firebasestorage.googleapis.com/v0/b/stranger-proba.appspot.com/o/res%2Fnool.png?alt=media&token=398bf52d-973f-483b-9e64-49b8ffb3cddc" alt="">
+              </div>
             <img class="menu__hero_sister"
                 src="https://firebasestorage.googleapis.com/v0/b/stranger-proba.appspot.com/o/res%2Flolo.png?alt=media&token=1f0798b5-14b7-4bc0-a5c1-cbd034a6b4e5" alt="no">
           </div>
           <div class="menu__hero">
-            <router-link tag="a" to="/arts" class="link menu__hero_link-container">Arts</router-link>
+            <div class="menu__hero_link-container">
+              <router-link tag="a" to="/arts" class="link link-container__link">Arts</router-link>
+              <img class="cloud"
+                  src="https://firebasestorage.googleapis.com/v0/b/stranger-proba.appspot.com/o/res%2Fnool.png?alt=media&token=398bf52d-973f-483b-9e64-49b8ffb3cddc" alt="">
+            </div>
             <img class="menu__hero_molli"
                 src="https://firebasestorage.googleapis.com/v0/b/stranger-proba.appspot.com/o/res%2Fcat.png?alt=media&token=301bd314-d5db-4aa0-9e85-0b21aace9ad5" alt="">
           </div>
@@ -116,8 +132,6 @@ export default {
 
   .link--gg
     display: none
-  //   :hover
-  //     display: block
 
   .menu__hero
     width: 7em
@@ -135,19 +149,29 @@ export default {
       &:hover > .link--gg
         display: block
     &:hover > .menu__hero_link-container
-      display: block
-      // animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both
+      display: flex
+      flex-direction: column-reverse
+      animation: slide-left 1s both
+      -webkit-animation: slide-left 1s both
+      > .cloud
+        opacity: .6
+        margin-bottom: -2rem
+        animation: slide-left 1s both
+        -webkit-animation: slide-left 1s both
 
 
   .menu__hero_link-container
     display: none
-    // -webkit-animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both
     animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both
     position: absolute
+    animation: slide-left 1s both
+    -webkit-animation: slide-left 1s both
     &:hover
       animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both
       color: #42b983
       cursor: pointer
+      animation: slide-left 1s both
+      -webkit-animation: slide-left 1s both
 
   .content
     width: 100%
@@ -188,7 +212,40 @@ export default {
     height: 23%
 
   .cloud
-    height: 100px
+    height: 8rem
 
+  @-webkit-keyframes menu__hero_link-container
+    0%
+      -webkit-transform: translateX(0)
+      transform: translateX(0)
+
+    100%
+      -webkit-transform: translateX(-26px)
+      transform: translateX(-26px)
+
+  @keyframes slide-left
+    0% 
+      -webkit-transform: translateX(0)
+      transform: translateX(0)
+    100%
+      -webkit-transform: translateX(-26px)
+      transform: translateX(-26px)
+
+  @-webkit-keyframes cloud
+    0%
+      -webkit-transform: translateX(0)
+      transform: translateX(0)
+
+    100%
+      -webkit-transform: translateX(-100px)
+      transform: translateX(-100px)
+
+  @keyframes cloud
+    0% 
+      -webkit-transform: translateX(0)
+      transform: translateX(0)
+    100%
+      -webkit-transform: translateX(-100px)
+      transform: translateX(-100px)
 
 </style>
