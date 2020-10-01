@@ -5,7 +5,7 @@ const module = {
   namespaced: true,
   state: {
     user: {
-      login: 'hero9'
+      login: 'PROBA'
     },
     isAdmin: true
   },
