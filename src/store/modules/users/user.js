@@ -1,29 +1,29 @@
-import axios from "axios";
-import {URL_COMMON} from "../../index";
+import axios from 'axios';
+import { URL_COMMON } from '@/utils';
 
 const module = {
   namespaced: true,
   state: {
     user: {
-      login: 'PROBA'
+      login: 'PROBA',
     },
-    isAdmin: true
+    isAdmin: true,
   },
   getters: {
-    USER: state => state.user,
-    IS_ADMIN: state => state.isAdmin
+    USER: (state) => state.user,
+    IS_ADMIN: (state) => state.isAdmin,
   },
   mutations: {
     SET_USER_TO_STATE: (state, userLogin, userName) => {
       state.user.login = userLogin;
       if (userName !== '') {
-        state.isAdmin = true
-      } else state.isAdmin = false
+        state.isAdmin = true;
+      } else state.isAdmin = false;
     },
     SET_DEFAULT_INFO_OF_USER: (state) => {
       state.isAdmin = false;
       state.user.login = '';
-    }
+    },
   },
   actions: {
     async POST_USER_TO_API(context, user) {
@@ -31,10 +31,10 @@ const module = {
       context.commit('SET_USER_TO_STATE', user);
     },
     async LOGIN_USER_TO_APP(context, userLogin, userName) {
-      context.commit('SET_USER_TO_STATE', userLogin, userName)
+      context.commit('SET_USER_TO_STATE', userLogin, userName);
     },
-    async LOGOUT_USER(context) {
-      context.commit('SET_DEFAULT_INFO_OF_USER')
+    async LOGOUT_USER({ commit }) {
+      commit('SET_DEFAULT_INFO_OF_USER');
     },
   },
 };

@@ -1,5 +1,5 @@
-import {URL_COMMON} from "../../index";
-import axios from "axios";
+import axios from 'axios';
+import { URL_COMMON } from '@/utils';
 
 const module = {
   namespaced: true,
@@ -7,10 +7,10 @@ const module = {
     relationships: null,
   },
   getters: {
-    RELATIONSHIPS: state => state.relationships,
+    RELATIONSHIPS: (state) => state.relationships,
   },
   mutations: {
-    SET_RELATIONSHIPS_TO_STATE: (state, relationships) => { state.relationships = relationships},
+    SET_RELATIONSHIPS_TO_STATE: (state, relationships) => { state.relationships = relationships; },
   },
   actions: {
     async GET_RELATIONSHIPS_FROM_API(context) {

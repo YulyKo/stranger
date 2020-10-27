@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {URL_COMMON} from "../../index";
+import { URL_COMMON } from '@/utils';
 
 const locations_module = {
   namespaced: true,

@@ -1,6 +1,7 @@
-import {URL_COMMON} from "../../index";
-import axios from "axios";
-import firebase from "firebase";
+// eslint-disable-next-line import/no-extraneous-dependencies
+import axios from 'axios';
+import firebase from 'firebase';
+import { URL_COMMON } from '@/utils';
 
 const module = {
   namespaced: true,
@@ -8,7 +9,7 @@ const module = {
     arts: null,
   },
   getters: {
-    ARTS: state => state.arts
+    ARTS: (state) => state.arts,
   },
   mutations: {
     SET_ARTS_TO_STATE: (state, arts) => state.arts = arts,
@@ -23,14 +24,14 @@ const module = {
         .then(() => console.log('ok'));
     },
     async DELETE_ART_IMAGE_FROM_FIREBASE(context, fileName) {
-      const storageRef = firebase.storage().ref()
-      let  desertRef = storageRef.child('arts/' + fileName);
-      desertRef.delete().then(function () {
-        console.log('deleted')
-      }).catch(function (error) {
-        throw error
-      })
-    }
+      const storageRef = firebase.storage().ref();
+      const desertRef = storageRef.child(`arts/${fileName}`);
+      desertRef.delete().then(() => {
+        console.log('deleted');
+      }).catch((error) => {
+        throw error;
+      });
+    },
   },
 };
 

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {URL_COMMON} from "../../index";
+import { URL_COMMON } from '@/utils';
 
 const http_plot_module = {
   namespaced: true,
@@ -7,7 +7,7 @@ const http_plot_module = {
     plot: null,
   },
   getters: {
-    PLOT: state => state.plot,
+    PLOT: (state) => state.plot,
   },
   mutations: {
     SET_PLOT_TO_STATE: (state, plot) => state.plot = plot,

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {URL_COMMON} from "../../index";
+import { URL_COMMON } from '@/utils';
 
 const module = {
   namespaced: true,
@@ -8,8 +8,8 @@ const module = {
     hero: null,
   },
   getters: {
-    HEROES: state => state.heroes,
-    HERO: state => state.hero,
+    HEROES: (state) => state.heroes,
+    HERO: (state) => state.hero,
   },
   mutations: {
     SET_HEROES_TO_STATE: (state, heroes) => state.heroes = heroes,

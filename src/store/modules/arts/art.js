@@ -1,5 +1,5 @@
-import {URL_COMMON} from "../../index";
 import Axios from 'axios';
+import { URL_COMMON } from '@/utils';
 
 const module = {
   namespaced: true,
@@ -7,10 +7,10 @@ const module = {
     art: null,
   },
   getters: {
-    ART: state => state.art
+    ART: (state) => state.art,
   },
   mutations: {
-    SET_ART_TO_STATE: (state, art) => { state.art = art },
+    SET_ART_TO_STATE: (state, art) => { state.art = art; },
   },
   actions: {
     async GET_ART_FROM_API_BY_ID(context, id) {

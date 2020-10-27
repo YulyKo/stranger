@@ -1,5 +1,5 @@
-import axios from "axios";
-import {URL_COMMON} from "../../index";
+import axios from 'axios';
+import { URL_COMMON } from '@/utils/index';
 
 const module = {
   namespaced: true,
@@ -7,10 +7,12 @@ const module = {
     users: [],
   },
   getters: {
-    USERS: state => state.users,
+    USERS: (state) => state.users,
   },
   mutations: {
-    SET_USERS_TO_STATE: (state, users) => state.users = users,
+    SET_USERS_TO_STATE: (state, users) => {
+      state.users = users;
+    },
   },
   actions: {
     async GET_USERS_FROM_API(context, url) {

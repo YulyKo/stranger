@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {URL_COMMON} from "../../index";
+import { URL_COMMON } from '@/utils';
 
 const module = {
   namespaced: true,
@@ -10,7 +10,7 @@ const module = {
     LOCATION: (state) => state.location,
   },
   mutations: {
-    SET_LOCATIONS_TO_STATE: (state, location) => { state.location = location; }
+    SET_LOCATIONS_TO_STATE: (state, location) => { state.location = location; },
   },
   actions: {
     async GET_LOCATION_FROM_API_BY_ID(context, id) {
@@ -21,8 +21,8 @@ const module = {
       await axios.post(`${URL_COMMON}/locations`, payload);
     },
     async DELETE_LOCATION_FROM_API_BY_ID(context, id) {
-    await axios.delete(`${URL_COMMON}/locations/${id}`)
-      .then(() => console.log('ok'));
+      await axios.delete(`${URL_COMMON}/locations/${id}`)
+        .then(() => console.log('ok'));
     },
   },
 };
