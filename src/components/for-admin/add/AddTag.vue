@@ -26,66 +26,67 @@
 </template>
 
 <script>
-    import {mapGetters} from "vuex";
-    import mainStyles from "../../../main.sass";
-    import SVG_Component from './svg';
-    export default {
-      components: {
-        SVG_Component: SVG_Component
+import { mapGetters } from 'vuex';
+import mainStyles from '../../../main.sass';
+import SVG_Component from './svg';
+
+export default {
+  components: {
+    SVG_Component,
+  },
+  computed: {
+    ...mapGetters({
+      user: 'user/USER',
+    }),
+  },
+  data() {
+    return {
+      tag: {
+        id_type: 1,
+        author: '',
+        name: 'name',
+        bg_color: '#CCCCCC',
+        text_color: '#333333',
       },
-      computed: {
-        ...mapGetters({
-          user: 'user/USER',
-        }),
+      type_relation: {
+        name: 'name',
       },
-      data() {
-        return {
-          tag: {
-            id_type: 1,
-            author: '',
-            name: 'name',
-            bg_color: '#CCCCCC',
-            text_color: '#333333',
-          },
-          type_relation: {
-            name: 'name',
-          },
-          tagsTypes: [
-            {
-              id: 1,
-              name: "plot",
-            },
-            {
-              id: 2,
-              name: "art",
-            },
-            {
-              id: 3,
-              name: "relationship",
-            },
-          ],
-          error: '',
-        }
-      },
-      methods: {
-        addTag() {
-          this.tag.author = this.user.login;
-          if (this.tag.name.length >= 3 && this.tag.name.length <= 15) {
-            if (this.tag.id_type === 3) {
-              this.type_relation.name = this.tag.name;
-              this.$store.dispatch(`relationship/POST_NEW_RELATIONSHIP_TYPE_TO_API`, this.type_relation);
-            } else this.$store.dispatch(`tag/SET_TAG_TO_API`, this.tag);
-          } else if(this.tag.name.length < 3) this.error = 'name is so shot';
-          else if (this.tag.name.length > 15) this.error = 'name is so long';
+      tagsTypes: [
+        {
+          id: 1,
+          name: 'plot',
         },
-        cleanForm() {
-          document.getElementById('form').reset();
-        }
-      },
-      css: [
-        mainStyles,
+        {
+          id: 2,
+          name: 'art',
+        },
+        {
+          id: 3,
+          name: 'relationship',
+        },
       ],
+      error: '',
     };
+  },
+  methods: {
+    addTag() {
+      this.tag.author = this.user.login;
+      if (this.tag.name.length >= 3 && this.tag.name.length <= 15) {
+        if (this.tag.id_type === 3) {
+          this.type_relation.name = this.tag.name;
+          this.$store.dispatch('relationship/POST_NEW_RELATIONSHIP_TYPE_TO_API', this.type_relation);
+        } else this.$store.dispatch('tag/SET_TAG_TO_API', this.tag);
+      } else if (this.tag.name.length < 3) this.error = 'name is so shot';
+      else if (this.tag.name.length > 15) this.error = 'name is so long';
+    },
+    cleanForm() {
+      document.getElementById('form').reset();
+    },
+  },
+  css: [
+    mainStyles,
+  ],
+};
 </script>
 <style lang="sass" scoped>
   .form__container_label

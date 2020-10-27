@@ -24,46 +24,45 @@
 </template>
 
 <script>
-  import {mapGetters} from "vuex";
-  import mainStyles from "../../../main.sass";
-  import SVG_Component from './svg';
+import { mapGetters } from 'vuex';
+import mainStyles from '../../../main.sass';
+import SVG_Component from './svg';
 
-  export default {
-    components: { SVG_Component: SVG_Component },
-    data() {
-      return {
-        hero: {
-          author: null,
-          name: null,
-          age: null,
-          sex: 'none',
-          shot_description: null,
-          story_of_life: null,
-        },
-      }
-    },
-    computed: {
-      ...mapGetters({
-        user: 'user/USER'
-      }),
-    },
-    methods: {
-      addHero() {
-        this.hero.author = this.user.login;
-        if (this.hero.name && this.hero.age && this.hero.story_of_life && this.hero.shot_description)
-          this.$store.dispatch('heroes/POST_HERO_TO_API', this.hero);
+export default {
+  components: { SVG_Component },
+  data() {
+    return {
+      hero: {
+        author: null,
+        name: null,
+        age: null,
+        sex: 'none',
+        shot_description: null,
+        story_of_life: null,
       },
-      cleanForm() {
-        document.getElementById('form').reset();
-      }
+    };
+  },
+  computed: {
+    ...mapGetters({
+      user: 'user/USER',
+    }),
+  },
+  methods: {
+    addHero() {
+      this.hero.author = this.user.login;
+      if (this.hero.name && this.hero.age && this.hero.story_of_life && this.hero.shot_description) this.$store.dispatch('heroes/POST_HERO_TO_API', this.hero);
     },
-    css: {
-      mainStyles
-    }
-  };
+    cleanForm() {
+      document.getElementById('form').reset();
+    },
+  },
+  css: {
+    mainStyles,
+  },
+};
 </script>
 <style lang="sass" scoped>
-  .w-50vw 
+  .w-50vw
     .form__container_input
       padding: 4%
 </style>

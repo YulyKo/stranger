@@ -14,17 +14,17 @@
 </template>
 
 <script>
-  import {mapGetters} from "vuex";
+import { mapGetters } from 'vuex';
 
-  export default {
-    name: "ArtPage",
-    computed: {
-      ...mapGetters({ art: 'art/ART' }),
-    },
-    beforeCreate() {
-      this.$store.dispatch('art/GET_ART_FROM_API_BY_ID', this.$route.params.id);
-    }
-  }
+export default {
+  name: 'ArtPage',
+  computed: {
+    ...mapGetters({ art: 'art/ART' }),
+  },
+  beforeCreate() {
+    this.$store.dispatch('art/GET_ART_FROM_API_BY_ID', this.$route.params.id);
+  },
+};
 </script>
 <style lang="sass" scoped>
 @import '../../../main'

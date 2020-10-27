@@ -31,85 +31,81 @@
 </template>
 
 <script>
-  import { mapGetters } from "vuex";
-  import firebase from 'firebase/app';
-  import mainStyles from "../../../main.sass";
-  import SVG_Component from './svg';
+import { mapGetters } from 'vuex';
+import firebase from 'firebase/app';
+import mainStyles from '../../../main.sass';
+import SVG_Component from './svg';
 
-  export default {
-    components: { SVG_Component: SVG_Component},
-    data() {
-      return {
-        art: {
-          author: null,
-          title: null,
-          description: null,
-          url: null,
-          tags: [],
-        },
-        previewImage: {
-          uploadValue: 0,
-          picture: null,
-          imageData: null,
-        },
+export default {
+  components: { SVG_Component },
+  data() {
+    return {
+      art: {
+        author: null,
+        title: null,
+        description: null,
+        url: null,
+        tags: [],
+      },
+      previewImage: {
+        uploadValue: 0,
+        picture: null,
+        imageData: null,
+      },
+    };
+  },
+  computed: {
+    ...mapGetters({
+      tags: 'tags/TAGS',
+      user: 'user/USER',
+      isAdmin: 'user/IS_ADMIN',
+    }),
+  },
+  methods: {
+    addArt() {
+      this.addArtPictureToStore();
+    },
+    addArtPictureToStore() {
+      this.previewImage.picture = this.previewImage.imageData.name + this.art.title;
+      const storageRef = firebase.storage().ref(`arts/${this.previewImage.picture}`)
+        .put(this.previewImage.imageData);
+      storageRef.on('state_changed', (snapshot) => {
+        this.previewImage.uploadValue = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      }, (error) => { console.log(error.message); },
+      () => { this.complete(storageRef); });
+    },
+    complete(storageRef) {
+      this.previewImage.uploadValue = 100;
+      storageRef.snapshot.ref.getDownloadURL().then((url) => {
+        this.previewImage.picture = url;
+        this.art.url = url;
+        this.addArtToDb();
+      });
+    },
+    addArtToDb() {
+      this.art.author = this.user.login;
+      if (this.art.url && this.art.author && this.art.title) {
+        this.$store.dispatch('art/POST_ART_TO_API', this.art);
       }
     },
-    computed: {
-      ...mapGetters({
-        tags: 'tags/TAGS',
-        user: 'user/USER',
-        isAdmin: 'user/IS_ADMIN',
-      })
+    setPicture(event) {
+      this.previewImage.picture = URL.createObjectURL(event.target.files[0]);
+      this.previewImage.imageData = event.target.files[0];
     },
-    methods: {
-      addArt() {
-        this.addArtPictureToStore();
-      },
-      addArtPictureToStore() {
-        this.previewImage.picture = this.previewImage.imageData.name + this.art.title
-        const storageRef = firebase.storage().ref(`arts/${this.previewImage.picture}`)
-          .put(this.previewImage.imageData);
-        storageRef.on('state_changed', snapshot => {
-            this.previewImage.uploadValue = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          }, error => { console.log(error.message) },
-          () => { this.complete(storageRef); }
-        );
-      },
-      complete(storageRef) {
-        this.previewImage.uploadValue = 100;
-        storageRef.snapshot.ref.getDownloadURL().then( url => {
-          this.previewImage.picture = url;
-          this.art.url = url;
-          this.addArtToDb();
-        });
-      },
-      addArtToDb() {
-        this.art.author = this.user.login;
-        if (this.art.url && this.art.author && this.art.title) {
-          this.$store.dispatch('art/POST_ART_TO_API', this.art);
-        }
-      },
-      setPicture(event) {
-        this.previewImage.picture = URL.createObjectURL(event.target.files[0]);
-        this.previewImage.imageData = event.target.files[0];
-      },
-      deleteTag(idItem, idTag) {
-        document.getElementById(idItem).style.backgroundColor = '#cd4539';
-        document.getElementById(idItem).style.color = '#72b896';
-        const id_type = 2
-        this.$store.dispatch('tags/DELETE_TAG_FROM_API_BY_ID', {id: +idTag, id_type: id_type})
-      },
+    deleteTag(idItem, idTag) {
+      document.getElementById(idItem).style.backgroundColor = '#cd4539';
+      document.getElementById(idItem).style.color = '#72b896';
+      const id_type = 2;
+      this.$store.dispatch('tags/DELETE_TAG_FROM_API_BY_ID', { id: +idTag, id_type });
     },
-    beforeCreate() {
-      this.$store.dispatch('tags/GET_TAGS_FROM_API', 'art');
-    },
-    css: [ mainStyles ],
-  };
+  },
+  beforeCreate() {
+    this.$store.dispatch('tags/GET_TAGS_FROM_API', 'art');
+  },
+  css: [mainStyles],
+};
 </script>
 
 <style lang="sass" scoped>
-
-
-
 
 </style>

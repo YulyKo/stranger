@@ -33,80 +33,80 @@
 </template>
 
 <script>
-  import { mapGetters} from "vuex";
-  import mainStyles from '../../../main.sass';
+import { mapGetters } from 'vuex';
+import mainStyles from '../../../main.sass';
 
-  export default {
-    computed: {
-      ...mapGetters({
-        plots: 'plots/PLOTS',
-        isAdmin: 'user/IS_ADMIN',
-        user: 'user/USER'
-      }),
+export default {
+  computed: {
+    ...mapGetters({
+      plots: 'plots/PLOTS',
+      isAdmin: 'user/IS_ADMIN',
+      user: 'user/USER',
+    }),
+  },
+  beforeCreate() {
+    this.$store.dispatch('plots/GET_PLOTS_FROM_API');
+  },
+  methods: {
+    deletePlot(id) {
+      document.getElementById(id).style.backgroundColor = '#e12a1e';
+      this.$store.dispatch('plots/DELETE_PLOT_FROM_API_BY_ID', +id);
     },
-    beforeCreate() {
-      this.$store.dispatch('plots/GET_PLOTS_FROM_API');
-    },
-    methods: {
-      deletePlot(id) {
-        document.getElementById(id).style.backgroundColor = '#e12a1e';
-        this.$store.dispatch('plots/DELETE_PLOT_FROM_API_BY_ID', +id)
-      },
-      likePlot(plot) {
-        if (plot.users_likes.includes(this.user.login)) {
-          this.setDislike(plot)
-        } else if (!plot.users_likes.includes(this.user.login)) {
-          this.setLike(plot)
-        }
-      },
-      setLike(plot) {
-        this.setLikeToBD(plot)
-        plot.users_likes.push(this.user.login)
-        plot.data.likes++
-      },
-      setLikeToBD(plot) {
-        let data = {
-          dataForPut: {
-            id: plot.data.id,
-            likes: +plot.data.likes+1,
-            login: this.user.login
-          },
-          dataForPost: {
-            id: plot.data.id,
-            login: this.user.login
-          }
-        }
-        this.$store.dispatch('plots/POST_LIKE_IN_PLOT_BY_ID', data.dataForPost)
-        this.$store.dispatch('plots/PUT_LIKES_IN_PLOT_BY_ID', data.dataForPut)
-      },
-      setDislike(plot) {
-        this.setDislikeToBD(plot)
-        plot.users_likes.forEach((login, index) => {
-          if (login === this.user.login) {
-            plot.users_likes.splice(index, 1)
-          }
-        })
-        plot.data.likes--
-      },
-      setDislikeToBD(plot) {
-        let data = {
-          dataForPut: {
-            id: plot.data.id,
-            likes: +plot.data.likes-1,
-            login: this.user.login
-          },
-          dataForDelete: {
-            id: plot.data.id
-          }
-        }
-        this.$store.dispatch('plots/PUT_DISLIKE_IN_PLOT_BY_ID', data.dataForPut)
-        this.$store.dispatch('plots/DELETE_DISLIKE_IN_PLOT_BY_ID', data.dataForDelete)
+    likePlot(plot) {
+      if (plot.users_likes.includes(this.user.login)) {
+        this.setDislike(plot);
+      } else if (!plot.users_likes.includes(this.user.login)) {
+        this.setLike(plot);
       }
     },
-    css: {
-      mainStyles
+    setLike(plot) {
+      this.setLikeToBD(plot);
+      plot.users_likes.push(this.user.login);
+      plot.data.likes++;
     },
-  };
+    setLikeToBD(plot) {
+      const data = {
+        dataForPut: {
+          id: plot.data.id,
+          likes: +plot.data.likes + 1,
+          login: this.user.login,
+        },
+        dataForPost: {
+          id: plot.data.id,
+          login: this.user.login,
+        },
+      };
+      this.$store.dispatch('plots/POST_LIKE_IN_PLOT_BY_ID', data.dataForPost);
+      this.$store.dispatch('plots/PUT_LIKES_IN_PLOT_BY_ID', data.dataForPut);
+    },
+    setDislike(plot) {
+      this.setDislikeToBD(plot);
+      plot.users_likes.forEach((login, index) => {
+        if (login === this.user.login) {
+          plot.users_likes.splice(index, 1);
+        }
+      });
+      plot.data.likes--;
+    },
+    setDislikeToBD(plot) {
+      const data = {
+        dataForPut: {
+          id: plot.data.id,
+          likes: +plot.data.likes - 1,
+          login: this.user.login,
+        },
+        dataForDelete: {
+          id: plot.data.id,
+        },
+      };
+      this.$store.dispatch('plots/PUT_DISLIKE_IN_PLOT_BY_ID', data.dataForPut);
+      this.$store.dispatch('plots/DELETE_DISLIKE_IN_PLOT_BY_ID', data.dataForDelete);
+    },
+  },
+  css: {
+    mainStyles,
+  },
+};
 </script>
 <style lang="sass" scoped>
 @import "../../../main"
@@ -114,7 +114,7 @@
 .tags
   margin-bottom: .6rem
   margin-top: 0
-  padding: 0 
+  padding: 0
 
 .tag--card
   box-sizing: border-box

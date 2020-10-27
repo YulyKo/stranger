@@ -36,50 +36,49 @@
 </template>
 
 <script>
-    import {mapGetters} from "vuex";
-    import mainStyles from "../../../main.sass";
-    import SVG_Component from './svg';
+import { mapGetters } from 'vuex';
+import mainStyles from '../../../main.sass';
+import SVG_Component from './svg';
 
-  export default {
-    components: {
-      SVG_Component: SVG_Component
-    },
-    data() {
-      return {
-        relationship: {
-          id_person: 0,
-          id_person2: 0,
-          id_type_relationship: null,
-          reasons: '',
-        },
-      }
-    },
-    computed: {
-      ...mapGetters({
-        types: `relationship/TYPES`,
-        heroes: `heroes/HEROES`,
-        isAdmin: 'user/IS_ADMIN',
-      }),
-    },
-    methods: {
-      addRelationship() {
-        console.log('add relationship');
-        if (this.relationship.id_person && this.relationship.id_person2)
-          this.$store.dispatch('relationship/POST_RELATIONSHIP_TO_API', this.relationship)
+export default {
+  components: {
+    SVG_Component,
+  },
+  data() {
+    return {
+      relationship: {
+        id_person: 0,
+        id_person2: 0,
+        id_type_relationship: null,
+        reasons: '',
+      },
+    };
+  },
+  computed: {
+    ...mapGetters({
+      types: 'relationship/TYPES',
+      heroes: 'heroes/HEROES',
+      isAdmin: 'user/IS_ADMIN',
+    }),
+  },
+  methods: {
+    addRelationship() {
+      console.log('add relationship');
+      if (this.relationship.id_person && this.relationship.id_person2) this.$store.dispatch('relationship/POST_RELATIONSHIP_TO_API', this.relationship);
 
-        document.getElementById('form').reset();
-      },
-      del() {
-        let id = this.relationship.id_type_relationship
-        this.$store.dispatch('relationship/DELETE_RELATIONSHIP_TYPE_FROM_API_BY_ID', +id)
-      },
+      document.getElementById('form').reset();
     },
-    beforeCreate() {
-      this.$store.dispatch(`relationship/GET_RELATIONSHIP_TYPES_FROM_API`, 'relationship_tags');
-      this.$store.dispatch(`heroes/GET_HEROES_FROM_API`);
+    del() {
+      const id = this.relationship.id_type_relationship;
+      this.$store.dispatch('relationship/DELETE_RELATIONSHIP_TYPE_FROM_API_BY_ID', +id);
     },
-    css: [ mainStyles ],
-  };
+  },
+  beforeCreate() {
+    this.$store.dispatch('relationship/GET_RELATIONSHIP_TYPES_FROM_API', 'relationship_tags');
+    this.$store.dispatch('heroes/GET_HEROES_FROM_API');
+  },
+  css: [mainStyles],
+};
 </script>
 <style lang="css" scoped>
   label {

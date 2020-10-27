@@ -13,57 +13,57 @@
 </template>
 
 <script>
-  import {mapGetters} from "vuex";
+import { mapGetters } from 'vuex';
 
-  export default {
-    name: "Login",
-    data() {
-      return {
-        user: {
-          login: '',
-          name: '',
-          password: '',
-        },
-        errors: [],
+export default {
+  name: 'Login',
+  data() {
+    return {
+      user: {
+        login: '',
+        name: '',
+        password: '',
+      },
+      errors: [],
+    };
+  },
+  methods: {
+    checkExistingUser() {
+      for (const index in this.allUsers) {
+        if (this.allUsers[index].login === this.user.login && this.allUsers[index].password_hash !== this.user.password) {
+          this.errors.push('Wrong password');
+        }
+        // console.log(this.allUsers[login].login);
+        // console.log(typeof this.user.login);
+        if (this.user.login === this.allUsers[index].login) {
+          this.user.name = this.allUsers[index].name;
+          console.log(this.allUsers[index].name);
+          console.log(this.allUsers[index].password_hash);
+        }
       }
     },
-    methods: {
-      checkExistingUser() {
-        for (let index in this.allUsers) {
-          if (this.allUsers[index].login === this.user.login && this.allUsers[index].password_hash !== this.user.password) {
-            this.errors.push('Wrong password')
-          }
-          // console.log(this.allUsers[login].login);
-          // console.log(typeof this.user.login);
-          if(this.user.login === this.allUsers[index].login) {
-            this.user.name = this.allUsers[index].name;
-            console.log(this.allUsers[index].name);
-            console.log(this.allUsers[index].password_hash);
-          }
-        }
-      },
-      loginUser() {
-        this.checkExistingUser()
-        if (this.errors !== [] && this.user.name !== '') {
-          this.$store.dispatch('user/LOGIN_USER_TO_APP', this.user.login, this.user.name)
-        } else console.log(this.errors);
-        
-        this.errors = [];
-        this.user = {
-          login: '',
-          name: null,
-          password: '',
-        }        
-      },
+    loginUser() {
+      this.checkExistingUser();
+      if (this.errors !== [] && this.user.name !== '') {
+        this.$store.dispatch('user/LOGIN_USER_TO_APP', this.user.login, this.user.name);
+      } else console.log(this.errors);
+
+      this.errors = [];
+      this.user = {
+        login: '',
+        name: null,
+        password: '',
+      };
     },
-    computed: {
-      ...mapGetters({
-        allUsers: 'users/USERS',
-        isAdmin: 'user/IS_ADMIN',
-      }),
-    },
-    beforeCreate() {
-      this.$store.dispatch('users/GET_USERS_FROM_API', 'users_with_hash');
-    },
-  };
+  },
+  computed: {
+    ...mapGetters({
+      allUsers: 'users/USERS',
+      isAdmin: 'user/IS_ADMIN',
+    }),
+  },
+  beforeCreate() {
+    this.$store.dispatch('users/GET_USERS_FROM_API', 'users_with_hash');
+  },
+};
 </script>

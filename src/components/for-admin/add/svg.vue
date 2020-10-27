@@ -5,8 +5,8 @@
         </svg>
 </template>
 <script>
-    
-    export default {
-        name: "svg"
-    };
+
+export default {
+  name: 'svg',
+};
 </script>

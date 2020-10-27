@@ -9,9 +9,9 @@
 </template>
 
 <script>
-  export default {
-    name: "HelpMePage"
-  }
+export default {
+  name: 'HelpMePage',
+};
 </script>
 
 <style lang="sass" scoped>
@@ -22,7 +22,7 @@
     display: flex
     flex-direction: column
     justify-content: center
-    
+
   .text
     white-space: break-spaces
 </style>

@@ -13,16 +13,16 @@
 </template>
 
 <script>
-  export default {
-    name: "Home",
-    components: {},
-    methods: {
-      setUrl(param) {
-        console.log(param);
-      },
+export default {
+  name: 'Home',
+  components: {},
+  methods: {
+    setUrl(param) {
+      console.log(param);
     },
-    computed: {},
-  }
+  },
+  computed: {},
+};
 </script>
 
 <style lang="sass" scoped>

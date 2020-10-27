@@ -4,9 +4,9 @@
     <div class="page">
       <figure class="page__card" :id="location.id"
       v-for="location in locations" :key="location.id">
-        <router-link 
+        <router-link
           class="page__card_img" tag="img"
-          :src="location.photo_url" alt="no photo" 
+          :src="location.photo_url" alt="no photo"
           :to="{name: 'Location', params: {id: location.id}}"></router-link>
         <figcaption class="page__card_info">
           <p class="text text-m">{{location.name}}</p>
@@ -20,30 +20,31 @@
 </template>
 
 <script>
-  import {mapGetters} from "vuex";
-  import main from "../../../main.sass";
-  export default {
-    name: "LocationsPage",
-    data() {
-      return {}
+import { mapGetters } from 'vuex';
+import main from '../../../main.sass';
+
+export default {
+  name: 'LocationsPage',
+  data() {
+    return {};
+  },
+  computed: {
+    ...mapGetters({
+      locations: 'locations/LOCATIONS',
+      isAdmin: 'user/IS_ADMIN',
+    }),
+  },
+  beforeCreate() {
+    this.$store.dispatch('locations/GET_LOCATIONS_FROM_API');
+  },
+  methods: {
+    deleteLocation(id) {
+      document.getElementById(id).style.backgroundColor = '#e12a1e';
+      this.$store.dispatch('location/DELETE_LOCATION_FROM_API_BY_ID', +id);
     },
-    computed: {
-      ...mapGetters({
-        locations: 'locations/LOCATIONS',
-        isAdmin: 'user/IS_ADMIN'
-      })
-    },
-    beforeCreate() {
-      this.$store.dispatch('locations/GET_LOCATIONS_FROM_API')
-    },
-    methods: {
-      deleteLocation(id) {
-        document.getElementById(id).style.backgroundColor = '#e12a1e';
-        this.$store.dispatch('location/DELETE_LOCATION_FROM_API_BY_ID', +id)
-      },
-    },
-    sass: { main }
-  }
+  },
+  sass: { main },
+};
 </script>
 
 <style lang="sass" scoped>
@@ -58,8 +59,8 @@
   transition: opacity .4s ease-in-out
   &::hover
     background-color: $page-purple
-      
-.page__card_img 
+
+.page__card_img
   width: 100%
   border-radius: 35px
   cursor: pointer
@@ -68,10 +69,10 @@
   &.page__card
   &.page__card_info
     line-height: 1.5
- 
+
 .page__card
   margin-bottom: 20px
-  @media (min-width: 0px) and (max-width: 755px) 
+  @media (min-width: 0px) and (max-width: 755px)
     padding: 3rem
   @media (min-width: 756px) and (max-width: 1511px)
     padding: 1rem
@@ -83,13 +84,13 @@
     padding: 20px
 
 .page .page__card
-  @media (min-width: 0px) and (max-width: 755px) 
+  @media (min-width: 0px) and (max-width: 755px)
     width: 90%
-  @media (min-width: 756px) and (max-width: 1007px)  
+  @media (min-width: 756px) and (max-width: 1007px)
     width: 87%
-  @media (min-width: 1008px) and (max-width: 1259px) 
+  @media (min-width: 1008px) and (max-width: 1259px)
     width: 82%
-  @media (min-width: 1260px) and (max-width: 1511px) 
+  @media (min-width: 1260px) and (max-width: 1511px)
     width: 83%
   @media (min-width: 1512px) and (max-width: 1763px)
     width: 88%
@@ -106,14 +107,14 @@
   column-width: 320px
   column-gap: 15px
   background-color: $page-turquoise
-  @media (min-width: 0px) and (max-width: 755px) 
+  @media (min-width: 0px) and (max-width: 755px)
     width: 504px
     column-gap: 0px
-  @media (min-width: 756px) and (max-width: 1007px)  
+  @media (min-width: 756px) and (max-width: 1007px)
     width: 756px
-  @media (min-width: 1008px) and (max-width: 1259px) 
+  @media (min-width: 1008px) and (max-width: 1259px)
     width: 1008px
-  @media (min-width: 1260px) and (max-width: 1511px) 
+  @media (min-width: 1260px) and (max-width: 1511px)
     width: 1260px
   @media (min-width: 1512px) and (max-width: 1763px)
     width: 1512px

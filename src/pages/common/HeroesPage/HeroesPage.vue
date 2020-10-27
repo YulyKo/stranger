@@ -27,13 +27,13 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters } from 'vuex';
 
 export default {
   props: {},
   computed: {
     ...mapGetters({
-        heroes: 'heroes/HEROES',
+      heroes: 'heroes/HEROES',
       isAdmin: 'user/IS_ADMIN',
     }),
   },
@@ -43,10 +43,10 @@ export default {
   methods: {
     deletePlot(id) {
       document.getElementById(id).style.backgroundColor = '#e12a1e';
-      this.$store.dispatch('heroes/DELETE_HERO_FROM_API_BY_ID', id)
+      this.$store.dispatch('heroes/DELETE_HERO_FROM_API_BY_ID', id);
     },
   },
-}
+};
 </script>
 
 <style lang="sass" scoped>

@@ -3,7 +3,7 @@
   <h1 class="text text-xl">Arts</h1>
   <div class="page">
     <figure class="page__card" v-for="art in arts" :id="art.id" :key="art.id">
-      <router-link class="page__card_img" 
+      <router-link class="page__card_img"
         tag="img"
         :src="art.url" alt="problem in 14"
         :to="{name: 'Art', params: {id: art.id}}"></router-link>
@@ -20,26 +20,27 @@
 </template>
 
 <script>
-  import {mapGetters} from "vuex";
-  export default {
-    name: "ArtsPage",
-    computed: {
-      ...mapGetters({
-        arts: 'arts/ARTS',
-        isAdmin: 'user/IS_ADMIN',
-      })
+import { mapGetters } from 'vuex';
+
+export default {
+  name: 'ArtsPage',
+  computed: {
+    ...mapGetters({
+      arts: 'arts/ARTS',
+      isAdmin: 'user/IS_ADMIN',
+    }),
+  },
+  methods: {
+    deleteArt(fileName, id) {
+      document.getElementById(id).style.backgroundColor = '#e12a1e';
+      this.$store.dispatch('arts/DELETE_ART_IMAGE_FROM_FIREBASE', fileName);
+      this.$store.dispatch('arts/DELETE_ART_FROM_API_BY_ID', id);
     },
-    methods: {
-      deleteArt(fileName, id) {
-        document.getElementById(id).style.backgroundColor = '#e12a1e';
-        this.$store.dispatch('arts/DELETE_ART_IMAGE_FROM_FIREBASE', fileName);
-        this.$store.dispatch('arts/DELETE_ART_FROM_API_BY_ID', id);
-      },
-    },
-    beforeCreate() {
-      this.$store.dispatch('arts/GET_ARTS_FROM_API');
-    },
-  }
+  },
+  beforeCreate() {
+    this.$store.dispatch('arts/GET_ARTS_FROM_API');
+  },
+};
 </script>
 
 <style lang="sass" scoped>
@@ -54,8 +55,8 @@
   transition: opacity .4s ease-in-out
   &::hover
     background-color: $page-purple
-      
-.page__card_img 
+
+.page__card_img
   width: 100%
   border-radius: 35px
   cursor: pointer
@@ -64,10 +65,10 @@
   &.page__card
   &.page__card_info
     line-height: 1.5
- 
+
 .page__card
   margin-bottom: 20px
-  @media (min-width: 0px) and (max-width: 755px) 
+  @media (min-width: 0px) and (max-width: 755px)
     padding: 3rem
   @media (min-width: 756px) and (max-width: 1511px)
     padding: 1rem
@@ -79,13 +80,13 @@
     padding: 20px
 
 .page .page__card
-  @media (min-width: 0px) and (max-width: 755px) 
+  @media (min-width: 0px) and (max-width: 755px)
     width: 90%
-  @media (min-width: 756px) and (max-width: 1007px)  
+  @media (min-width: 756px) and (max-width: 1007px)
     width: 87%
-  @media (min-width: 1008px) and (max-width: 1259px) 
+  @media (min-width: 1008px) and (max-width: 1259px)
     width: 82%
-  @media (min-width: 1260px) and (max-width: 1511px) 
+  @media (min-width: 1260px) and (max-width: 1511px)
     width: 83%
   @media (min-width: 1512px) and (max-width: 1763px)
     width: 88%
@@ -102,14 +103,14 @@
   column-width: 320px
   column-gap: 15px
   background-color: $page-turquoise
-  @media (min-width: 0px) and (max-width: 755px) 
+  @media (min-width: 0px) and (max-width: 755px)
     width: 504px
     column-gap: 0px
-  @media (min-width: 756px) and (max-width: 1007px)  
+  @media (min-width: 756px) and (max-width: 1007px)
     width: 756px
-  @media (min-width: 1008px) and (max-width: 1259px) 
+  @media (min-width: 1008px) and (max-width: 1259px)
     width: 1008px
-  @media (min-width: 1260px) and (max-width: 1511px) 
+  @media (min-width: 1260px) and (max-width: 1511px)
     width: 1260px
   @media (min-width: 1512px) and (max-width: 1763px)
     width: 1512px

@@ -18,21 +18,21 @@
 </template>
 
 <script>
-  import {mapGetters} from "vuex";
-  import mainSass from '../../../../main.sass';
+import { mapGetters } from 'vuex';
+import mainSass from '../../../../main.sass';
 
-  export default {
-    props: {},
-    computed: {
-      ...mapGetters({
-        plot: 'plot/PLOT'
-      }),
-    },
-    beforeCreate() {
-      this.$store.dispatch('plot/GET_PLOT_FROM_API_BY_ID', this.$route.params.id);
-    },
-    css: [ mainSass ]
-  };
+export default {
+  props: {},
+  computed: {
+    ...mapGetters({
+      plot: 'plot/PLOT',
+    }),
+  },
+  beforeCreate() {
+    this.$store.dispatch('plot/GET_PLOT_FROM_API_BY_ID', this.$route.params.id);
+  },
+  css: [mainSass],
+};
 </script>
 <style lang="sass" scoped>
 

@@ -9,17 +9,17 @@
 </template>
 
 <script>
-  import {mapGetters} from "vuex";
+import { mapGetters } from 'vuex';
 
-  export default {
-    name: "LocationPage",
-    computed: {
-      ...mapGetters({location: 'location/LOCATION'})
-    },
-    beforeCreate() {
-      this.$store.dispatch('location/GET_LOCATION_FROM_API_BY_ID',  this.$route.params.id)
-    }
-  }
+export default {
+  name: 'LocationPage',
+  computed: {
+    ...mapGetters({ location: 'location/LOCATION' }),
+  },
+  beforeCreate() {
+    this.$store.dispatch('location/GET_LOCATION_FROM_API_BY_ID', this.$route.params.id);
+  },
+};
 </script>
 
 <style lang="sass" scoped>

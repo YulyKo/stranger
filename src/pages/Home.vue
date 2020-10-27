@@ -17,13 +17,14 @@
 </template>
 
 <script>
-  import mainStyles from "../main.sass";
-  export default {
-    name: "Home",
-    css: [
-      mainStyles,
-    ],
-  }
+import mainStyles from '../main.sass';
+
+export default {
+  name: 'Home',
+  css: [
+    mainStyles,
+  ],
+};
 </script>
 
 <style lang="sass" scoped>

@@ -59,58 +59,58 @@
 </template>
 
 <script>
-  import { mapGetters } from "vuex";
-    import SVG_Component from './svg';
+import { mapGetters } from 'vuex';
+import SVG_Component from './svg';
 
-  export default {
-    components: { SVG_Component: SVG_Component },
-    computed: {
-      ...mapGetters({
-        tags: `tags/TAGS`,
-        heroes: `heroes/HEROES`,
-        user: 'user/USER',
-        locations: 'locations/LOCATIONS',
-        isAdmin: 'user/IS_ADMIN',
-      }),
-    },
-    data() {
-      return {
-        plot: {
-          title: '',
-          author: '',
-          text: '',
-          id_locations: [],
-          id_persons: [],
-          id_tags: [],
-          description: '',
-        },
+export default {
+  components: { SVG_Component },
+  computed: {
+    ...mapGetters({
+      tags: 'tags/TAGS',
+      heroes: 'heroes/HEROES',
+      user: 'user/USER',
+      locations: 'locations/LOCATIONS',
+      isAdmin: 'user/IS_ADMIN',
+    }),
+  },
+  data() {
+    return {
+      plot: {
+        title: '',
+        author: '',
+        text: '',
+        id_locations: [],
+        id_persons: [],
+        id_tags: [],
+        description: '',
+      },
+    };
+  },
+  methods: {
+    addPlot() {
+      if (this.plot.description.length > 10) {
+        if (this.plot.text.length > 10) {
+          if (this.plot.title.length > 5) {
+            console.log(`title length is ok : ${this.plot.id_tags}`);
+            this.plot.author = this.user.login;
+            this.$store.dispatch('plot/POST_PLOT_TO_API', this.plot);
+          }
+        }
       }
     },
-    methods: {
-      addPlot() {
-        if (this.plot.description.length > 10 ) {
-          if ( this.plot.text.length > 10 ) {
-            if (this.plot.title.length > 5) {
-              console.log('title length is ok : ' + this.plot.id_tags)
-              this.plot.author = this.user.login;
-              this.$store.dispatch(`plot/POST_PLOT_TO_API`, this.plot);
-            }
-          }
-        }  
-      },
-      deleteTag(idItem, idTag) {
-        document.getElementById(idItem).style.backgroundColor = '#cd4539';
-        document.getElementById(idItem).style.color = '#72b896';
-        this.$store.dispatch('tags/DELETE_TAG_FROM_API_BY_ID', {id: +idTag, id_type: 1})
-      },
+    deleteTag(idItem, idTag) {
+      document.getElementById(idItem).style.backgroundColor = '#cd4539';
+      document.getElementById(idItem).style.color = '#72b896';
+      this.$store.dispatch('tags/DELETE_TAG_FROM_API_BY_ID', { id: +idTag, id_type: 1 });
     },
-    beforeCreate() {
-      this.$store.dispatch(`tags/GET_TAGS_FROM_API`, 'plot');
-      this.$store.dispatch(`plots/GET_PLOTS_FROM_API`);
-      this.$store.dispatch(`heroes/GET_HEROES_FROM_API`);
-      this.$store.dispatch('locations/GET_LOCATIONS_FROM_API')
-    },
-  };
+  },
+  beforeCreate() {
+    this.$store.dispatch('tags/GET_TAGS_FROM_API', 'plot');
+    this.$store.dispatch('plots/GET_PLOTS_FROM_API');
+    this.$store.dispatch('heroes/GET_HEROES_FROM_API');
+    this.$store.dispatch('locations/GET_LOCATIONS_FROM_API');
+  },
+};
 </script>
 <style lang="sass" scoped>
   .form__background
