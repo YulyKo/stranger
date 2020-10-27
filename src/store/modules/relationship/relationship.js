@@ -16,7 +16,7 @@ const module = {
     SET_RELATIONSHIP_TYPES_TO_STORE: (store, types) => { store.types = types; },
     SET_NEW_RELATIONSHIP_TYPE_TO_STORE: (store, newType) => { store.types.push(newType); },
     DEL_RELATIONSHIP_TYPE_FROM_STORE: (store, type) => {
-      for (let index = 0; index < store.types.length; index++) {
+      for (let index = 0; index < store.types.length; index += 1) {
         if (store.types[index].data.id === type) { store.types.splice(index, type); }
       }
       store.types.re(type);

@@ -62,7 +62,7 @@ export default {
     setLike(plot) {
       this.setLikeToBD(plot);
       plot.users_likes.push(this.user.login);
-      plot.data.likes++;
+      plot.data.likes += 1;
     },
     setLikeToBD(plot) {
       const data = {
@@ -86,7 +86,7 @@ export default {
           plot.users_likes.splice(index, 1);
         }
       });
-      plot.data.likes--;
+      plot.data.likes -= 1;
     },
     setDislikeToBD(plot) {
       const data = {

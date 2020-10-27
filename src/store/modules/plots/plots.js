@@ -12,7 +12,7 @@ const http_post_module = {
   mutations: {
     SET_PLOTS_TO_STATE: (state, plots) => state.plots = plots,
     DELETE_PLOT_FROM_STATE: (state, plot) => {
-      for (let index = 0; index < state.plots.length; index++) {
+      for (let index = 0; index < state.plots.length; index += 1) {
         if (state.plots[index].data.id === plot.id) { state.plots.splice(index, plot); }
       }
     },
