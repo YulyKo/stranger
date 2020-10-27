@@ -35,7 +35,12 @@ export default {
 <style lang="sass" scoped>
   @import './../main'
   .content
-    background: linear-gradient(180deg, rgba(31,29,28,1) 0%, rgba(117,217,179,1) 24%, rgba(117,217,145,1) 53%, rgba(237,242,148,1) 100%)
+    background: linear-gradient(180deg,
+                                rgba(31,29,28,1) 0%,
+                                rgba(117,217,179,1) 24%,
+                                rgba(117,217,145,1) 53%,
+                                rgba(237,242,148,1) 100%
+                               )
 
   .container
     padding: 0 5rem 5rem

@@ -7,17 +7,31 @@
         <div class="flex flex--form-hero w-50vw">
           <div class="w-50vw">
             <label class="text text-m form__container_label" for="age">Age</label>
-            <input class="text text-m form__container_input" id="age" type="number" v-model="hero.age">
+            <input
+              class="text text-m form__container_input"
+              id="age"
+              type="number"
+              v-model="hero.age">
           </div>
           <div class="w-50vw">
             <label class="text text-m form__container_label" for="sex">Sex</label>
-            <input class="text text-m form__container_input" id="sex" type="text" v-model="hero.sex">
+            <input
+              class="text text-m form__container_input"
+              id="sex" type="text"
+              v-model="hero.sex">
           </div>
         </div>
         <label class="text text-m form__container_label" for="description">Shot description</label>
-        <textarea class="text text-m form__container_textarea form__container_textarea--description" id="description" v-model="hero.shot_description" name="" cols="30" rows="10"></textarea>
+        <textarea
+          class="text text-m form__container_textarea form__container_textarea--description"
+          id="description"
+          v-model="hero.shot_description"
+          name="" cols="30" rows="10"></textarea>
         <label class="text text-m form__container_label" for="story">Story of life</label>
-        <textarea class="text text-m form__container_textarea" id="story" v-model="hero.story_of_life" cols="50" rows="15"></textarea>
+        <textarea
+          class="text text-m form__container_textarea"
+          id="story"
+          v-model="hero.story_of_life" cols="50" rows="15"></textarea>
         <button class="text text-m form__container_button-add" @click="cleanForm">Add hero</button>
       </div>
     </form>

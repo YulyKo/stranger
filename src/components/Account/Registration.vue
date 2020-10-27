@@ -13,7 +13,10 @@
       value="2015-08-09" pattern="/^\d{2}-\d{2}$/">>
     <label for="password">Password</label>
     <input class="input" v-model="user.password" id="password" type="number" min="5">
-    <input class="input" v-model="password_repeat" type="number" min="5" placeholder="password repeat">
+    <input class="input"
+           v-model="password_repeat"
+           type="number" min="5"
+           placeholder="password repeat">
     <button @click="addUser">Registration</button>
   </div>
 </template>
