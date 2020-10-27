@@ -5,7 +5,8 @@
   -- = modifier -->
     <header class="header">
       <div class="flex header__heroes">
-        <router-link v-if="user.login" tag="span" class="admin-page link" to="/admin">крест - лінка до адмінки</router-link>
+        <router-link v-if="user.login" tag="span"
+                     class="admin-page link" to="/admin">крест - лінка до адмінки</router-link>
         <nav class="flex header__heroes_menu">
           <div class="menu__hero menu__hero--gg">
             <router-link v-if="!user.login" tag="a"
@@ -36,7 +37,8 @@
           </div>
           <div class="menu__hero">
             <div class="menu__hero_link-container">
-              <router-link tag="a" to="/heroes" class="link link-container__link">Heroes</router-link>
+              <router-link tag="a" to="/heroes"
+                           class="link link-container__link">Heroes</router-link>
               <img class="cloud"
                   src="https://firebasestorage.googleapis.com/v0/b/stranger-proba.appspot.com/o/res%2Fnool.png?alt=media&token=398bf52d-973f-483b-9e64-49b8ffb3cddc" alt="">
             </div>
@@ -45,7 +47,8 @@
           </div>
             <div class="menu__hero">
               <div class="menu__hero_link-container">
-                <router-link tag="a" to="/locations" class="link link-container__link">Locations</router-link>
+                <router-link tag="a" to="/locations"
+                             class="link link-container__link">Locations</router-link>
                 <img class="cloud"
                     src="https://firebasestorage.googleapis.com/v0/b/stranger-proba.appspot.com/o/res%2Fnool.png?alt=media&token=398bf52d-973f-483b-9e64-49b8ffb3cddc" alt="">
               </div>
@@ -54,7 +57,8 @@
             </div>
           <div class="menu__hero">
             <div class="menu__hero_link-container">
-                <router-link tag="a" to="/relationships" class="link link-container__link">Relationships</router-link>
+                <router-link tag="a" to="/relationships"
+                             class="link link-container__link">Relationships</router-link>
                 <img class="cloud"
                     src="https://firebasestorage.googleapis.com/v0/b/stranger-proba.appspot.com/o/res%2Fnool.png?alt=media&token=398bf52d-973f-483b-9e64-49b8ffb3cddc" alt="">
               </div>

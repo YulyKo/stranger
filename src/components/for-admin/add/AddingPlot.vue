@@ -3,11 +3,19 @@
       <SVG_Component></SVG_Component>
       <div class="form__container">
         <label for="title" class="text text-m form__container_label">Title</label>
-        <input class="text text-s form__container_input" id="title" type="text" v-model.trim="plot.title">
+        <input
+          class="text text-s form__container_input"
+          id="title"
+          type="text"
+          v-model.trim="plot.title">
 
         <label for="description" class="text text-m form__container_label">Description</label>
         <textarea class="text text-s form__container_textarea form__container_textarea--description"
-                  id="description" v-model="plot.description" name="description" cols="30" rows="10"></textarea>
+                  id="description"
+                  v-model="plot.description"
+                  name="description"
+                  cols="30"
+                  rows="10"></textarea>
 
         <label class="text text-s form__container_label">List of persons</label>
         <section>
@@ -26,8 +34,11 @@
         <section>
           <div class="flex form__container_tags">
             <div v-for="location in locations" :key="location.id">
-              <input class="text text-s form__container_checkbox" type="checkbox"
-                     :id="'location' + location.id" :value="+location.id" v-model="plot.id_locations">
+              <input class="text text-s form__container_checkbox"
+                     type="checkbox"
+                     :id="'location' + location.id"
+                     :value="+location.id"
+                     v-model="plot.id_locations">
               <label :for="'location' + location.id" class="text text-s tag" >
                 {{ location.name }}
               </label>
@@ -39,7 +50,9 @@
         <section class="text text-s flex form__container_tags">
           <div v-for="tag in tags" :key="tag.id">
             <div v-if="isAdmin">
-              <span class="text text-s button button--del" @click="deleteTag('tag' + tag.id, tag.id)">del</span>
+              <span
+                class="text text-s button button--del"
+                @click="deleteTag('tag' + tag.id, tag.id)">del</span>
             </div>
             <input class="text text-s form__container_checkbox" :id="tag.id" :value="+tag.id"
                     type="checkbox" v-model="plot.id_tags">

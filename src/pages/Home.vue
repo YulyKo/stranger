@@ -2,11 +2,16 @@
   <div>
     <article class="container container--left">
       <h2 class="text title">Welcome to website</h2>
-      <p class="text text-m">Here you can to publish and see fun-arts, plots, persons of heroes future game</p>
+      <p class="text text-m">
+        Here you can to publish and see fun-arts, plots, persons of heroes future game
+      </p>
     </article>
     <article class="container container--right">
       <h2 class="text title">What is stranger?</h2>
-      <p class="text text-m">It is project of one student from Ukraine. It'll be game about life, happiness and plain and love</p>
+      <p class="text text-m">
+        It is project of one student from Ukraine.
+        It'll be game about life, happiness and plain and love
+      </p>
     </article>
     <article class="container container--warning">
       <hr class="warning-line">

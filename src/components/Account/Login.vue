@@ -30,7 +30,8 @@ export default {
   methods: {
     checkExistingUser() {
       for (const index in this.allUsers) {
-        if (this.allUsers[index].login === this.user.login && this.allUsers[index].password_hash !== this.user.password) {
+        if (this.allUsers[index].login === this.user.login
+              && this.allUsers[index].password_hash !== this.user.password) {
           this.errors.push('Wrong password');
         }
         // console.log(this.allUsers[login].login);

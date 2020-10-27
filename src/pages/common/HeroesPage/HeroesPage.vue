@@ -16,7 +16,11 @@
         </div>
         <p>{{ hero.shot_description }}</p>
         <div class="flex flex__page">
-          <router-link class="text-m link" t ag="a" :to="{name: 'Hero', params: {id: hero.id}}">Read more</router-link>
+          <router-link class="text-m link"
+                       tag="a" :to="{
+                         name: 'Hero',
+                         params: {id: hero.id}
+                       }">Read more</router-link>
           <div v-if="isAdmin">
             <button class="text-m button--del" @click="deletePlot(hero.id)">Delete</button>
           </div>

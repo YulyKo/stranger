@@ -4,22 +4,40 @@
     <div class="form__container">
       <p>{{ this.error }}</p>
       <label class="text text-m form__container_label" for="type-tag">Type of tag</label>
-      <select class="text text-s form__container_select form__container_select--type-tag" id="type-tag" v-model="tag.id_type">
-        <option v-for="tagType of tagsTypes" :value="tagType.id" :key="tagType.id" :max="15">{{ tagType.name }}</option>
+      <select
+        class="text text-s form__container_select form__container_select--type-tag"
+        id="type-tag"
+        v-model="tag.id_type">
+        <option v-for="tagType of tagsTypes"
+                :value="tagType.id"
+                :key="tagType.id" :max="15">{{ tagType.name }}</option>
       </select>
       <label class="text text-m form__container_label" for="name">Name tag</label>
       <input class="text text-s form__container_input" v-model="tag.name" id="name" type="text">
       <section class="flex picker" v-if="tag.id_type !== 3">
         <div class="picker picker_container w-13vw">
-          <label class="text text-m form__container_label" for="bgColor">Background color tag</label>
-          <input class="text text-s form__container_input" v-model="tag.bg_color" id="bgColor" type="color" pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$">
+          <label class="text text-m form__container_label"
+                 for="bgColor">Background color tag</label>
+          <input
+            class="text text-s form__container_input"
+            v-model="tag.bg_color"
+            id="bgColor"
+            type="color"
+            pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$">
         </div>
         <div class="picker picker_container w-13vw">
           <label class="text text-m form__container_label" for="textColor">Text color tag</label>
-          <input class="text text-s form__container_input" v-model="tag.text_color" id="textColor" type="color" pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$">
+          <input class="text text-s form__container_input"
+                 v-model="tag.text_color"
+                 id="textColor" type="color"
+                 pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$">
         </div>
       </section>
-      <span class="text text-s tag-preview" v-bind:style="{backgroundColor: this.tag.bg_color, color: this.tag.text_color}">{{ tag.name }}</span>
+      <span class="text text-s tag-preview"
+            v-bind:style="{
+              backgroundColor: this.tag.bg_color,
+              color: this.tag.text_color
+            }">{{ tag.name }}</span>
       <button class="text text-m form__container_button-add" @click="cleanForm">Add tag</button>
     </div>
   </form>

@@ -50,7 +50,10 @@ export default {
   methods: {
     addHero() {
       this.hero.author = this.user.login;
-      if (this.hero.name && this.hero.age && this.hero.story_of_life && this.hero.shot_description) this.$store.dispatch('heroes/POST_HERO_TO_API', this.hero);
+      if (this.hero.name
+        && this.hero.age
+        && this.hero.story_of_life
+        && this.hero.shot_description) this.$store.dispatch('heroes/POST_HERO_TO_API', this.hero);
     },
     cleanForm() {
       document.getElementById('form').reset();

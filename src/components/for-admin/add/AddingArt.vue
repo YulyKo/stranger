@@ -3,18 +3,33 @@
     <SVG_Component></SVG_Component>
     <div class="form__container">
       <button class="text text-m form__container_image form__container_image-btn">Add image</button>
-      <input @change="setPicture" class="text text-s form__container_image form__container_image-input" id="file" type="file" accept="image/*">
+      <input
+        @change="setPicture"
+        class="text text-s form__container_image form__container_image-input"
+        id="file" type="file"
+        accept="image/*">
       <label class="text text-m form__container_label"  for="title">Title</label>
       <input class="text text-s form__container_input" id="title" type="text" v-model="art.title">
       <label class="text text-m form__container_label" for="description">Description</label>
-      <textarea class="text text-m form__container_textarea form__container_textarea--description" id="description" type="text" v-model="art.description"></textarea>
+      <textarea
+        class="text text-m form__container_textarea form__container_textarea--description"
+        id="description"
+        type="text"
+        v-model="art.description"></textarea>
       <label class="text text-m form__container_label" >Tags</label>
       <section class="flex form__container_tags">
         <div v-for="tag in tags" :key="tag.id">
           <div v-if="isAdmin">
-            <span class="text text-s button--del" @click="deleteTag('tag' + tag.id, tag.id)">del</span>
+            <span
+              class="text text-s button--del"
+              @click="deleteTag('tag' + tag.id, tag.id)">del</span>
           </div>
-          <input class="text text-m form__container_checkbox" type="checkbox" v-model="art.tags" :id="tag.id" :value="tag.id">
+          <input
+            class="text text-m form__container_checkbox"
+            type="checkbox"
+            v-model="art.tags"
+            :id="tag.id"
+            :value="tag.id">
           <label class="text text-s tag" :id="'tag' + tag.id" :for="tag.id">{{ tag.name }}</label>
         </div>
       </section>

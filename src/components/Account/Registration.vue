@@ -54,7 +54,9 @@ export default {
     },
     checkExistingUser() {
       for (const login in this.allUsers) {
-        if (this.allUsers[login].login === this.user.login) this.errors.push('User with this login is exist\nPlease write anither login ^ - ^');
+        if (this.allUsers[login].login === this.user.login) {
+          this.errors.push('User with this login is exist\nPlease write anither login ^ - ^');
+        }
       }
     },
     validDate() {

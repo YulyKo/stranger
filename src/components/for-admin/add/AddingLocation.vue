@@ -2,13 +2,25 @@
     <form class="form" @submit="addLocation">
       <SVG_Component></SVG_Component>
       <div class="form__container">
-        <button class="text text-m form__container_image form__container_image-btn">Add image</button>
-        <input @change="setPicture" class="text text-m form__container_image form__container_image-input" id="file" type="file" accept="image/*">
+        <button
+          class="text text-m form__container_image form__container_image-btn">Add image</button>
+        <input
+          @change="setPicture"
+          class="text text-m form__container_image form__container_image-input"
+          id="file"
+          type="file"
+          accept="image/*">
 
         <label class="text text-m form__container_label" for="name">Name</label>
-        <input class="text text-m form__container_input" v-model="location.name" id="name" type="text">
+        <input
+          class="text text-m form__container_input"
+          v-model="location.name"
+          id="name"
+          type="text">
 
-        <span class="text text-m form__container_label">Progress: {{previewImage.uploadValue.toFixed()+"%"}}
+        <span
+          class="text text-m form__container_label">
+            Progress: {{previewImage.uploadValue.toFixed()+"%"}}
           <progress id="progress" :value="previewImage.uploadValue" max="100" ></progress>
         </span>
 

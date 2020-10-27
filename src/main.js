@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import App from './App.vue';
+import App from '@/App.vue';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import normalize from 'normalize.css';
@@ -13,7 +13,6 @@ import store from './store';
 Vue.use(firestorePlugin);
 
 Vue.config.productionTip = true;
-// Vue.use(VueResource);
 Vue.use(vueAxios, axios);
 Vue.use(normalize);
 
