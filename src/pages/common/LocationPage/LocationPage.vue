@@ -23,7 +23,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-@import '../../../main'
+@import '@/main'
 .location
   background-color: $page-yellow
   &__img

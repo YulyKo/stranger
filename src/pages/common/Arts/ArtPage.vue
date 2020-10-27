@@ -27,7 +27,7 @@ export default {
 };
 </script>
 <style lang="sass" scoped>
-@import '../../../main'
+@import '@/main'
 .art
   background-color: $page-yellow
   &__img

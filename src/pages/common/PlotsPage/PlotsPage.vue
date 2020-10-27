@@ -34,7 +34,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import mainStyles from '../../../main.sass';
+import mainStyles from '@/main.sass';
 
 export default {
   computed: {

@@ -50,7 +50,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-  @import '../../../main'
+  @import '@/main'
   .page
     color: $page-red
 

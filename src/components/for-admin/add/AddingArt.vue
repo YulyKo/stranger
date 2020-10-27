@@ -33,7 +33,7 @@
 <script>
 import { mapGetters } from 'vuex';
 import firebase from 'firebase/app';
-import mainStyles from '../../../main.sass';
+import mainStyles from '@/main.sass';
 import SVG_Component from './svg';
 
 export default {

@@ -19,7 +19,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import mainSass from '../../../../main.sass';
+import mainSass from '@/main.sass';
 
 export default {
   props: {},

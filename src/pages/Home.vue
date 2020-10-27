@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import mainStyles from '../main.sass';
+import mainStyles from '@/main.sass';
 
 export default {
   name: 'Home',

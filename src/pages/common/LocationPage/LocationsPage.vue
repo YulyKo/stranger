@@ -21,7 +21,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import main from '../../../main.sass';
+import main from '@/main.sass';
 
 export default {
   name: 'LocationsPage',
@@ -48,7 +48,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-@import '../../../main'
+@import '@/main'
 .page__card
   display: inline-block
   margin: 0 2px 15px
