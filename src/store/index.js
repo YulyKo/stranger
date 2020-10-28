@@ -13,7 +13,7 @@ import relationship from './modules/relationship/relationship';
 import relationships from './modules/relationship/relationships';
 import art from './modules/arts/art';
 import arts from './modules/arts/arts';
-import team from './modules/team';
+import team from './modules/team/index';
 
 Vue.use(Vuex);
 // export const URL_COMMON = 'https://damp-taiga-65569.herokuapp.com/';
