@@ -6,8 +6,7 @@ import tags from './modules/tags/tags';
 import plots from './modules/plots';
 import heroes from './modules/heroes';
 import locations from './modules/locations';
-import relationship from './modules/relationship/relationship';
-import relationships from './modules/relationship/relationships';
+import relationships from './modules/relationship';
 import arts from './modules/arts';
 import team from './modules/team';
 
@@ -26,7 +25,6 @@ export default new Vuex.Store({
     plots,
     heroes,
     locations,
-    relationship,
     relationships,
     arts,
     team,
