@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import users from './modules/users/users';
 import user from './modules/users/user';
-import tags from './modules/tags/tags';
+import tags from './modules/tags';
 import plots from './modules/plots';
 import heroes from './modules/heroes';
 import locations from './modules/locations';
