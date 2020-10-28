@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import users from './modules/users/users';
-import user from './modules/users/user';
+import users from './modules/users';
 import tags from './modules/tags';
 import plots from './modules/plots';
 import heroes from './modules/heroes';
@@ -21,7 +20,6 @@ export default new Vuex.Store({
   modules: {
     tags,
     users,
-    user,
     plots,
     heroes,
     locations,
