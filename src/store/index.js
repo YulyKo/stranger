@@ -2,7 +2,6 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import users from './modules/users/users';
 import user from './modules/users/user';
-// import tag from './modules/tags/tag';
 import tags from './modules/tags/tags';
 import plots from './modules/plots/plots';
 import plot from './modules/plots/plot';
@@ -11,8 +10,7 @@ import locations from './modules/locations/locations';
 import location from './modules/locations/location';
 import relationship from './modules/relationship/relationship';
 import relationships from './modules/relationship/relationships';
-import art from './modules/arts/art';
-import arts from './modules/arts/arts';
+import arts from './modules/arts';
 import team from './modules/team/index';
 
 Vue.use(Vuex);
@@ -35,7 +33,6 @@ export default new Vuex.Store({
     location,
     relationship,
     relationships,
-    art,
     arts,
     team,
   },
