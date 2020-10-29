@@ -110,8 +110,8 @@ export default {
     deleteTag(idItem, idTag) {
       document.getElementById(idItem).style.backgroundColor = '#cd4539';
       document.getElementById(idItem).style.color = '#72b896';
-      const id_type = 2;
-      this.$store.dispatch('tags/DELETE_TAG_FROM_API_BY_ID', { id: +idTag, id_type });
+      const idType = 2;
+      this.$store.dispatch('tags/DELETE_TAG_FROM_API_BY_ID', { id: +idTag, idType });
     },
   },
   beforeCreate() {
