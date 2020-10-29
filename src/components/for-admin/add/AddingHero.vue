@@ -40,7 +40,7 @@
 <script>
 import { mapGetters } from 'vuex';
 import mainStyles from '@/main.sass';
-import SVGComponent from './svg';
+import SVGComponent from './svg.vue';
 
 export default {
   components: { SVGComponent },

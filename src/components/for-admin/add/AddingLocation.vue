@@ -36,7 +36,7 @@
 <script>
 import { mapGetters } from 'vuex';
 import firebase from 'firebase';
-import SVGComponent from './svg';
+import SVGComponent from './svg.vue';
 
 export default {
   components: { SVGComponent },

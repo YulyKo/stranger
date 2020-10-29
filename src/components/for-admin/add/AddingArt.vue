@@ -49,7 +49,7 @@
 import { mapGetters } from 'vuex';
 import firebase from 'firebase/app';
 import mainStyles from '@/main.sass';
-import SVGComponent from './svg';
+import SVGComponent from './svg.vue';
 
 export default {
   components: { SVGComponent },
