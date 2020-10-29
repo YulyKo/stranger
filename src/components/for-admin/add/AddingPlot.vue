@@ -1,6 +1,6 @@
 <template>
     <div class="form">
-      <SVG_Component></SVG_Component>
+      <SVGComponent></SVGComponent>
       <div class="form__container">
         <label for="title" class="text text-m form__container_label">Title</label>
         <input
@@ -73,10 +73,10 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import SVG_Component from './svg';
+import SVGComponent from './svg';
 
 export default {
-  components: { SVG_Component },
+  components: { SVGComponent },
   computed: {
     ...mapGetters({
       tags: 'tags/TAGS',

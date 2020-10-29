@@ -1,6 +1,6 @@
 <template>
     <form id="form" class="form" @submit="addRelationship">
-      <SVG_Component></SVG_Component>
+      <SVGComponent></SVGComponent>
       <div class="form__container">
         <div class="flex flex--form-hero w-50vw">
           <div class="w-50p">
@@ -61,11 +61,11 @@
 <script>
 import { mapGetters } from 'vuex';
 import mainStyles from '@/main.sass';
-import SVG_Component from './svg';
+import SVGComponent from './svg';
 
 export default {
   components: {
-    SVG_Component,
+    SVGComponent,
   },
   data() {
     return {

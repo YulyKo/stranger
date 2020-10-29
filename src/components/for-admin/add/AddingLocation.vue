@@ -1,6 +1,6 @@
 <template>
     <form class="form" @submit="addLocation">
-      <SVG_Component></SVG_Component>
+      <SVGComponent></SVGComponent>
       <div class="form__container">
         <button
           class="text text-m form__container_image form__container_image-btn">Add image</button>
@@ -36,10 +36,10 @@
 <script>
 import { mapGetters } from 'vuex';
 import firebase from 'firebase';
-import SVG_Component from './svg';
+import SVGComponent from './svg';
 
 export default {
-  components: { SVG_Component },
+  components: { SVGComponent },
   computed: {
     ...mapGetters({
       user: 'user/USER',

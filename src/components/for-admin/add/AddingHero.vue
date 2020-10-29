@@ -1,6 +1,6 @@
 <template>
     <form class="form" id="form" @submit="addHero">
-      <SVG_Component></SVG_Component>
+      <SVGComponent></SVGComponent>
       <div class="form__container">
         <label class="text text-m form__container_label" for="name">Name</label>
         <input class="text text-m form__container_input" id="name" type="text" v-model="hero.name">
@@ -40,10 +40,10 @@
 <script>
 import { mapGetters } from 'vuex';
 import mainStyles from '@/main.sass';
-import SVG_Component from './svg';
+import SVGComponent from './svg';
 
 export default {
-  components: { SVG_Component },
+  components: { SVGComponent },
   data() {
     return {
       hero: {

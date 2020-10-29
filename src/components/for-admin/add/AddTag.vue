@@ -1,6 +1,6 @@
 <template>
   <form class="form" id="form" @submit="addTag">
-      <SVG_Component></SVG_Component>
+      <SVGComponent></SVGComponent>
     <div class="form__container">
       <p>{{ this.error }}</p>
       <label class="text text-m form__container_label" for="type-tag">Type of tag</label>
@@ -46,11 +46,11 @@
 <script>
 import { mapGetters } from 'vuex';
 import mainStyles from '@/main.sass';
-import SVG_Component from './svg';
+import SVGComponent from './svg';
 
 export default {
   components: {
-    SVG_Component,
+    SVGComponent,
   },
   computed: {
     ...mapGetters({
