@@ -5,13 +5,20 @@
     <h2 class="text text-m plot__text plot__text--description">{{ plot.data.description }}</h2>
     <div class="flex">
       <span class="text text-s tag" v-for="tag in plot.tags" :key="tag.id"
-      v-bind:style="{ backgroundColor: tag.bg_color, color: tag.text_color }">{{ tag.name }}</span>
+      v-bind:style="{
+        backgroundColor: tag.bg_color,
+        color: tag.text_color
+      }">{{ tag.name }}</span>
     </div>
      <div class="flex">
-       <span class="text text-s tag" v-for="hero in plot.heroes" :key="hero.id" >{{ hero.name }}</span>
+       <span class="text text-s tag"
+             v-for="hero in plot.heroes"
+             :key="hero.id" >{{ hero.name }}</span>
      </div>
      <div >
-       <span class="text text-s tag" v-for="location in plot.locations" :key="location.id">{{ location.name }}</span>
+       <span class="text text-s tag"
+             v-for="location in plot.locations"
+             :key="location.id">{{ location.name }}</span>
      </div>
     <p class="text text-m plot__text">{{ plot.data.text }}</p>
   </div>

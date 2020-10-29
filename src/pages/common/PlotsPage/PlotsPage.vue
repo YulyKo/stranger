@@ -2,15 +2,20 @@
     <div class="page">
         <h1 class="text text-xl">Plots</h1>
       <div class="flex flex__page">
-          <section class="page__card" v-for="(plot, index) in plots" :id="plot.data.id" :key="index">
+          <section class="page__card"
+                   v-for="(plot, index) in plots" :id="plot.data.id" :key="index">
             <h2 class="text text-l">{{ plot.data.title }}</h2>
             <h3 class="text text-m">{{ plot.data.description }}</h3>
             <ul class="tags">
               <li class="text-m tag tag--card" v-for="(tag, index) in plot.tags" :key="index"
-                v-bind:style="{ backgroundColor: tag.bg_color, color: tag.text_color }">{{ tag.name }}</li>
+                v-bind:style="{
+                  backgroundColor: tag.bg_color,
+                  color: tag.text_color
+                }">{{ tag.name }}</li>
             </ul>
             <ul class="tags">
-              <li v-for="(person, index) in plot.persons" class="text-s tag tag--card" :key="index">{{ person.name }}</li>
+              <li v-for="(person, index) in plot.persons"
+                  class="text-s tag tag--card" :key="index">{{ person.name }}</li>
             </ul>
             <div class="flex">
               <div v-if="isAdmin">
@@ -25,7 +30,11 @@
                   <p class="text text-sm">{{plot.data.likes}}</p>
                 </button>
               </div>
-              <router-link class="text-m link" tag="a" :to="{name: 'Plot', params: {id: plot.data.id}}">Read more</router-link>
+              <router-link class="text-m link"
+                           tag="a"
+                           :to="{
+                              name: 'Plot', params: {id: plot.data.id}
+                            }">Read more</router-link>
             </div>
           </section>
         </div>
