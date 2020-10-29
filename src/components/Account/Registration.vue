@@ -65,6 +65,7 @@ export default {
     validDate() {
       const reg = /^\d{4}-\d{2}-\d{2}$/;
       if (reg.test(this.user.date_of_birth)) return true;
+      return false;
     },
   },
   computed: {
