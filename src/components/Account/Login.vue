@@ -29,19 +29,17 @@ export default {
   },
   methods: {
     checkExistingUser() {
-      for (const index in this.allUsers) {
-        if (this.allUsers[index].login === this.user.login
-              && this.allUsers[index].password_hash !== this.user.password) {
+      this.allUsers.forEach((key) => {
+        if (this.allUsers[key].login === this.user.login
+              && this.allUsers[key].password_hash !== this.user.password) {
           this.errors.push('Wrong password');
         }
-        // console.log(this.allUsers[login].login);
-        // console.log(typeof this.user.login);
-        if (this.user.login === this.allUsers[index].login) {
-          this.user.name = this.allUsers[index].name;
-          console.log(this.allUsers[index].name);
-          console.log(this.allUsers[index].password_hash);
+        if (this.user.login === this.allUsers[key].login) {
+          this.user.name = this.allUsers[key].name;
+          console.log(this.allUsers[key].name);
+          console.log(this.allUsers[key].password_hash);
         }
-      }
+      });
     },
     loginUser() {
       this.checkExistingUser();
