@@ -5,24 +5,25 @@
   -- = modifier -->
     <header class="header">
       <div class="flex header__heroes">
-        <router-link v-if="user.login" tag="span" class="admin-page link" to="/admin">крест - лінка до адмінки</router-link>
+        <router-link v-if="user.login" tag="span"
+                     class="admin-page link" to="/admin">крест - лінка до адмінки</router-link>
         <nav class="flex header__heroes_menu">
           <div class="menu__hero menu__hero--gg">
-            <router-link v-if="!user.login" tag="a" 
+            <router-link v-if="!user.login" tag="a"
             class="text text-l link link--gg"
              to="/registration">Registration</router-link>
 
-            <router-link v-if="!user.login" tag="a" 
+            <router-link v-if="!user.login" tag="a"
             class="text text-l link link--gg" to="/login">Login</router-link>
 
-            <span v-if="user.login" @click="logout" 
+            <span v-if="user.login" @click="logout"
             class="text text-l link link--gg">Logout</span>
 
-            <router-link tag="a" to="/" 
+            <router-link tag="a" to="/"
             class="text text-l link link--gg">Home</router-link>
-            <router-link tag="a" to="/help-me" 
+            <router-link tag="a" to="/help-me"
             class="text text-l link link--gg">Help me</router-link>
-            <router-link tag="a" to="/team" 
+            <router-link tag="a" to="/team"
             class="text text-l link link--gg">Team</router-link>
           </div>
           <div class="menu__hero">
@@ -36,7 +37,8 @@
           </div>
           <div class="menu__hero">
             <div class="menu__hero_link-container">
-              <router-link tag="a" to="/heroes" class="link link-container__link">Heroes</router-link>
+              <router-link tag="a" to="/heroes"
+                           class="link link-container__link">Heroes</router-link>
               <img class="cloud"
                   src="https://firebasestorage.googleapis.com/v0/b/stranger-proba.appspot.com/o/res%2Fnool.png?alt=media&token=398bf52d-973f-483b-9e64-49b8ffb3cddc" alt="">
             </div>
@@ -45,7 +47,8 @@
           </div>
             <div class="menu__hero">
               <div class="menu__hero_link-container">
-                <router-link tag="a" to="/locations" class="link link-container__link">Locations</router-link>
+                <router-link tag="a" to="/locations"
+                             class="link link-container__link">Locations</router-link>
                 <img class="cloud"
                     src="https://firebasestorage.googleapis.com/v0/b/stranger-proba.appspot.com/o/res%2Fnool.png?alt=media&token=398bf52d-973f-483b-9e64-49b8ffb3cddc" alt="">
               </div>
@@ -54,7 +57,8 @@
             </div>
           <div class="menu__hero">
             <div class="menu__hero_link-container">
-                <router-link tag="a" to="/relationships" class="link link-container__link">Relationships</router-link>
+                <router-link tag="a" to="/relationships"
+                             class="link link-container__link">Relationships</router-link>
                 <img class="cloud"
                     src="https://firebasestorage.googleapis.com/v0/b/stranger-proba.appspot.com/o/res%2Fnool.png?alt=media&token=398bf52d-973f-483b-9e64-49b8ffb3cddc" alt="">
               </div>
@@ -89,24 +93,24 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import main from './main.sass';
-  import { mapGetters } from "vuex";
 
 export default {
   name: 'App',
   components: {},
   methods: {
     logout() {
-      this.$store.dispatch('user/LOGOUT_USER')
+      this.$store.dispatch('user/LOGOUT_USER');
     },
   },
   computed: {
-      ...mapGetters({
-        user: 'user/USER',
-      }),
-    },
-  css: [ main ],
-}
+    ...mapGetters({
+      user: 'user/USER',
+    }),
+  },
+  css: [main],
+};
 </script>
 
 <style lang="sass" scoped>
@@ -158,7 +162,6 @@ export default {
         margin-bottom: -2rem
         animation: slide-left 1s both
         -webkit-animation: slide-left 1s both
-
 
   .menu__hero_link-container
     display: none
@@ -224,7 +227,7 @@ export default {
       transform: translateX(-26px)
 
   @keyframes slide-left
-    0% 
+    0%
       -webkit-transform: translateX(0)
       transform: translateX(0)
     100%
@@ -241,7 +244,7 @@ export default {
       transform: translateX(-100px)
 
   @keyframes cloud
-    0% 
+    0%
       -webkit-transform: translateX(0)
       transform: translateX(0)
     100%

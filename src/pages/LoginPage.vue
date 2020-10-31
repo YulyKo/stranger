@@ -5,12 +5,12 @@
 </template>
 
 <script>
-  import Login from './../components/Login.vue';
+import Login from '@/components/Account/Login.vue';
 
-  export default {
-    name: 'LoginPage',
-    components: {
-      Login,
-    }
-  }
+export default {
+  name: 'LoginPage',
+  components: {
+    Login,
+  },
+};
 </script>

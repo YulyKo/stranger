@@ -19,23 +19,23 @@
 </template>
 
 <script>
-  import { mapGetters } from "vuex";
+import { mapGetters } from 'vuex';
 
-  export default {
-    props: {},
-    computed: {
-      ...mapGetters({
-        hero: 'heroes/HERO'
-      }),
-    },
-    beforeCreate() {
-      this.$store.dispatch('heroes/GET_HERO_FROM_API_BY_ID', this.$route.params.id);
-    },
-  };
+export default {
+  props: {},
+  computed: {
+    ...mapGetters({
+      hero: 'heroes/HERO',
+    }),
+  },
+  beforeCreate() {
+    this.$store.dispatch('heroes/GET_HERO_FROM_API_BY_ID', this.$route.params.id);
+  },
+};
 </script>
 
 <style lang="sass" scoped>
-  @import '../../../main'
+  @import '@/main'
 
   .hero
     background-color: $page-turquoise

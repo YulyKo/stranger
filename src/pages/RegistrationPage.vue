@@ -5,12 +5,12 @@
 </template>
 
 <script>
-  import Registration from './../components/Registration.vue';
+import Registration from '@/components/Account/Registration.vue';
 
-  export default {
-    name: 'RegistrationPage',
-    components: {
-      Registration,
-    }
-  }
+export default {
+  name: 'RegistrationPage',
+  components: {
+    Registration,
+  },
+};
 </script>

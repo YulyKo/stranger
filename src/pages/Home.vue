@@ -2,11 +2,16 @@
   <div>
     <article class="container container--left">
       <h2 class="text title">Welcome to website</h2>
-      <p class="text text-m">Here you can to publish and see fun-arts, plots, persons of heroes future game</p>
+      <p class="text text-m">
+        Here you can to publish and see fun-arts, plots, persons of heroes future game
+      </p>
     </article>
     <article class="container container--right">
       <h2 class="text title">What is stranger?</h2>
-      <p class="text text-m">It is project of one student from Ukraine. It'll be game about life, happiness and plain and love</p>
+      <p class="text text-m">
+        It is project of one student from Ukraine.
+        It'll be game about life, happiness and plain and love
+      </p>
     </article>
     <article class="container container--warning">
       <hr class="warning-line">
@@ -17,19 +22,25 @@
 </template>
 
 <script>
-  import mainStyles from "../main.sass";
-  export default {
-    name: "Home",
-    css: [
-      mainStyles,
-    ],
-  }
+import mainStyles from '@/main.sass';
+
+export default {
+  name: 'Home',
+  css: [
+    mainStyles,
+  ],
+};
 </script>
 
 <style lang="sass" scoped>
   @import './../main'
   .content
-    background: linear-gradient(180deg, rgba(31,29,28,1) 0%, rgba(117,217,179,1) 24%, rgba(117,217,145,1) 53%, rgba(237,242,148,1) 100%)
+    background: linear-gradient(180deg,
+                                rgba(31,29,28,1) 0%,
+                                rgba(117,217,179,1) 24%,
+                                rgba(117,217,145,1) 53%,
+                                rgba(237,242,148,1) 100%
+                               )
 
   .container
     padding: 0 5rem 5rem

@@ -49,24 +49,24 @@
 </template>
 
 <script>
-  import {mapGetters} from "vuex";
+import { mapGetters } from 'vuex';
 
-  export default {
-    name: "RelationshipsPage",
-    computed: {
-      ...mapGetters({ relationships: 'relationships/RELATIONSHIPS' })
-    },
-    beforeCreate() {
-      this.$store.dispatch('relationships/GET_RELATIONSHIPS_FROM_API');
-    }
-  }
+export default {
+  name: 'RelationshipsPage',
+  computed: {
+    ...mapGetters({ relationships: 'relationships/RELATIONSHIPS' }),
+  },
+  beforeCreate() {
+    this.$store.dispatch('relationships/GET_RELATIONSHIPS_FROM_API');
+  },
+};
 </script>
 
 <style lang="sass" scoped>
 @import '../../main'
 
 .flex
-  justify-content: space-evenly 
+  justify-content: space-evenly
 
 .page__card
   color: $page-red

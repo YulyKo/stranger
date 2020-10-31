@@ -16,7 +16,11 @@
         </div>
         <p>{{ hero.shot_description }}</p>
         <div class="flex flex__page">
-          <router-link class="text-m link" t ag="a" :to="{name: 'Hero', params: {id: hero.id}}">Read more</router-link>
+          <router-link class="text-m link"
+                       tag="a" :to="{
+                         name: 'Hero',
+                         params: {id: hero.id}
+                       }">Read more</router-link>
           <div v-if="isAdmin">
             <button class="text-m button--del" @click="deletePlot(hero.id)">Delete</button>
           </div>
@@ -27,13 +31,13 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters } from 'vuex';
 
 export default {
   props: {},
   computed: {
     ...mapGetters({
-        heroes: 'heroes/HEROES',
+      heroes: 'heroes/HEROES',
       isAdmin: 'user/IS_ADMIN',
     }),
   },
@@ -43,14 +47,14 @@ export default {
   methods: {
     deletePlot(id) {
       document.getElementById(id).style.backgroundColor = '#e12a1e';
-      this.$store.dispatch('heroes/DELETE_HERO_FROM_API_BY_ID', id)
+      this.$store.dispatch('heroes/DELETE_HERO_FROM_API_BY_ID', id);
     },
   },
-}
+};
 </script>
 
 <style lang="sass" scoped>
-  @import '../../../main'
+  @import '@/main'
   .page
     color: $page-red
 

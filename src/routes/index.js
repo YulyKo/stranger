@@ -1,26 +1,26 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import HomePage from '../pages/Home.vue';
-import Home from "../pages/for-admin/Home";
-import AddingPlot from "../components/for-admin/add/AddingPlot.vue";
-import AddingHero from "../components/for-admin/add/AddingHero";
-import AddingArt from "../components/for-admin/add/AddingArt";
-import AddingLocation from "../components/for-admin/add/AddingLocation";
-import AddingRelationship from "../components/for-admin/add/AddingRelationship";
-import AddTag from "../components/for-admin/add/AddTag";
-import PlotsPage from "../pages/common/PlotsPage/PlotsPage";
-import PlotPage from "../pages/common/PlotsPage/PlotPage/PlotPage";
-import RegistrationPage from "../pages/RegistrationPage";
-import LoginPage from "../pages/LoginPage";
-import HeroesPage from "../pages/common/HeroesPage/HeroesPage";
-import HeroPage from "../pages/common/HeroesPage/HeroPage";
-import LocationsPage from "../pages/common/LocationPage/LocationsPage";
-import LocationPage from "../pages/common/LocationPage/LocationPage";
-import RelationshipsPage from "../pages/common/RelationshipsPage";
-import ArtsPage from "../pages/common/Arts/ArtsPage";
-import ArtPage from "../pages/common/Arts/ArtPage";
-import HelpMePage from "../pages/HelpMePage";
-import TeamPage from "../pages/common/TeamPage";
+import HomePage from '@/pages/Home.vue';
+import Home from '@/pages/for-admin/Home.vue';
+import AddingPlot from '@/components/for-admin/add/AddingPlot.vue';
+import AddingHero from '@/components/for-admin/add/AddingHero.vue';
+import AddingArt from '@/components/for-admin/add/AddingArt.vue';
+import AddingLocation from '@/components/for-admin/add/AddingLocation.vue';
+import AddingRelationship from '@/components/for-admin/add/AddingRelationship.vue';
+import AddTag from '@/components/for-admin/add/AddTag.vue';
+import PlotsPage from '@/pages/common/PlotsPage/PlotsPage.vue';
+import PlotPage from '@/pages/common/PlotsPage/PlotPage/PlotPage.vue';
+import RegistrationPage from '@/pages/RegistrationPage.vue';
+import LoginPage from '@/pages/LoginPage.vue';
+import HeroesPage from '@/pages/common/HeroesPage/HeroesPage.vue';
+import HeroPage from '@/pages/common/HeroesPage/HeroPage.vue';
+import LocationsPage from '@/pages/common/LocationPage/LocationsPage.vue';
+import LocationPage from '@/pages/common/LocationPage/LocationPage.vue';
+import RelationshipsPage from '@/pages/common/RelationshipsPage.vue';
+import ArtsPage from '@/pages/common/Arts/ArtsPage.vue';
+import ArtPage from '@/pages/common/Arts/ArtPage.vue';
+import HelpMePage from '@/pages/HelpMePage.vue';
+import TeamPage from '@/pages/common/TeamPage.vue';
 
 Vue.use(VueRouter);
 
@@ -77,8 +77,8 @@ const routes = [
       {
         path: '/admin/add-tag',
         component: AddTag,
-        props: true
-      }
+        props: true,
+      },
     ],
   },
   {
@@ -90,9 +90,9 @@ const routes = [
     path: '/plots/plot:id',
     name: 'Plot',
     component: PlotPage,
-    props: true
+    props: true,
   },
-    {
+  {
     path: '/heroes',
     name: 'Heroes',
     component: HeroesPage,
@@ -101,9 +101,9 @@ const routes = [
     path: '/heroes/hero:id',
     name: 'Hero',
     component: HeroPage,
-    props: true
+    props: true,
   },
-    {
+  {
     path: '/locations',
     name: 'Locations',
     component: LocationsPage,
@@ -112,9 +112,9 @@ const routes = [
     path: '/locations/location:id',
     name: 'Location',
     component: LocationPage,
-    props: true
+    props: true,
   },
-    {
+  {
     path: '/relationships',
     name: 'Relationships',
     component: RelationshipsPage,
@@ -128,7 +128,7 @@ const routes = [
     path: '/arts/art:id',
     name: 'Art',
     component: ArtPage,
-    props: true
+    props: true,
   },
 ];
 

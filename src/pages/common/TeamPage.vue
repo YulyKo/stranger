@@ -10,25 +10,26 @@
 </template>
 
 <script>
-  import { mapGetters} from "vuex";
-  
-  export default {
-    name: "TeamPage",computed: {
-      ...mapGetters({
-        team: 'team/TEAM',
-      }),
+import { mapGetters } from 'vuex';
+
+export default {
+  name: 'TeamPage',
+  computed: {
+    ...mapGetters({
+      team: 'team/TEAM',
+    }),
+  },
+  methods: {
+    setUrl(id) {
+      return `https://firebasestorage.googleapis.com/v0/b/stranger-proba.appspot.com/o/team%2F${
+        id
+      }.png?alt=media&token=9337dddd-649a-4767-ab39-e5ee0697d5cf`;
     },
-    methods: {
-      setUrl(id) {
-        return "https://firebasestorage.googleapis.com/v0/b/stranger-proba.appspot.com/o/team%2F"
-                + id
-                + ".png?alt=media&token=9337dddd-649a-4767-ab39-e5ee0697d5cf"
-      },
-    },
-    beforeCreate() {
-      this.$store.dispatch('team/GET_TEAM_INFO_FROM_API');
-    },
-  }
+  },
+  beforeCreate() {
+    this.$store.dispatch('team/GET_TEAM_INFO_FROM_API');
+  },
+};
 </script>
 
 <style lang="sass" scoped>
@@ -44,7 +45,7 @@
     &__image
       width: 12vw
       margin: 0 auto
-  
+
   .text-l
     color: $page-yellow
 </style>
