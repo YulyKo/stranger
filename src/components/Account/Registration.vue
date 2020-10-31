@@ -56,11 +56,11 @@ export default {
       return this.errors.length === 0;
     },
     checkExistingUser() {
-      for (const login in this.allUsers) {
-        if (this.allUsers[login].login === this.user.login) {
+      this.allUsers.forEach((key) => {
+        if (this.allUsers[key].login === this.user.login) {
           this.errors.push('User with this login is exist\nPlease write anither login ^ - ^');
         }
-      }
+      });
     },
     validDate() {
       const reg = /^\d{4}-\d{2}-\d{2}$/;
