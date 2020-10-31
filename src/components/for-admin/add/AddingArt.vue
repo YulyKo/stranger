@@ -104,8 +104,9 @@ export default {
       }
     },
     setPicture(event) {
-      this.previewImage.picture = URL.createObjectURL(event.target.files[0]);
-      this.previewImage.imageData = event.target.files[0];
+      const files = event.target.files[0];
+      this.previewImage.picture = URL.createObjectURL(files);
+      this.previewImage.imageData = files;
     },
     deleteTag(idItem, idTag) {
       document.getElementById(idItem).style.backgroundColor = '#cd4539';
