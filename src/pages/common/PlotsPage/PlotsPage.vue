@@ -62,16 +62,18 @@ export default {
       this.$store.dispatch('plots/DELETE_PLOT_FROM_API_BY_ID', +id);
     },
     likePlot(plot) {
-      if (plot.users_likes.includes(this.user.login)) {
+      const { usersLikes } = plot;
+      if (usersLikes.includes(this.user.login)) {
         this.setDislike(plot);
-      } else if (!plot.users_likes.includes(this.user.login)) {
+      } else if (!usersLikes.includes(this.user.login)) {
         this.setLike(plot);
       }
     },
     setLike(plot) {
       this.setLikeToBD(plot);
-      plot.users_likes.push(this.user.login);
-      plot.data.likes += 1;
+      const { usersLikes, data } = plot;
+      usersLikes.push(this.user.login);
+      data.likes += 1;
     },
     setLikeToBD(plot) {
       const data = {
@@ -90,12 +92,13 @@ export default {
     },
     setDislike(plot) {
       this.setDislikeToBD(plot);
-      plot.users_likes.forEach((login, index) => {
+      const { usersLikes, data } = plot;
+      usersLikes.forEach((login, index) => {
         if (login === this.user.login) {
-          plot.users_likes.splice(index, 1);
+          usersLikes.splice(index, 1);
         }
       });
-      plot.data.likes -= 1;
+      data.likes -= 1;
     },
     setDislikeToBD(plot) {
       const data = {
